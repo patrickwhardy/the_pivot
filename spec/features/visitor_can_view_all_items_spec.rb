@@ -8,11 +8,11 @@ RSpec.feature "Vistor can view all items" do
 
     visit tools_path
 
-    expect(page).to have_content "Hammer"
-    expect(page).to have_content "Screwdriver"
-    expect(page).to have_content "Saw"
+    expect(page).to have_content hammer.name
+    expect(page).to have_content screwdriver.name
+    expect(page).to have_content saw.name
 
-    expect(page).to have_content "Forsooth tis Juliet!"
+    expect(page).to have_content hammer.description
 
   end
 end
