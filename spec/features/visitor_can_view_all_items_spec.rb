@@ -14,9 +14,5 @@ RSpec.feature "Vistor can view all items" do
 
     expect(page).to have_content "Forsooth tis Juliet!"
 
-
-
-
-
   end
 end
