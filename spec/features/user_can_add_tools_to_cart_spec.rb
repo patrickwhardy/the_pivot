@@ -2,14 +2,13 @@ require "rails_helper"
 
 RSpec.feature "Vistor can add tools to cart" do
   scenario "visitor adds tool to cart from tool page" do
-
     drill = create(:tool, name: "Drill")
     chainsaw = create(:tool, name: "Chainsaw")
 
     visit tools_path
 
     within(".#{drill.name}") do
-        click_on "Add to Cart"
+      click_on "Add to Cart"
     end
 
     click_on "View Cart"
@@ -23,17 +22,16 @@ RSpec.feature "Vistor can add tools to cart" do
   end
 
   scenario "visitor adds multiple tools to cart and views cart total" do
-    # And there should be a "total" price for the cart that should be the sum of all items in the cart
     drill = create(:tool, name: "Drill")
     chainsaw = create(:tool, name: "Chainsaw")
     total_price = drill.price + chainsaw.price
 
     visit tools_path
     within(".#{drill.name}") do
-        click_on "Add to Cart"
+      click_on "Add to Cart"
     end
     within(".#{chainsaw.name}") do
-        click_on "Add to Cart"
+      click_on "Add to Cart"
     end
     click_on "View Cart"
 
