@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :tool do
-    image_path  "http://image1.com"
-    name        "Hammer"
-    description "Forsooth tis Juliet!"
-    price       "10"
+
+    image_path  Faker::Avatar.image
+    name        Faker::Commerce.product_name
+    description Faker::Lorem.paragraph(2)
+    price       Faker::Commerce.price
   end
 end
