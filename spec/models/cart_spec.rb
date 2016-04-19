@@ -8,7 +8,7 @@ RSpec.describe Cart, type: :model do
     assert cart.contents.empty?
 
     cart.add_tool(tool.id)
-    assert_equal( {tool.id => 1}, cart.contents )
+    assert_equal({ tool.id => 1 }, cart.contents)
   end
 
   it "can add multiple tools" do
@@ -20,6 +20,6 @@ RSpec.describe Cart, type: :model do
     cart.add_tool(first.id)
     cart.add_tool(second.id)
 
-    assert_equal( {first.id => 2, second.id => 1}, cart.contents )
+    assert_equal({ first.id => 2, second.id => 1 }, cart.contents)
   end
 end
