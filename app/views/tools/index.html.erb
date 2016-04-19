@@ -1,6 +1,12 @@
 <h1>Tools Page!</h1>
 
-
-<% @tools.each do |tool| %>
-  <%= tool.name %>: <%= tool.description %></br>
-<% end %>
+<table>
+  <% @tools.each do |tool| %>
+    <tr>
+    <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </td>
+    <td><%= tool.name %></td>
+    <td><%= tool.description %></td>
+    <td><%= tool.price %></td>
+    </tr>
+  <% end %>
+</table>
