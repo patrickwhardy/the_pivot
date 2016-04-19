@@ -1,17 +1,15 @@
 class CartsController < ApplicationController
   def show
-    @toolbag = toolbag.first
-    @cart_total = cart_total
+    @toolbag = toolbag
+    @cart_total = cart_total(@toolbag)
   end
 
   def toolbag
-    @toolbag = session[:cart].map do |tool_id, amount|
-      {Tool.find(tool_id) => amount}
-    end
+    session[:cart].transform_keys { |key| Tool.find(key) }
   end
 
-  def cart_total
-    @toolbag.map do |tool, quantity|
+  def cart_total(toolbag)
+    toolbag.map do |tool, quantity|
       tool.price * quantity
     end.reduce(:+)
   end

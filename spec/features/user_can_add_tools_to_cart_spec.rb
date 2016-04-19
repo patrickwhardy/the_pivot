@@ -20,11 +20,23 @@ RSpec.feature "Vistor can add tools to cart" do
     expect(page).to have_content drill.price
     expect(page).to have_css("img[src*='#{drill.image_path}']")
     expect(page).to have_content "Total: #{drill.price}"
-
   end
 
-    scenario "visitor adds multiple tools to cart and views cart total" do
-        # And there should be a "total" price for the cart that should be the sum of all items in the cart
-    end
+  scenario "visitor adds multiple tools to cart and views cart total" do
+    # And there should be a "total" price for the cart that should be the sum of all items in the cart
+    drill = create(:tool, name: "Drill")
+    chainsaw = create(:tool, name: "Chainsaw")
+    total_price = drill.price + chainsaw.price
 
+    visit tools_path
+    within(".#{drill.name}") do
+        click_on "Add to Cart"
+    end
+    within(".#{chainsaw.name}") do
+        click_on "Add to Cart"
+    end
+    click_on "View Cart"
+
+    expect(page).to have_content "Total: #{total_price}"
+  end
 end
