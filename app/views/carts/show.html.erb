@@ -1,0 +1,15 @@
+<h1>Cart Show Page</h1>
+
+<% @toolbag.each do |tool, quantity| %>
+  <div class= <%= tool.name %>  >
+    <tr>
+    <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </td>
+    <td><%= tool.name %></td>
+    <td><%= tool.description %></td>
+    <td><%= tool.price %></td>
+    <td><%= quantity %></td>
+    </tr>
+  </div>
+<% end %>
+
+Total: <%= @cart_total %>

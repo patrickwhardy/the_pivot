@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tools, only: [:index]
-
+  get "/cart", to: "carts#show"
   get "/:category_name", to: 'categories#view', as: :category_name
 
   resources :cart_tools, only: [:create]

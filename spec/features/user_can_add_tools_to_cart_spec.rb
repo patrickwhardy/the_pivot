@@ -19,7 +19,7 @@ RSpec.feature "Vistor can add tools to cart" do
     expect(page).to have_content drill.description
     expect(page).to have_content drill.price
     expect(page).to have_css("img[src*='#{drill.image_path}']")
-    expect(page).to have_content "Total #{drill.price}"
+    expect(page).to have_content "Total: #{drill.price}"
 
   end
 
