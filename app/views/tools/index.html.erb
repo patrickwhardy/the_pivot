@@ -2,11 +2,14 @@
 
 <table>
   <% @tools.each do |tool| %>
-    <tr>
-    <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </td>
-    <td><%= tool.name %></td>
-    <td><%= tool.description %></td>
-    <td><%= tool.price %></td>
-    </tr>
+    <div class= <%= tool.name %>  >
+      <tr>
+      <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </td>
+      <td><%= tool.name %></td>
+      <td><%= tool.description %></td>
+      <td><%= tool.price %></td>
+      <td><%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %>
+      </tr>
+    </div>
   <% end %>
 </table>
