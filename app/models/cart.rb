@@ -19,6 +19,4 @@ class Cart
       tool.price * quantity
     end.reduce(:+)
   end
-
-
 end
