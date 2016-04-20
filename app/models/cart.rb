@@ -26,8 +26,13 @@ class Cart
   end
 
   def update_quantity(new_data)
-    @contents[new_data[:tool_id]] = new_data[:quantity].to_i
+    if new_data[:quantity].to_i == 0
+      @contents.delete(new_data[:tool_id])
     # @notice = "Item removed." if new_data[:quantity].to_i == 0
+    else
+      @contents[new_data[:tool_id]] = new_data[:quantity].to_i
+    end
+    
   end
 
   def subtotal(tool_id)
