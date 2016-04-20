@@ -1,15 +1,17 @@
 <h1>Tools Page!</h1>
 
-<table>
+<div class="container-fluid">
+  <div class="row">
   <% @tools.each do |tool| %>
-    <div class= <%= tool.name %>  >
-      <tr>
-      <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </td>
-      <td><%= tool.name %></td>
-      <td><%= tool.description %></td>
-      <td><%= tool.price %></td>
-      <td><%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %>
-      </tr>
+    <div class="container col-md-4">
+      <div><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </div>
+      <div><h2><%= tool.name %></h2></div>
+      <div><%= tool.description %></div>
+      <div><%= tool.price %></div>
+      <div>
+        <button type="button" class="btn btn-info btn-sm pull-right <%= tool.name %>"><%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %></button>
+      </div>
     </div>
   <% end %>
-</table>
+</div>
+</div>
