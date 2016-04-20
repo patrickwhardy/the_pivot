@@ -22,4 +22,11 @@ module SpecTestHelper
       end
     end
   end
+
+  def create_user_account(num=1)
+
+  end
+
+  def create_admin_account(num=1)
+  end
 end
