@@ -7,4 +7,9 @@ class CartToolsController < ApplicationController
     session[:cart] = @cart.contents
     redirect_to tools_path
   end
+
+  def destroy
+    @cart.remove(params[:id])
+    redirect_to cart_path
+  end
 end

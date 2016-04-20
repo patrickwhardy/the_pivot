@@ -19,4 +19,8 @@ class Cart
       tool.price * quantity
     end.reduce(:+)
   end
+
+  def remove(tool_id)
+    @contents.delete(tool_id)
+  end
 end

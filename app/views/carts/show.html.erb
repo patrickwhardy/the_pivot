@@ -8,6 +8,7 @@
     <td><%= tool.description %></td>
     <td><%= tool.price %></td>
     <td><%= quantity %></td>
+    <td><%= link_to "Remove", cart_tool_path(tool.id), method: :delete %></td>
     </tr>
   </div>
 <% end %>
