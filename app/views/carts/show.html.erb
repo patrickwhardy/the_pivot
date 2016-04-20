@@ -3,12 +3,19 @@
 <% @toolbag.each do |tool, quantity| %>
   <div class= <%= tool.name %>  >
     <tr>
-    <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </td>
+    <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image", height: 100, width: 200) %>  </td>
     <td><%= tool.name %></td>
     <td><%= tool.description %></td>
     <td><%= tool.price %></td>
     <td><%= quantity %></td>
-    <td><%= link_to "Remove", cart_tool_path(tool.id), method: :delete %></td>
+    <td><%= form_for :cart_tool do |f| %>
+          <%= f.number_field :quantity, value: quantity, min: 0 %>
+          <%= f.hidden_field :tool_id, value: tool.id %>
+          <%= f.submit "Update Quantity", class: "btn btn.info btn-xs" %>
+        <% end %></td>
+    <td>Subtotal: <%= @cart.subtotal(tool.id) %>
+    <td><%= link_to "Remove", cart_tool_path(tool.id), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
     </tr>
   </div>
 <% end %>

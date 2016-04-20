@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resources :tools, only: [:index]
   get "/cart", to: "carts#show"
+  post "/cart", to: "cart_tools#update"
   get "/:category_name", to: 'categories#view', as: :category_name
 
   resources :cart_tools, only: [:create, :destroy]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

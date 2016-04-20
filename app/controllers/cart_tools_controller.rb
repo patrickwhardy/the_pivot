@@ -10,4 +10,11 @@ class CartToolsController < ApplicationController
     @cart.remove(params[:id])
     redirect_to cart_path
   end
+
+  def update
+    # change quantities
+    @cart.update_quantity(params[:cart_tool])
+    # redirect to page where we show the quantity with new quantities
+    redirect_to cart_path
+  end
 end
