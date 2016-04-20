@@ -1,8 +1,9 @@
 class Cart
-  attr_reader :contents
+  attr_reader :contents, :notice
 
   def initialize(session_contents)
     @contents = session_contents || {}
+    # @notice = ""
   end
 
   def add_tool(tool_id)
@@ -26,6 +27,7 @@ class Cart
 
   def update_quantity(new_data)
     @contents[new_data[:tool_id]] = new_data[:quantity].to_i
+    # @notice = "Item removed." if new_data[:quantity].to_i == 0
   end
 
   def subtotal(tool_id)
