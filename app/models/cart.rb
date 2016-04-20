@@ -23,4 +23,13 @@ class Cart
   def remove(tool_id)
     @contents.delete(tool_id)
   end
+
+  def update_quantity(new_data)
+    @contents[new_data[:tool_id]] = new_data[:quantity].to_i
+  end
+
+  def subtotal(tool_id)
+    tool = Tool.find(tool_id)
+    tool.price * @toolbag[tool]
+  end
 end
