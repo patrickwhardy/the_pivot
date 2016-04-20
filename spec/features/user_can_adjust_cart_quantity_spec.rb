@@ -44,9 +44,8 @@ RSpec.feature "User can change quantity of tools in cart" do
     visit cart_path
     fill_in "cart_tool[quantity]", with: "#{first_quantity}"
     click_on "Update Quantity"
-
     # expect(page).to have_content "Item removed."
-    expect(page).to have_no_content "Tool1"
+    expect(page).to have_no_content "Tool0"
     expect(page).to have_content "Total: 0"
   end
 
