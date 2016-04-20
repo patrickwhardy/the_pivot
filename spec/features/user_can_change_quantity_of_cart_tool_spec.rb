@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "User can change quantity of tools in cart" do
+  include SpecTestHelper
   scenario "cart has tools already in it" do
     #   As a visitor
     # When I visit "/cart"
@@ -15,30 +16,28 @@ RSpec.feature "User can change quantity of tools in cart" do
     # And that item's quantity should reflect the decrease
     # And the subtotal for that item should decrease
     # And the total for the cart should match that decrease
-    tool = create(:tool)
-    cart = Cart.new({ tool.id => 1 })
+    add_items_to_cart(1)
     first_quantity = 3
     second_quantity = 2
-
     visit cart_path
     fill_in "Quantity", with: "#{first_quantity}"
     click_on "Update Quantity"
 
     assert_equal cart_path, current_path
-    within(".#{tool.name}") do
+    within(".#{@tool.first.name}") do
       it { should have_field("Quantity", :with => "3") }
-      should have_content("Subtotal: #{first_quantity * tool.price}")
+      should have_content("Subtotal: #{first_quantity * @tool.first.price}")
     end
-    expect(page).to have_content "Total: #{first_quantity * tool.price}"
+    expect(page).to have_content "Total: #{first_quantity * @tool.first.price}"
 
     fill_in "Quantity", with: "#{second_quantity}"
     click_on "Update Quantity"
 
     assert_equal cart_path, current_path
-    within(".#{tool.name}") do
+    within(".#{@tool.first.name}") do
       it { should have_field("Quantity", :with => "3") }
-      should have_content("Subtotal: #{second_quantity * tool.price}")
+      should have_content("Subtotal: #{second_quantity * @tool.first.price}")
     end
-    expect(page).to have_content "Total: #{second_quantity * tool.price}"
+    expect(page).to have_content "Total: #{second_quantity * @tool.first.price}"
   end
 end
