@@ -11,13 +11,13 @@ class Cart
   end
 
   def toolbag
-    @contents.transform_keys { |key| Tool.find(key) }
+    @toolbag ||= @contents.transform_keys { |key| Tool.find(key) }
   end
 
-  def cart_total(toolbag)
-    toolbag.map do |tool, quantity|
-      tool.price * quantity
-    end.reduce(:+)
+  def cart_total
+    toolbag.inject(0) do |sum, hash|
+      sum += hash.first.price * hash.second
+    end
   end
 
   def remove(tool_id)
