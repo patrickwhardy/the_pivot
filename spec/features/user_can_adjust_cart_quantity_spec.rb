@@ -29,7 +29,7 @@ RSpec.feature "User can change quantity of tools in cart" do
     expect(page).to have_content("Subtotal: #{first_quantity * @tools[0].price}")
     expect(page).to have_content "Total: #{first_quantity * @tools[0].price}"
 
-    fill_in "Quantity", with: "#{second_quantity}"
+    fill_in "cart_tool[quantity]", with: "#{second_quantity}"
     click_on "Update Quantity"
 
     assert_equal cart_path, current_path
