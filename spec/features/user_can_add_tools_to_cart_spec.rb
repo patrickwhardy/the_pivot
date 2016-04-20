@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Vistor can add tools to cart" do
+  include SpecTestHelper
   scenario "visitor adds tool to cart from tool page" do
     drill = create(:tool, name: "Drill")
     chainsaw = create(:tool, name: "Chainsaw")
@@ -22,18 +23,9 @@ RSpec.feature "Vistor can add tools to cart" do
   end
 
   scenario "visitor adds multiple tools to cart and views cart total" do
-    drill = create(:tool, name: "Drill")
-    chainsaw = create(:tool, name: "Chainsaw")
-    total_price = drill.price + chainsaw.price
-
-    visit tools_path
-    within(".#{drill.name}") do
-      click_on "Add to Cart"
-    end
-    within(".#{chainsaw.name}") do
-      click_on "Add to Cart"
-    end
-    click_on "View Cart"
+    add_tools_to_cart(2)
+    total_price = @tools[0].price + @tools[1].price
+    visit cart_path
 
     expect(page).to have_content "Total: #{total_price}"
   end

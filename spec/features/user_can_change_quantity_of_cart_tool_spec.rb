@@ -16,7 +16,7 @@ RSpec.feature "User can change quantity of tools in cart" do
     # And that item's quantity should reflect the decrease
     # And the subtotal for that item should decrease
     # And the total for the cart should match that decrease
-    add_items_to_cart(1)
+    add_tools_to_cart(1)
     first_quantity = 3
     second_quantity = 2
     visit cart_path
@@ -24,20 +24,20 @@ RSpec.feature "User can change quantity of tools in cart" do
     click_on "Update Quantity"
 
     assert_equal cart_path, current_path
-    within(".#{@tool.first.name}") do
+    within(".#{@tools[0].name}") do
       it { should have_field("Quantity", :with => "3") }
-      should have_content("Subtotal: #{first_quantity * @tool.first.price}")
+      should have_content("Subtotal: #{first_quantity * @tools[0].price}")
     end
-    expect(page).to have_content "Total: #{first_quantity * @tool.first.price}"
+    expect(page).to have_content "Total: #{first_quantity * @tools[0].price}"
 
     fill_in "Quantity", with: "#{second_quantity}"
     click_on "Update Quantity"
 
     assert_equal cart_path, current_path
-    within(".#{@tool.first.name}") do
+    within(".#{@tools[0].name}") do
       it { should have_field("Quantity", :with => "3") }
-      should have_content("Subtotal: #{second_quantity * @tool.first.price}")
+      should have_content("Subtotal: #{second_quantity * @tools[0].price}")
     end
-    expect(page).to have_content "Total: #{second_quantity * @tool.first.price}"
+    expect(page).to have_content "Total: #{second_quantity * @tools[0].price}"
   end
 end

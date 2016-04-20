@@ -1,13 +1,13 @@
 module SpecTestHelper
-  def set_cart(tool_id, quantity)
-    if request.session[:cart].nil?
-      request.session[:cart] = { tool_id => quantity }
-    else
-      request.session[:cart].merge!({ tool_id => quantity })
-    end
-  end
+  # def set_cart(tool_id, quantity)
+  #   if request.session[:cart].nil?
+  #     request.session[:cart] = { tool_id => quantity }
+  #   else
+  #     request.session[:cart].merge!({ tool_id => quantity })
+  #   end
+  # end
 
-  def add_items_to_cart(num)
+  def add_tools_to_cart(num)
     @tools = []
     num.times do |n|
       @tools << create(:tool, name: "Tool#{n}")
