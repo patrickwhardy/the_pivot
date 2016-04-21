@@ -12,9 +12,7 @@ class CartToolsController < ApplicationController
   end
 
   def update
-    # change quantities
     @cart.update_quantity(params[:cart_tool])
-    # redirect to page where we show the quantity with new quantities
     redirect_to cart_path
   end
 end
