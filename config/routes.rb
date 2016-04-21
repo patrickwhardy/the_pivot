@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   root to: 'tools#index'
+  get "/login", to: "sessions#new", as: :login
 
   resources :tools, only: [:index]
+
+  resources :users, only: [:new, :index, :create]
+  get "/users/:id", to: "users#show", as: :dashboard
+  delete "/users/:id/logout", to: "sessions#destroy", as: :logout
+
+
   get "/cart", to: "carts#show"
   post "/cart", to: "cart_tools#update"
   get "/:category_name", to: 'categories#view', as: :category_name
 
   resources :cart_tools, only: [:create, :destroy]
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,8 +6,18 @@ class ApplicationController < ActionController::Base
 
   # initialize a cart
   before_action :set_cart
+  helper_method :current_user
 
   def set_cart
     @cart = Cart.new(session[:cart])
+  end
+
+  def current_user
+    if session[:user_id].nil?
+      @current_user = nil
+    else
+      @current_user = User.find(session[:user_id])
+    end
+
   end
 end
