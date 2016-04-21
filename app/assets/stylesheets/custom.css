@@ -44,7 +44,6 @@ h1 {
 
 .tool-card {
     position: relative;
-   /* display: inline-block;*/
     overflow: hidden;
     background-color: #EAEAEA;
 }
@@ -71,3 +70,5 @@ h1 {
 .cart-button {
 	margin-right: 10px;
 }
+
+
