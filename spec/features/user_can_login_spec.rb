@@ -19,7 +19,9 @@ RSpec.feature "User can login" do
     # path is new_user_path
     fill_in "Username", with: username
     fill_in "Password", with: password
-    click_on "Login"
+    within(".new-user") do
+      click_on "Login"
+    end
     # clicking login should go create a user
     # when finished creating redirect to dashboard (dashboard_path(@user.id))
 
@@ -29,6 +31,7 @@ RSpec.feature "User can login" do
     within(".user-info") do
       expect(page).to have_content user.username
     end
+    save_and_open_page
     expect(page).to have_no_content "Login"
     expect(page).to have_content "Logout"
   end
