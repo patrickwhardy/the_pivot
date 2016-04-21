@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :tools, only: [:index]
 
-  resources :users, only: [:new, :index]
-  get "/users/:id", to: "user#show", as: :dashboard
+  resources :users, only: [:new, :index, :create]
+  get "/users/:id", to: "users#show", as: :dashboard
 
 
   get "/cart", to: "carts#show"

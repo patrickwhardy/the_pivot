@@ -12,14 +12,18 @@ RSpec.feature "User can login" do
 # And I should see my profile information
 # And I should not see a link for "Login"
 # And I should see a link for "Logout"
-    user = create(:user)
+    username = "username"
+    password = "password"
     visit login_path
     click_on "Create Account"
     # path is new_user_path
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
+    fill_in "Username", with: username
+    fill_in "Password", with: password
     click_on "Login"
+    # clicking login should go create a user
+    # when finished creating redirect to dashboard (dashboard_path(@user.id))
 
+    user = User.last
     assert_equal dashboard_path(user.id), current_path
     expect(page).to have_content "Logged in as #{user.username}"
     within(".user-info") do
