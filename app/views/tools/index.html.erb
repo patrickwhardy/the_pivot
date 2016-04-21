@@ -20,7 +20,11 @@
                <%= tool.price %></p>
              </div>
             <div class="cart-button btn btn-info btn-sm pull-right <%= tool.name %>">
-              <%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %>
+              <% if tool.out_of_stock? %>
+                Out of Stock
+              <% else %>
+                <%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %>
+              <% end %>
             </div>
         </div>
       </div>
