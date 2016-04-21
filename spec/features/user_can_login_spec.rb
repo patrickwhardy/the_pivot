@@ -31,8 +31,10 @@ RSpec.feature "User can login" do
     within(".user-info") do
       expect(page).to have_content user.username
     end
-    save_and_open_page
     expect(page).to have_no_content "Login"
     expect(page).to have_content "Logout"
+    click_on "Logout"
+    assert_equal root_path, current_path
+    expect(page).to have_content "Login"
   end
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create]
   get "/users/:id", to: "users#show", as: :dashboard
+  delete "/users/:id/logout", to: "sessions#destroy", as: :logout
 
 
   get "/cart", to: "carts#show"
