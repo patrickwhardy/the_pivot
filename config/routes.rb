@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :tools, only: [:index]
 
-  resources :users, only: [:new]
+  resources :users, only: [:new, :index]
+  get "/users/:id", to: "user#show", as: :dashboard
+
 
   get "/cart", to: "carts#show"
   post "/cart", to: "cart_tools#update"

@@ -20,7 +20,7 @@ RSpec.feature "User can login" do
     fill_in "Password", with: user.password
     click_on "Login"
 
-    assert_equal dashboard_path, current_path
+    assert_equal dashboard_path(user.id), current_path
     expect(page).to have_content "Logged in as #{user.username}"
     within(".user-info") do
       expect(page).to have_content user.username
