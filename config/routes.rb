@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new", as: :login
 
   resources :tools, only: [:index]
+
+  resources :users, only: [:new]
+
   get "/cart", to: "carts#show"
   post "/cart", to: "cart_tools#update"
   get "/:category_name", to: 'categories#view', as: :category_name
