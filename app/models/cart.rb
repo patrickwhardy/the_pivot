@@ -15,7 +15,7 @@ class Cart
     @toolbag ||= @contents.transform_keys { |key| Tool.find(key) }
   end
 
-  def cart_total
+  def total
     toolbag.inject(0) do |sum, hash|
       sum += hash.first.price * hash.second
     end
@@ -32,7 +32,7 @@ class Cart
     else
       @contents[new_data[:tool_id]] = new_data[:quantity].to_i
     end
-    
+
   end
 
   def subtotal(tool_id)
