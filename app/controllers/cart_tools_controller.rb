@@ -3,6 +3,8 @@ class CartToolsController < ApplicationController
     @tool = Tool.find(params[:tool])
     @cart.add_tool(@tool.id)
     session[:cart] = @cart.contents
+    
+    flash[:notice] = "Tool added to cart."
     redirect_to tools_path
   end
 

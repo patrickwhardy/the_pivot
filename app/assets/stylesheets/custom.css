@@ -1,0 +1,50 @@
+.navbar-default .navbar-brand a {
+   	color: #0C4659;
+   	font-size: 30px;
+   	font-weight: bolder;
+}
+
+.navbar-default .navbar-brand a:hover {
+	color: #20590C;
+    text-decoration: none;
+}
+
+.navbar-default {
+	background-color: #72F244;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  color: green;
+}
+
+.jumbo-text {
+	font-size: 46px;
+	letter-spacing: -2px;
+	color: white;
+}
+
+.jumbo-p {
+	color: white;
+}
+
+.tool-card {
+	padding: 10px;
+	margin: 10px;
+}
+
+.jumbotron {
+	margin-left: 10px;
+	padding: 10px;
+	background: url("http://www.shutterstock.com/blog/wp-content/uploads/sites/5/2012/05/img17.jpg");
+}

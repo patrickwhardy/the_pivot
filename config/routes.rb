@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'tools#index'
+
   resources :tools, only: [:index]
   get "/cart", to: "carts#show"
   post "/cart", to: "cart_tools#update"

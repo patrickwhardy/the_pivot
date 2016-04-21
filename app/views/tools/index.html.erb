@@ -1,16 +1,18 @@
-<h1>Tools Page!</h1>
+<div class="jumbotron">
+  <div class="jumbo-text">Rent the Tools You Need</div>
+  <p class="jumbo-p">Need a tool? We have that tool.</p>
+  <p><a class="btn btn-primary btn-lg" href="/" role="button">Learn more</a></p>
+</div>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row tool-card">
   <% @tools.each do |tool| %>
-    <div class="container col-md-4">
+    <div class="container col-md-4 col-sm-6 tool-card">
       <div><%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>  </div>
       <div><h2><%= tool.name %></h2></div>
       <div><%= tool.description %></div>
       <div><%= tool.price %></div>
-      <div>
-        <button type="button" class="btn btn-info btn-sm pull-right <%= tool.name %>"><%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %></button>
-      </div>
+      <div class="btn btn-info btn-sm pull-right <%= tool.name %>"><%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %></div>
     </div>
   <% end %>
 </div>
