@@ -10,9 +10,7 @@
 </head>
 <body>
 <%= render "navbar" %>
-<% flash do |type, message| %>
-  <%= message %>
-<% end %>
+ <%= flash_messages %>
 
 <%= yield %>
 </body>
