@@ -13,6 +13,10 @@
 	background-color: #72F244;
 }
 
+/*body {
+	background-color: #EAEAEA;
+}*/
+
 a:hover {
 	text-decoration: none;
 }
@@ -39,12 +43,32 @@ h1 {
 }
 
 .tool-card {
-	padding: 10px;
-	margin: 10px;
+    position: relative;
+    overflow: hidden;
+    background-color: #EAEAEA;
+}
+
+.rounded {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.tool-thumb {
+    max-width: 100%;
+    display:block;
+    max-height:30%;
 }
 
 .jumbotron {
-	margin-left: 10px;
-	padding: 10px;
+	margin-left: 0px;
+	padding: 20px;
 	background: url("http://www.shutterstock.com/blog/wp-content/uploads/sites/5/2012/05/img17.jpg");
+	margin-right: 10ox;
 }
+
+.cart-button {
+	margin-right: 10px;
+}
+
+
