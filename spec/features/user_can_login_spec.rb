@@ -15,6 +15,7 @@ RSpec.feature "User can login" do
     user = create(:user)
     visit login_path
     click_on "Create Account"
+    # path is new_user_path
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
     click_on "Login"
