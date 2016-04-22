@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'tools#index'
   get "/login", to: "sessions#new", as: :login
 
-  resources :tools, only: [:index]
+  resources :tools, only: [:index, :show]
 
   resources :users, only: [:new, :index, :create]
   get "/users/:id", to: "users#show", as: :dashboard

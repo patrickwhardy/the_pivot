@@ -11,7 +11,7 @@
       <%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>
       <div class="caption">
         <h4 class="group inner list-group-item-heading">
-         <%= tool.name %></h4>
+         <%= link_to tool.name, tool_path(tool.id) %></h4>
          <p class="group inner list-group-item-text">
           <%= tool.description %></p>
         <div class="row">
