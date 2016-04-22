@@ -11,17 +11,29 @@ RSpec.feature "User can checkout" do
     click_on "View Cart"
     # And I click "Checkout"
     click_on "Checkout"
-    fill_in "Username", user.username
-    fill_in "Password", user.password
+    # Then I should be required to login
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
     click_on "Login"
 
-    # Then I should be required to login
     # When I am logged in I should be taken back to my cart
+    assert_equal cart_path, current_path
+    expect(page).to have_content "Tool1"
+    expect(page).to have_content "Tool2"
+    expect(page).to have_content "Tool3"
+    expect(page).to have_content "Tool4"
+    expect(page).to have_content "Tool5"
     # And when I click "Checkout"
+    click_on "Checkout"
     # Then the order should be placed
+
     # And my current page should be "/orders"
+    assert_equal orders_path, current_path
     # And I should see a message "Order was successfully placed"
+    expect(page).to have_content "Order was successfully placed"
+
     # And I should see the order I just placed in a table
+    assert_equal "Tool1", OrderTools.last.first.name
 
 
   end
