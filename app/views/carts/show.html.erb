@@ -3,7 +3,7 @@
   <% @toolbag.each do |tool, quantity| %>
     <div class="row cart-row <%= tool.name %>">
     <div class="col-md-3">
-      <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class:"cart-thumb") %>  
+      <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class:"cart-thumb") %>
     </div>
     <div class="col-md-3">
       <h4><%= tool.name %></h4>
@@ -32,5 +32,10 @@
 <div class="col-md-offset-1 col-md-9 cart-total">
   Total: <%= @cart.total %>
   <br>
-  <div class="btn btn-success"><%= link_to "Login or Create Account to Checkout", login_path %></div>
+  <div class="btn btn-success">
+    <% if current_user %>
+      <%= link_to "Checkout" %></div>
+    <% else %>
+      <%= link_to "Login or Create Account to Checkout", cart_login_path %></div>
+    <% end %>
 </div>

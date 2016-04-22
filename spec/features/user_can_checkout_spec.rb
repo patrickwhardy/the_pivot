@@ -11,10 +11,13 @@ RSpec.feature "User can checkout" do
     click_on "View Cart"
     # And I click "Checkout"
     click_on "Checkout"
+    save_and_open_page
     # Then I should be required to login
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-    click_on "Login"
+    within(".login") do
+      fill_in "Username", with: user.username
+      fill_in "Password", with: user.password
+      click_on "Login"
+    end
 
     # When I am logged in I should be taken back to my cart
     assert_equal cart_path, current_path

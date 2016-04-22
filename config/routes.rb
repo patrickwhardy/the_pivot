@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'tools#index'
   get "/login", to: "sessions#new", as: :login
+  get "/cart/login", to: "sessions#cart_login", as: :cart_login
 
   resources :tools, only: [:index, :show]
 
