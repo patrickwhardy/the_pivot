@@ -1,0 +1,11 @@
+<h1><%= @tool.name %></h1>
+
+<h2><%= @tool.description %></h2>
+
+<h2><%= @tool.price %></h2>
+
+<% if @tool.out_of_stock? %>
+  Out of Stock
+<% else %>
+  <%= link_to "Add to Cart", cart_tools_path(tool: @tool.id), method: "post" %>
+<% end %>
