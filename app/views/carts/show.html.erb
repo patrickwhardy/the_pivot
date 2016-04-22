@@ -1,27 +1,36 @@
-<h1>Cart Show Page</h1>
-
-<% @toolbag.each do |tool, quantity| %>
-  <div class=<%= tool.name %> >
-    <tr>
-    <td><%= image_tag(tool.image_path, :alt => "#{tool.name} image", height: 100, width: 200) %>  </td>
-    <td><%= tool.name %></td>
-    <td><%= tool.description %></td>
-    <td><%= tool.price %></td>
-    <td><%= quantity %></td>
-    <td><%= form_for :cart_tool do |f| %>
-          <%= f.number_field :quantity, value: quantity, min: 0 %>
-          <%= f.hidden_field :tool_id, value: tool.id %>
-          <%= f.submit "Update Quantity", class: "btn btn.info btn-xs" %>
-        <% end %></td>
-    <td>Subtotal: <%= @cart.subtotal(tool.id) %>
-    <td><%= link_to "Remove", cart_tool_path(tool.id), method: :delete, class: "btn btn-danger btn-xs" %>
-      </td>
-    </tr>
+<div class="container-fluid rounded cart-box col-md-offset-1 col-md-10">
+  <h2>Shopping Cart:</h2>
+  <% @toolbag.each do |tool, quantity| %>
+    <div class="row cart-row <%= tool.name %>">
+    <div class="col-md-3">
+      <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class:"cart-thumb") %>  
+    </div>
+    <div class="col-md-3">
+      <h4><%= tool.name %></h4>
+      <%= tool.description %>
+    </div>
+    <div class="col-md-1">
+      <%= tool.price %>
+    </div>
+    <div class="col-md-1 q-box">
+      Quantity:
+      <%= form_for :cart_tool do |f| %>
+      <%= f.number_field :quantity, value: quantity, min: 0 %>
+      <%= f.hidden_field :tool_id, value: tool.id %>
+      <%= f.submit "Update", class: "btn btn-xs q-butt btn-info pull-right" %>
+      <% end %>
+    </div>
+    <div class="col-md-1">
+      Subtotal: <%= @cart.subtotal(tool.id) %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "Remove", cart_tool_path(tool.id), method: :delete, class: "btn btn-danger btn-xs" %>
+    </div>
   </div>
-<% end %>
-
-Total: <%= @cart.total %>
-
-<div>
-<%= link_to "Login or Create Account to Checkout", login_path %>
+  <% end %>
+</div>
+<div class="col-md-offset-1 col-md-9 cart-total">
+  Total: <%= @cart.total %>
+  <br>
+  <div class="btn btn-success"><%= link_to "Login or Create Account to Checkout", login_path %></div>
 </div>
