@@ -12,5 +12,5 @@ Order total: <%= @order.total %>
 Submitted at: <%= @order.created_at %>
 
 <% if @order.closed_at %>
-  <%= "Completed at: #{@order.closed_at}" %>
+  <%= "#{@order.status} at: #{@order.closed_at}" %>
 <% end %>

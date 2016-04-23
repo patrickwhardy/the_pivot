@@ -7,7 +7,7 @@ RSpec.feature "User can view a past order" do
     user1 = create(:user)
     tool1 = create(:tool, name: "tool1")
     tool2 = create(:tool, name: "tool2")
-    order1 = Order.create(user_id: user1.id, closed_at: "2016-04-01 13:27:00")
+    order1 = Order.create(user_id: user1.id, closed_at: "2016-04-01 13:27:00", status: 0)
     order_tool1 = create(:order_tool, tool: tool1, quantity: 3, order: order1)
     order_tool2 = create(:order_tool, tool: tool2, quantity: 1, order: order1)
     tool1_subtotal = order_tool1.quantity * order_tool1.tool.price
