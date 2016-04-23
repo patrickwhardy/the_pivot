@@ -15,10 +15,12 @@ module SpecTestHelper
     end
   end
 
-  def create_user_account(num=1)
-
-  end
-
-  def create_admin_account(num=1)
+  def login_user(user)
+    visit login_path
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    within ".login" do
+      click_on "Login"
+    end
   end
 end
