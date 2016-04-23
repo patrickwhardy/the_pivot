@@ -7,7 +7,7 @@ RSpec.feature "User can view a past order" do
     user1 = create(:user)
     tool1 = create(:tool, name: "tool1")
     tool2 = create(:tool, name: "tool2")
-    order1 = Order.create(user_id: user1.id)
+    order1 = Order.create(user_id: user1.id, closed_at: "2016-04-01 13:27:00")
     order_tool1 = create(:order_tool, tool: tool1, quantity: 3, order: order1)
     order_tool2 = create(:order_tool, tool: tool2, quantity: 1, order: order1)
     tool1_subtotal = order_tool1.quantity * order_tool1.tool.price
@@ -36,10 +36,10 @@ RSpec.feature "User can view a past order" do
     #   And I should see the total price for the order
     expect(page).to have_content "Order total: #{total}"
     #   And I should see the date/time that the order was submitted
-    expect(page).to have_content "Submitted at: #{order.created_at}"
+    expect(page).to have_content "Submitted at: #{order1.created_at}"
     #   If the order was completed or cancelled
     #   Then I should see a timestamp when the action took place
-    expect(page).to have_content "Completed at: #{order.closed_at}"
+    expect(page).to have_content "Completed at: #{order1.closed_at}"
     #   And I should see links to each item's show page
     click_on "#{order_tool2.tool.name}"
     assert_equal tools_path(order_tool2.tool.id),current_path
