@@ -4,7 +4,7 @@ RSpec.feature "Admin can login" do
   #       When I log in
   #       Then I am redirected to "/admin/dashboard"
   scenario "already has account" do
-    admin = User.create(role: 1)
+    admin = create(:user, role: 1)
     visit login_path
     fill_in "Username", with: admin.username
     fill_in "Password", with: admin.password
