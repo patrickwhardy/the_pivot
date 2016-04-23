@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'tools#index'
   namespace :admin do
     get "/dashboard", to: "users#show"
+    get "/tools/new", to: "tools#new"
   end
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create", as: :session_users
