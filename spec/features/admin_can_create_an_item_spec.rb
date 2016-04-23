@@ -24,7 +24,7 @@ RSpec.feature "Admin exists" do
     click_on "Create Tool"
     assert_equal "Jackhammer", Tool.last.name
     assert_equal "Ipso quod quorum et", Tool.last.description
-    assert_equal "20.00", Tool.last.price
+    assert_equal 20.00, Tool.last.price
     assert_equal "Image", Tool.last.image_path
 
 
