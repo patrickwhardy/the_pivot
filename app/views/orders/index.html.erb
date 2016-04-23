@@ -1,3 +1,5 @@
-<h1>"Order was successfully placed"</h1>
+<h1>Order Table</h1>
 
-Order <%= @order.id %>
+<% @orders.each do |order| %>
+  Order <%= order.id %>
+<% end %>

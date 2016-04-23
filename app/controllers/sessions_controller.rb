@@ -14,13 +14,14 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # byebug
      @user = User.find_by(username: params[:session][:username])
      if @user && @user.authenticate(params[:session][:password])
        session[:user_id] = @user.id
        if params[:user_action] == "checkout"
          redirect_to cart_path
        else
-         redirect_to @user
+         redirect_to dashboard_path(@user.id)
        end
      else
        flash.now[:error] = 'Invalid email/password combination'
