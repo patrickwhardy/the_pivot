@@ -1,7 +1,7 @@
 <h1>Session New Page</h1>
 
 <div class="login">
-  <%= form_for @user do |f| %>
+  <%= form_for(:session, url: login_path) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
     <%= f.label :password %>
