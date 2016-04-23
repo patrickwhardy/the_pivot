@@ -12,4 +12,8 @@ class OrdersController < ApplicationController
     @orders = Order.where(user_id: session[:user_id])
   end
 
+  def show
+    byebug
+  end
+
 end

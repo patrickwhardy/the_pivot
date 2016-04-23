@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/cart/login", to: "sessions#cart_login", as: :cart_login
   get "/orders", to: "orders#index", as: :orders_index
   post "/orders", to: "orders#create", as: :orders
+  get "/orders/:id", to: "orders#show"
 
   resources :tools, only: [:index, :show]
 
