@@ -3,7 +3,7 @@
 Order <%= @order.id %>
 
 <% @order.order_tools.each do |line_item| %>
-  <%= "#{line_item.tool.name}, Quantity: #{line_item.quantity}, Subtotal: #{line_item.subtotal}" %>
+  <%= link_to "#{line_item.tool.name}", tools_path(line_item.tool.id) %><%= ", Quantity: #{line_item.quantity}, Subtotal: #{line_item.subtotal}" %>
 <% end %>
 Order status: <%= @order.status %>
 
