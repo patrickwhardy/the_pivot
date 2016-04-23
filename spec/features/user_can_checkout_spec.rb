@@ -8,7 +8,7 @@ RSpec.feature "User can checkout" do
     # When I add items to my cart
     add_tools_to_cart(5)
     # And I visit "/cart"
-    click_on "View Cart"
+    click_on "Items"
     # And I click "Checkout"
     click_on "Login or Create Account to Checkout"
     # save_and_open_page

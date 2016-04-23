@@ -12,7 +12,7 @@ RSpec.feature "Vistor can remove an item from the cart" do
     within(".#{screwdriver.name}") do
       click_on "Add to Cart"
     end
-    click_on "View Cart"
+    click_on "Items"
 
     within(".#{screwdriver.name}") do
       click_on "Remove"

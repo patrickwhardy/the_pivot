@@ -21,6 +21,10 @@ class Cart
     end
   end
 
+  def quantity
+    @contents.values.sum
+  end
+
   def remove(tool_id)
     @contents.delete(tool_id)
   end
@@ -28,7 +32,7 @@ class Cart
   def update_quantity(new_data)
     if new_data[:quantity].to_i == 0
       @contents.delete(new_data[:tool_id])
-    # @notice = "Item removed." if new_data[:quantity].to_i == 0
+    # flash alert "item removed"
     else
       @contents[new_data[:tool_id]] = new_data[:quantity].to_i
     end
