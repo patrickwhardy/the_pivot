@@ -1,3 +1,4 @@
+
 require "rails_helper"
 
 RSpec.feature "Guest user must login before checking out" do
@@ -22,7 +23,7 @@ RSpec.feature "Guest user must login before checking out" do
     expect(page).to have_content("Login or Create Account to Checkout")
 
     click_on "Login or Create Account to Checkout"
-    assert_equal login_path, current_path
+    assert_equal cart_login_path, current_path
     # save_and_open_page
     click_on "Create Account"
     fill_in "Username", with: username
