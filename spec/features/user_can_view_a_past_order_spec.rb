@@ -26,12 +26,11 @@ RSpec.feature "User can view a past order" do
     #   Then I should see my past order
     #   And I should see a link to view that order
     #   And when I click that link
-
     click_on "Order #{order1.id}"
-    save_and_open_page
+    # save_and_open_page
     #   Then I should see each item that was order with the quantity and line-item subtotals
-    expect(page).to have_content "#{order_tool1.tool.name}, #{order_tool1.quantity}: #{tool1_subtotal}"
-    expect(page).to have_content "#{order_tool2.tool.name}, #{order_tool2.quantity}: #{tool2_subtotal}"
+    expect(page).to have_content "#{order_tool1.tool.name}, Quantity: #{order_tool1.quantity}, Subtotal: #{tool1_subtotal}"
+    expect(page).to have_content "#{order_tool2.tool.name}, Quantity: #{order_tool2.quantity}, Subtotal: #{tool2_subtotal}"
     #   And I should see the current status of the order (ordered, paid, cancelled, completed)
     expect(page).to have_content "Order status: #{order1.status}"
     #   And I should see the total price for the order

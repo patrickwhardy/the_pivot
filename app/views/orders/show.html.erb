@@ -1,3 +1,16 @@
 <h1>"Order was successfully placed"</h1>
 
 Order <%= @order.id %>
+
+<% @order.order_tools.each do |line_item| %>
+  <%= "#{line_item.tool.name}, Quantity: #{line_item.quantity}, Subtotal: #{line_item.subtotal}" %>
+<% end %>
+Order status: <%= @order.status %>
+
+Order total: <%= @order.total %>
+
+Submitted at: <%= @order.created_at %>
+
+<% if @order.closed_at %>
+  <%= "Completed at: #{@order.closed_at}" %>
+<% end %>

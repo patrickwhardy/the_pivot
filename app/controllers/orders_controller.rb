@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    byebug
+    @order = Order.find(params[:id])
   end
 
 end
