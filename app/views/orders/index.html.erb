@@ -1,5 +1,5 @@
 <h1>Order Table</h1>
 
 <% @orders.each do |order| %>
-  Order <%= order.id %>
+  <%= link_to "Order #{order.id}", "/orders/#{order.id}" %>
 <% end %>
