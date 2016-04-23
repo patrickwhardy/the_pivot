@@ -1,11 +1,12 @@
 <h1>Post Cart Login Page</h1>
 
 <div class="login">
-    <%= form_for @user do |f| %>
+    <%= form_for [:session, @user] do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
     <%= f.label :password %>
     <%= f.text_field :password %>
+    <%= hidden_field_tag :user_action, "checkout" %>
     <%= f.submit "Login" %>
     <% end %>
 </div>

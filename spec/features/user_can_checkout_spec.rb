@@ -10,8 +10,8 @@ RSpec.feature "User can checkout" do
     # And I visit "/cart"
     click_on "View Cart"
     # And I click "Checkout"
-    click_on "Checkout"
-    save_and_open_page
+    click_on "Login or Create Account to Checkout"
+    # save_and_open_page
     # Then I should be required to login
     within(".login") do
       fill_in "Username", with: user.username
