@@ -9,7 +9,7 @@
 </head>
 <body>
 <%= render "layouts/navbar" %>
-<%= flash_messages %>
+<%= render "layouts/flashes", flash: flash %>
 
 <%= yield %>
 </body>

@@ -12,9 +12,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "Account created. Welcome to ToolChest, #{@user.username.capitalize}"
       redirect_to dashboard_path(@user.id)
     else
-      #TODO make sad path test
+      flash[:error] = "Username and password are required to create an account."
+      render :new
     end
   end
 
