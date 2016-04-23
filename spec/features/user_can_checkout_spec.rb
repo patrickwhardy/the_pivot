@@ -36,7 +36,9 @@ RSpec.feature "User can checkout" do
     expect(page).to have_content "Order was successfully placed"
 
     # And I should see the order I just placed in a table
-    assert_equal "Tool1", OrderTools.last.first.name
+    assert_equal 1, Order.count
+    order = Order.last
+    assert_equal "Tool0", OrderTools.find_by(order_id: order.id).tools.first.name
 
 
   end
