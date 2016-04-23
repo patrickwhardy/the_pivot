@@ -1,29 +1,28 @@
 .navbar-default .navbar-brand a {
-   	color: #0C4659;
-   	font-size: 30px;
-   	font-weight: bolder;
-    height: 15%;
+    color: #0C4659;
+    font-size: 45px;
+    font-weight: bolder;
 }
 
 .navbar-default .navbar-brand a:hover {
-	color: #20590C;
+  color: #20590C;
     text-decoration: none;
 }
 
-.navbar-default {
-	background-color: #72F244;
+.navbar {
+  margin-bottom: 0px !important;
+  border-bottom: 10px !important;
+  border-color: transparent !important;
 }
 
-/*body {
-	background-color: #EAEAEA;
-}*/
+
 
 a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 h1 {
@@ -34,19 +33,22 @@ h1 {
 }
 
 .jumbo-text {
-	font-size: 46px;
-	letter-spacing: -2px;
-	color: white;
+  font-size: 46px;
+  letter-spacing: -2px;
+  color: white;
 }
 
 .jumbo-p {
-	color: white;
+  color: white;
 }
 
 .tool-card {
     position: relative;
     overflow: hidden;
     background-color: #EAEAEA;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 40em;
 }
 
 .rounded {
@@ -62,14 +64,14 @@ h1 {
 }
 
 .jumbotron {
-	margin-left: 0px;
-	padding: 20px;
-	background: url("http://www.shutterstock.com/blog/wp-content/uploads/sites/5/2012/05/img17.jpg");
-	margin-right: 10ox;
+  margin-left: 0px;
+  padding: 20px;
+  background: url("http://www.shutterstock.com/blog/wp-content/uploads/sites/5/2012/05/img17.jpg");
+  margin-right: 10ox;
 }
 
 .cart-button {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 input[type="number"] {
@@ -116,3 +118,10 @@ background: #eaeaea;
   text-weight: bold;
 }
 
+.abbr-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 10em;
+    max-width: 40em;
+}
