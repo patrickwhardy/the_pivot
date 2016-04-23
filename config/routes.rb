@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create", as: :session_users
   get "/cart/login", to: "sessions#cart_login", as: :cart_login
+  post "/orders", to: "orders#create", as: :orders
 
   resources :tools, only: [:index, :show]
 

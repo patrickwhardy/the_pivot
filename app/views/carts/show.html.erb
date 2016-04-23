@@ -34,7 +34,7 @@
   <br>
   <div class="btn btn-success">
     <% if current_user %>
-      <%= link_to "Checkout" %></div>
+      <%= link_to "Checkout Now", orders_path, method: "post" %></div>
     <% else %>
       <%= link_to "Login or Create Account to Checkout", cart_login_path %></div>
     <% end %>

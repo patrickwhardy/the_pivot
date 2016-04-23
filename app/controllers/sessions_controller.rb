@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
   def create
      @user = User.find_by(username: params[:user][:username])
      if @user && @user.authenticate(params[:user][:password])
+       session[:user_id] = @user.id
        if params[:user_action] == "checkout"
          redirect_to cart_path
        else

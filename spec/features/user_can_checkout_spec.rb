@@ -21,13 +21,13 @@ RSpec.feature "User can checkout" do
 
     # When I am logged in I should be taken back to my cart
     assert_equal cart_path, current_path
+    expect(page).to have_content "Tool0"
     expect(page).to have_content "Tool1"
     expect(page).to have_content "Tool2"
     expect(page).to have_content "Tool3"
     expect(page).to have_content "Tool4"
-    expect(page).to have_content "Tool5"
     # And when I click "Checkout"
-    click_on "Checkout"
+    click_on "Checkout Now"
     # Then the order should be placed
 
     # And my current page should be "/orders"
