@@ -15,12 +15,16 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
+    # byebug
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      if params[:user_action] == "checkout"
+      if @user.admin?
+        flash[:success] = "Admin Login successful. Please continue checking out."
+        redirect_to admin_dashboard_path
+      elsif params[:user_action] == "checkout"
         flash[:success] = "Login successful. Please continue checking out."
         redirect_to cart_path
-       else
+      else
         flash[:success] = "Login successful. Welcome to ToolChest, #{@user.username.capitalize}"
         redirect_to dashboard_path(@user.id)
       end
