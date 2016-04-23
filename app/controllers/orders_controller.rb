@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
     session[:cart].each do |tool_id, quantity|
       OrderTool.create(tool_id: tool_id, quantity: quantity, order_id: @order.id)
     end
-    # byebug
     render :index
   end
 

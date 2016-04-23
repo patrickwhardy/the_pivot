@@ -39,6 +39,8 @@ RSpec.feature "User can checkout" do
     assert_equal 1, Order.count
     order = Order.last
     assert_equal "Tool4", OrderTool.find_by(order_id: order.id).tool.name
+    expect(page).to have_content "Order #{order.id}"
+    
 
 
   end
