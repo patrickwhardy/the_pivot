@@ -7,5 +7,7 @@
 </div>
 
 <div>
-  <%= link_to "View Past Orders", "/orders" %>
+  <% if @user.has_orders? %>
+    <%= link_to "View Past Orders", "/orders" %>
+  <% end %>
 </div>
