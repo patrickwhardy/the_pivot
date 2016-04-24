@@ -16,7 +16,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if Order.exists?(params[:id])
+      @order = Order.find(params[:id])
+    else
+      flash[:danger] = "Not a valid request."
+      redirect_to root_path
+    end
   end
 
 end

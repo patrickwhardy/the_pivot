@@ -15,6 +15,11 @@ RSpec.feature "Vistor can view all items" do
     expect(page).to have_css("img[src*='#{hammer.image_path}']")
     expect(page).to have_content hammer.description
     expect(page).to have_content hammer.price
+  end
 
+  scenario "even when there are no tools" do
+    visit tools_path
+
+    expect(page).to have_content "Learn more"
   end
 end
