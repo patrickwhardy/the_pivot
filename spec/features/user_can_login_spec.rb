@@ -48,6 +48,6 @@ RSpec.feature "User can login" do
     end
 
     assert_equal login_path, current_path
-    expect(page).to have_content "Incorrect username or password."
+    expect(page).to have_content "Invalid email/password combination"
   end
 end
