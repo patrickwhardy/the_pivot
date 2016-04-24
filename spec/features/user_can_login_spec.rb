@@ -50,4 +50,17 @@ RSpec.feature "User can login" do
     assert_equal login_path, current_path
     expect(page).to have_content "Invalid email/password combination"
   end
+
+  scenario "types wrong username" do
+    user = create(:user, username: "username")
+    visit login_path
+    fill_in "Username", with: "wrong"
+    fill_in "Password", with: user.password
+    within(".login") do
+      click_on "Login"
+    end
+
+    assert_equal login_path, current_path
+    expect(page).to have_content "Invalid email/password combination"
+  end
 end
