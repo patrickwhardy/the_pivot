@@ -10,6 +10,7 @@
       <%= tool.description %>
     </div>
     <div class="col-md-1">
+      Price:<br>
       <%= tool.price %>
     </div>
     <div class="col-md-1 q-box">
@@ -32,7 +33,7 @@
 <div class="col-md-offset-1 col-md-9 cart-total">
   Total: <%= @cart.total %>
   <br>
-  <div class="btn btn-success">
+  <div class="btn btn-custom">
     <% if current_user %>
       <%= link_to "Checkout Now", orders_path, method: "post" %></div>
     <% else %>

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # byebug
     if session[:user_id]
       @user = User.find(session[:user_id])
     else

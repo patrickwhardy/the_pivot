@@ -13,13 +13,17 @@
   margin-bottom: 0px !important;
   border-bottom: 10px !important;
   border-color: transparent !important;
+  background: #EAEAEA !important;
 }
 
 .glyphy-butt {
   margin: 2px;
 }
 
-
+body {
+  /*background: hsl(177, 74%, 15%) !important;*/
+  background: #EAEAEA !important;
+}
 
 a:hover {
   text-decoration: none;
@@ -49,7 +53,7 @@ h1 {
 .tool-card {
     position: relative;
     overflow: hidden;
-    background-color: #EAEAEA;
+    background-color: #EAEAEA ;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-height: 40em;
@@ -128,4 +132,52 @@ background: #eaeaea;
     text-overflow: ellipsis;
     max-height: 10em;
     max-width: 40em;
+}
+
+.btn-custom {
+  background-color: hsl(177, 74%, 23%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 hsl(177, 74%, 36%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-custom:hover {
+  background-color: hsl(177, 74%, 36%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 hsl(177, 74%, 36%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-custom a {
+  color:white;
+  text-weight: bold;
+}
+
+.btn-custom a:hover {
+  color:white;
+  text-decoration: none;
+}
+
+.btn-custom a:visited {
+  color:white;
 }

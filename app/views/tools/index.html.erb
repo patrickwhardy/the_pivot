@@ -1,7 +1,11 @@
 <div class="jumbotron">
-  <div class="jumbo-text">Rent the Tools You Need</div>
+  <div id-"jumbo-cont">
+  <div id="jumbo-bg">
+  <div class="jumbo-text" id="jumbo-fg">Rent the Tools You Need</div>
   <p class="jumbo-p">Need a tool? We have that tool.</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+</div>
 </div>
 
 <div class="container-fluid">
@@ -17,9 +21,9 @@
         <div class="row">
             <div class="col-xs-12 col-md-6">
               <p class="lead">
-               <%= tool.price %></p>
+               <%= number_to_currency(tool.price, unit: "", :precision => 2) %></p>
              </div>
-            <div class="cart-button btn btn-info btn-sm pull-right <%= tool.name %>">
+            <div class="cart-button btn btn-custom btn-sm pull-right <%= tool.name %>">
               <% if tool.out_of_stock? %>
                 Out of Stock
               <% else %>

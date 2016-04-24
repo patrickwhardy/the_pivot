@@ -33,7 +33,7 @@ RSpec.feature "Guest user must login before checking out" do
     end
     assert_equal username, User.last.username
 
-    click_on "Items"
+    click_on "Item"
     expect(page).to have_content @tools[0].name
     expect(page).to have_content @tools[1].name
     expect(page).to have_content @tools[2].name

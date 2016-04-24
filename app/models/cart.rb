@@ -21,12 +21,20 @@ class Cart
     end
   end
 
+  def clear_contents
+    @contents = {}
+  end
+
   def quantity
     @contents.values.sum
   end
 
   def remove(tool_id)
     @contents.delete(tool_id)
+  end
+
+  def pluralize?
+    quantity == 1 ? "Item" : "Items"
   end
 
   def update_quantity(new_data)

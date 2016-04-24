@@ -11,7 +11,7 @@ RSpec.feature "Vistor can add tools to cart" do
       click_on "Add to Cart"
     end
 
-    click_on "Items"
+    click_on "Item"
 
     assert_equal "/cart", current_path
     expect(page).to have_content drill.name
@@ -33,7 +33,7 @@ RSpec.feature "Vistor can add tools to cart" do
     within(".#{chainsaw.name}") do
       click_on "Add to Cart"
     end
-    click_on "Items"
+    click_on "Item"
 
     expect(page).to have_content "Total: #{total_price}"
   end

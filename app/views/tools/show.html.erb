@@ -2,7 +2,7 @@
 
 <h2><%= @tool.description %></h2>
 
-<h2><%= @tool.price %></h2>
+<h2><%= number_to_currency(@tool.price, unit: "", precision: 2) %></h2>
 
 <% if @tool.out_of_stock? %>
   Out of Stock

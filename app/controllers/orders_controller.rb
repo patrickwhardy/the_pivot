@@ -6,6 +6,8 @@ class OrdersController < ApplicationController
       OrderTool.create(tool_id: tool_id, quantity: quantity, order_id: @order.id)
     end
     flash[:success] = "Order was successfully placed."
+    @cart.clear_contents
+    session[:cart] = @cart.contents
     render :show
   end
 
