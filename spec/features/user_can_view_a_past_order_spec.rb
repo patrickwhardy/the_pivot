@@ -16,13 +16,7 @@ RSpec.feature "User can view a past order" do
     tool2_subtotal = order_tool2.quantity * order_tool2.tool.price
     total = tool1_subtotal + tool2_subtotal
     login_user(user1)
-    # visit login_path
-    # fill_in "Username", with: user1.username
-    # fill_in "Password", with: user1.password
-    # # save_and_open_page
-    # within(".login") do
-    #   click_on "Login"
-    # end
+
     click_on "View Past Orders"
     #   When I visit "/orders"
     #   Then I should see my past order
@@ -55,5 +49,11 @@ RSpec.feature "User can view a past order" do
 
     assert_equal 0, user.orders.count
     expect(page).to have_no_content "View Past Orders"
+
+    visit "/orders/1"
+    assert_equal root_path, current_path
+    expect(page).to have_content "Not a valid request."
   end
+
+
 end
