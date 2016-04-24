@@ -18,7 +18,6 @@ class UsersController < ApplicationController
       flash[:success] = "Account created. Welcome to ToolChest, #{@user.username.capitalize}"
       redirect_to dashboard_path(@user.id)
     else
-
       flash[:error] = "Username and password are required to create an account."
       render :new
     end
