@@ -1,38 +1,24 @@
-<div class="jumbotron">
-  <div id-"jumbo-cont">
-  <div id="jumbo-bg">
-  <div class="jumbo-text" id="jumbo-fg">Rent the Tools You Need</div>
-  <p class="jumbo-p">Need a tool? We have that tool.</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-</div>
-</div>
-</div>
+<%= render "layouts/jumbotron" %>
 
 <div class="container-fluid">
   <% @tools.each do |tool| %>
-  <div class="item col-xs-12 col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <%= image_tag(tool.image_path, :alt => "#{tool.name} image") %>
-      <div class="caption">
-        <h4 class="group inner list-group-item-heading">
-         <%= link_to tool.name, tool_path(tool.id) %></h4>
-         <p class="group inner list-group-item-text">
-          <%= tool.description %></p>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-              <p class="lead">
-               <%= number_to_currency(tool.price, :precision => 2) %></p>
-             </div>
-            <div class="cart-button btn btn-custom btn-sm pull-right <%= tool.name %>">
-              <% if tool.out_of_stock? %>
-                Out of Stock
-              <% else %>
-                <%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post" %>
-              <% end %>
-            </div>
-        </div>
+  <div class="container col-md-4 tool-card">
+    <div class="tool-card-image thumbnail">
+      <%= image_tag(tool.image_path,  class: "img-responsive", alt: "#{tool.name} image") %>
+    </div>
+    <div class="caption <%= "#{tool.name} image" %>">
+      <h4><%= link_to tool.name, tool_path(tool.id) %></h4>
+      <p><%= tool.description %></p>
+      <p><%= number_to_currency(tool.price, :precision => 2) %></p>
+      <div class="pull-right">
+      <% if tool.out_of_stock? %>
+        Out of Stock
+      <% else %>
+        <%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post", class: "btn btn-one btn-sm" %>
+        <% end %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
+
