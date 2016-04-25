@@ -1,16 +1,35 @@
-<h1>"Order was successfully placed"</h1>
-
-Order <%= @order.id %>
-
-<% @order.order_tools.each do |line_item| %>
-  <%= link_to "#{line_item.tool.name}", tools_path(line_item.tool.id) %><%= ", Quantity: #{line_item.quantity}, Subtotal: #{line_item.subtotal}" %>
-<% end %>
-Order status: <%= @order.status %>
-
-Order total: <%= @order.total %>
-
-Submitted at: <%= @order.created_at %>
-
-<% if @order.closed_at %>
+<div class="container-fluid cart-box col-md-offset-1 col-md-10 rounded">
+  <h2>Order #<%= @order.id %>, <%= (@order.status + ", ") if @order.status %> placed on <%= @order.created_at.strftime("%A, %b %d, %Y") %><br>
+  	<% if @order.closed_at %>
   <%= "#{@order.status} at: #{@order.closed_at}" %>
 <% end %>
+  </h2>
+  <% @order.order_tools.each do |order_tool| %>
+  	<% tool = order_tool.tool %>
+    <div class="row cart-row <%= tool.name %>">
+    <div class="col-md-3">
+      <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class: "cart-image") %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "#{tool.name}", tools_path(tool.id) %><br>
+      <%= tool.description %>
+    </div>
+    <div class="col-md-2 cart-col">
+      Price:<br>
+      <%= number_to_currency(tool.price, :precision => 2) %>
+    </div>
+    <div class="col-md-1 cart-col">
+      Quantity:<br>
+		<%= order_tool.quantity %>
+    </div>
+    <div class="col-md-1 cart-col">
+      Subtotal: <%= number_to_currency(@order.subtotal(tool.id), :precision => 2) %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="col-md-offset-1 col-md-9 cart-total">
+  Order Total: <%= number_to_currency(@order.total, :precision => 2) %>
+</div>
+
+<% link_to "Past Orders", orders_path %>

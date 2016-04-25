@@ -8,25 +8,25 @@ RSpec.describe Cart, type: :model do
     assert cart.contents.empty?
 
     cart.add_tool(tool.id)
-    assert_equal({ tool.id => 1 }, cart.contents)
+    assert_equal({ tool.id.to_s => 1 }, cart.contents)
   end
 
   it "can add multiple tools" do
     first = create(:tool)
     second = create(:tool)
     cart = Cart.new(nil)
-    cart.add_tool(first.id)
-    cart.add_tool(first.id)
-    cart.add_tool(second.id)
+    cart.add_tool(first.id.to_s)
+    cart.add_tool(first.id.to_s)
+    cart.add_tool(second.id.to_s)
 
-    assert_equal({ first.id => 2, second.id => 1 }, cart.contents)
+    assert_equal({ first.id.to_s => 2, second.id.to_s => 1 }, cart.contents)
   end
 
   it "can remove a tool from the cart" do
     first = create(:tool)
     second = create(:tool)
-    cart = Cart.new({ first.id => 1, second.id => 1 })
-    cart.remove(first.id)
-    assert_equal({ second.id => 1 }, cart.contents)
+    cart = Cart.new({ first.id.to_s => 1, second.id.to_s => 1 })
+    cart.remove(first.id.to_s)
+    assert_equal({ second.id.to_s => 1 }, cart.contents)
   end
 end

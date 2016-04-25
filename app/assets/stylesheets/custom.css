@@ -1,62 +1,36 @@
-.navbar-default .navbar-brand a {
-    color: #0C4659;
-    font-size: 45px;
-    font-weight: bolder;
-}
-
-.navbar-default .navbar-brand a:hover {
-  color: #20590C;
-    text-decoration: none;
-}
-
-.navbar {
-  margin-bottom: 0px !important;
-  border-bottom: 10px !important;
-  border-color: transparent !important;
-  background: #EAEAEA !important;
-}
-
-.glyphy-butt {
-  margin: 2px;
-}
-
-body {
-  /*background: hsl(177, 74%, 15%) !important;*/
-  background: #EAEAEA !important;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  color: green;
+.jumbotron {
+  background: url("tool_banner.jpg");
+  background-position: left top;
+  background-size: 1270px auto;
+  padding: 20px;
+  background-repeat: no-repeat;
+  height: 465px;
 }
 
 .jumbo-text {
-  font-size: 46px;
+  font-size: 56px;
   letter-spacing: -2px;
   color: white;
 }
+
+/*.jumbo-text:hover:after{
+  content: 'Rent Only the Tools You Need';
+}*/
 
 .jumbo-p {
   color: white;
 }
 
-.tool-card {
-    position: relative;
-    overflow: hidden;
-    background-color: #EAEAEA ;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-height: 40em;
+ #jumbo-hover { 
+  position: relative;
+  z-index: 100;
+  padding: 95px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.40);
+}
+
+#jumbo-container {
+  position: relative;
 }
 
 .rounded {
@@ -65,52 +39,96 @@ h1 {
     border-radius: 10px;
 }
 
-.tool-thumb {
-    max-width: 100%;
-    display:block;
-    max-height:30%;
+.tool-card-image {
+  height: 200px;
+  width: 400px;
+  overflow: hidden;
 }
 
-.jumbotron {
-  margin-left: 0px;
-  padding: 20px;
-  background: url("http://www.shutterstock.com/blog/wp-content/uploads/sites/5/2012/05/img17.jpg");
-  margin-right: 10ox;
+.tool-show-image {
+  max-height: 600px;
+  max-width: 600px;
+  overflow: hidden;
+  text-align: center;
 }
 
-.cart-button {
-  margin-right: 10px;
+.tool-card {
+  margin-top: 20px;
+}
+
+.caption {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 375px;
+  white-space: nowrap;
+}
+
+.tool-show {
+  padding: 10px;
+  background: #EAEAEA;
 }
 
 input[type="number"] {
       font-size:   80%; 
       padding:     0px;
       padding-left: 5px;
-      margin: 5px;
       width: 40px;
       height: 22px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+} 
 
-   } 
-
-.q-butt {
-  width: 60px;
+.navbar-default .navbar-brand a {
+    color: #0C4659;
+    font-size: 45px;
+    font-weight: bolder;
+    font-family: "Droid Sans Bold", "Helvetica Neue", "Helvetica";
 }
 
-.q-box {
+.navbar-default .navbar-brand a:hover {
+  color: hsl(177, 74%, 36%);
+  text-decoration: none;
+}
+
+.glyphy-butt {
+  margin: 2px;
+}
+
+.dele-col {
+    position: relative;
+}
+
+.dele-col-sp {
+   position: absolute;
+   top: 75px;
+   right: 35px;
+}
+
+.cart-col {
   text-align: right;
 }
 
-.cart-box {
-  border: 2px;
+/*.tool-thumb {
+    max-width: 100%;
+    display: block;
+    max-height:30%;
+    height: 200px;
+    width: 400px;
+}*/
 
+.cart-image {
+  height: 100px;
+  width: 200px;
+  overflow: hidden;
 }
 
+/*
 img.cart-thumb {
   height: 100px;
   width: 200px; 
   text-align: right;
   margin-right: 10px;
-}
+}*/
 
 .cart-row {
   border-top-width: 2px;
@@ -118,7 +136,7 @@ img.cart-thumb {
 }
 
 .cart-row:hover{
-background: #eaeaea;
+background: #F6F6F6;
 }
 
 .cart-total {
@@ -126,15 +144,19 @@ background: #eaeaea;
   text-weight: bold;
 }
 
-.abbr-text {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-height: 10em;
-    max-width: 40em;
+.btn-one a {
+  color: white;
 }
 
-.btn-custom {
+.btn-one a:hover {
+  text-decoration: none;
+}
+
+.btn-one a:visited {
+  color:white;
+}
+
+.btn-one {
   background-color: hsl(177, 74%, 23%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
@@ -147,11 +169,12 @@ background: #eaeaea;
   background-image: linear-gradient(#179f98, #179f98);
   border-color: #179f98 #179f98 hsl(177, 74%, 36%);
   color: #fff !important;
+  font-weight: bold !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
 }
 
-.btn-custom:hover {
+.btn-one:hover {
   background-color: hsl(177, 74%, 36%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
@@ -163,21 +186,53 @@ background: #eaeaea;
   background-image: -o-linear-gradient(top, #179f98, #179f98);
   background-image: linear-gradient(#179f98, #179f98);
   border-color: #179f98 #179f98 hsl(177, 74%, 36%);
-  color: #fff !important;
+  color: #fff !important;  
+  font-weight: bold !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
 }
 
-.btn-custom a {
-  color:white;
-  text-weight: bold;
-}
-
-.btn-custom a:hover {
-  color:white;
+.btn-two a:hover {
   text-decoration: none;
 }
 
-.btn-custom a:visited {
+.btn-two a:visited {
   color:white;
+}
+
+
+.btn-two {
+  background-color: #002f2f !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 hsl(177, 74%, 36%);
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-two:hover {
+  background-color: #05878a !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 hsl(177, 74%, 36%);
+  color: #fff !important;  
+  font-weight: bold !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+  -webkit-font-smoothing: antialiased;
 }

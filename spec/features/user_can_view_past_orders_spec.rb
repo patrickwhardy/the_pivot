@@ -31,9 +31,9 @@ RSpec.feature "User can view past orders" do
     #   When I visit "/orders"
     #   Then I should see all orders belonging to me and no other orders
     assert_equal "/orders", current_path
-    expect(page).to have_content "Order #{order1.id}"
-    expect(page).to have_content "Order #{order2.id}"
+    expect(page).to have_content "Order ##{order1.id}"
+    expect(page).to have_content "Order ##{order2.id}"
     assert_equal 3, Order.count
-    expect(page).to have_no_content "Order #{order3.id}"
+    expect(page).to have_no_content "Order ##{order3.id}"
   end
 end

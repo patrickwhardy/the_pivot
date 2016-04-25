@@ -7,8 +7,8 @@ class Cart
   end
 
   def add_tool(tool_id)
-    @contents[tool_id] ||= 0
-    @contents[tool_id] += 1
+    @contents[tool_id.to_s] ||= 0
+    @contents[tool_id.to_s] += 1
   end
 
   def toolbag

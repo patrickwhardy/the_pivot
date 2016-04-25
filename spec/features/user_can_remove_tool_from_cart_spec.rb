@@ -19,6 +19,6 @@ RSpec.feature "Vistor can remove an item from the cart" do
     end
     expect(page).to have_no_content screwdriver.name
     expect(page).to have_content saw.name
-    expect(page).to have_content "Total: #{saw.price}"
+    expect(page).to have_content "Total: $#{saw.price}"
   end
 end
