@@ -1,4 +1,18 @@
 class OrdersController < ApplicationController
+  before_action :check_user, only: [:show]
+
+  def check_user
+    if Order.exists?(params[:id])
+      if current_user
+        redirect_to orders_path unless current_user.orders.include?(Order.find(params[:id]))
+      else
+        redirect_to login_path
+      end
+    else
+      flash[:danger] = "Not a valid request."
+      redirect_to root_path
+    end
+  end
 
   def create
     @order = Order.create(user_id: current_user.id, total: @cart.total, quantity: @cart.quantity, status: "Ordered")
@@ -16,12 +30,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if Order.exists?(params[:id])
-      @order = Order.find(params[:id])
-    else
-      flash[:danger] = "Not a valid request."
-      redirect_to root_path
-    end
+    @order = Order.find(params[:id])
   end
 
 end
