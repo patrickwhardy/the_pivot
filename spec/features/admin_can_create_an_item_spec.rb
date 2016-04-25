@@ -22,6 +22,7 @@ RSpec.feature "Admin exists" do
     select "Hammer", from: "tool_category_id"
 
     click_on "Create Tool"
+    assert_equal tool_path(Tool.last.id), current_path
     assert_equal "Jackhammer", Tool.last.name
     assert_equal "Ipso quod quorum et", Tool.last.description
     assert_equal 20.00, Tool.last.price
@@ -41,7 +42,7 @@ RSpec.feature "Admin exists" do
     login_user(admin)
 
     tool_name = "Jackhammer"
-    
+
     assert_equal admin_dashboard_path, current_path
     click_on "Create New Tool"
     assert_equal new_admin_tool_path, current_path
@@ -55,5 +56,5 @@ RSpec.feature "Admin exists" do
     assert_equal "Jackhammer", Tool.last.name
     assert Tool.last.image_path.downcase.include?(tool_name.downcase)
   end
-  
+
 end
