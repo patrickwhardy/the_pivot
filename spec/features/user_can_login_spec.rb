@@ -27,9 +27,9 @@ RSpec.feature "User can login" do
 
     user = User.last
     assert_equal dashboard_path(user.id), current_path
-    expect(page).to have_content "Logged in as #{user.username}"
+    expect(page).to have_content "Welcome to ToolChest, #{user.username.capitalize}"
     within(".user-info") do
-      expect(page).to have_content user.username
+      expect(page).to have_content user.username.capitalize
     end
     expect(page).to have_no_content "Login"
     expect(page).to have_content "Logout"

@@ -1,13 +1,10 @@
-<h1>User Show Page for <%= @user.username %></h1>
+<div class="user-info container col-md-10 col-md-offset-1 rounded">
+<h1><%= @user.username.capitalize %>'s Dashboard</h1>
 
-<p>Logged in as <%= @user.username %></p>
 
-<div class="user-info">
-  User Information: <%= @user.username %>
-</div>
 
 <div>
   <% if @user.has_orders? %>
-    <%= link_to "View Past Orders", "/orders" %>
+    <div class="btn btn-one"><%= link_to "View Past Orders", "/orders" %></div>
   <% end %>
 </div>

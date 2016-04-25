@@ -39,6 +39,10 @@
     border-radius: 10px;
 }
 
+.user-info {
+  background: #EAEAEA;
+}
+
 .tool-card-image {
   height: 200px;
   width: 400px;
