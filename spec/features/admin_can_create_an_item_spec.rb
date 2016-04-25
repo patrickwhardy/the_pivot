@@ -12,7 +12,7 @@ RSpec.feature "Admin exists" do
     login_user(admin)
     assert_equal admin_dashboard_path, current_path
     click_on "Create New Tool"
-    assert_equal admin_tools_new_path, current_path
+    assert_equal new_admin_tool_path, current_path
     fill_in "Name", with: "Jackhammer"
     fill_in "Description", with: "Ipso quod quorum et"
     fill_in "Price", with: "20.00"
@@ -44,7 +44,7 @@ RSpec.feature "Admin exists" do
     
     assert_equal admin_dashboard_path, current_path
     click_on "Create New Tool"
-    assert_equal admin_tools_new_path, current_path
+    assert_equal new_admin_tool_path, current_path
     fill_in "Name", with: tool_name
     fill_in "Description", with: "Ipso quod quorum et"
     fill_in "Price", with: "20.00"

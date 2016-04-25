@@ -3,7 +3,7 @@ class CartToolsController < ApplicationController
     @tool = Tool.find(params[:tool])
     @cart.add_tool(@tool.id)
     session[:cart] = @cart.contents
-    
+
     flash[:success] = "Tool added to cart."
     redirect_to tools_path
   end
@@ -14,9 +14,5 @@ class CartToolsController < ApplicationController
     redirect_to cart_path
   end
 
-  def update
-    @cart.update_quantity(params[:cart_tool])
-    flash[:success] = "Cart updated successfully."
-    redirect_to cart_path
-  end
+
 end

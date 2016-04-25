@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-1 cart-col">
       Quantity:
-      <%= form_for :cart_tool do |f| %>
+      <%= form_for :cart_tool, :html => {:method => :put} do |f| %>
       <%= f.number_field :quantity, value: quantity, min: 0 %>
       <%= f.hidden_field :tool_id, value: tool.id %><br>
       <%= f.submit "Update", class: "btn btn-xs q-butt btn-info pull-right" %>
