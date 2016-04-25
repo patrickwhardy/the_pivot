@@ -3,7 +3,7 @@ class Admin::BaseController < ApplicationController
 
   def check_for_admin
     # byebug
-    unless session[:user_id] && current_user.admin?
+    unless current_user && current_user.admin?
       render file: "#{Rails.root}/public/404.html", status: 404
     end
   end

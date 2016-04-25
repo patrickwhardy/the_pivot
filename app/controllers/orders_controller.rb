@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = Order.create(user_id: session[:user_id], total: @cart.total, quantity: @cart.quantity, status: "Ordered")
+    @order = Order.create(user_id: current_user.id, total: @cart.total, quantity: @cart.quantity, status: "Ordered")
     session[:cart].each do |tool_id, quantity|
       OrderTool.create(tool_id: tool_id, quantity: quantity, order_id: @order.id)
     end
@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(user_id: session[:user_id])
+    @orders = current_user.orders
   end
 
   def show

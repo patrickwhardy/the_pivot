@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session[:user_id]
-      @user = User.find(session[:user_id])
+    if current_user
+      @user = current_user
     else
       redirect_to login_path
     end
