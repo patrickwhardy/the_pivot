@@ -1,11 +1,18 @@
-<h1><%= @tool.name %></h1>
+<div class="tool-show col-md-6 col-md-offset-1 rounded">
+	<div class="tool-show-image">
+		<%= image_tag(@tool.image_path,  class: "img-responsive", alt: "#{@tool.name} image", class: "rounded") %>
+	</div>
+	<div class="caption">
+		<h2><%= @tool.name %></h2>
 
-<h2><%= @tool.description %></h2>
+		<h4><%= @tool.description %></h4>
+		<h4><%= number_to_currency(@tool.price, precision: 2) %></h4>
 
-<h2><%= number_to_currency(@tool.price, precision: 2) %></h2>
+		<% if @tool.out_of_stock? %>
+		Out of Stock
+		<% else %>
+		<%= link_to "Add to Cart", cart_tools_path(tool: @tool.id), method: "post", class: "btn btn-one btn-sm" %>
+		<% end %>
 
-<% if @tool.out_of_stock? %>
-  Out of Stock
-<% else %>
-  <%= link_to "Add to Cart", cart_tools_path(tool: @tool.id), method: "post" %>
-<% end %>
+	</div>
+</div>
