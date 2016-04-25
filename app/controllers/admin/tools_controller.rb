@@ -11,11 +11,11 @@ class Admin::ToolsController < Admin::BaseController
     ###############################################################
 
     ### the fotofetcher gem is present for development purposes
-    ### though it could be left in to provide default images in production, 
+    ### though it could be left in to provide default images in production,
     ### it's probably not cool to go jacking people's images/bandwidth
 
     @fetcher = Fotofetch::Fetch.new
-    url = @fetcher.fetch_links(tool_params[:name]).values.first 
+    url = @fetcher.fetch_links(tool_params[:name]).values.first
     @tool.image_path = url if @tool.image_path.empty?
 
     ###############################################################
@@ -23,7 +23,7 @@ class Admin::ToolsController < Admin::BaseController
 
     if @tool.save
       flash[:success] = "Tool Created"
-      redirect_to tools_path(@tool.id)
+      redirect_to tool_path(@tool.id)
     else
       flash.now[:warning] = "Tool Not Created"
       render :new
