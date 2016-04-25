@@ -34,4 +34,26 @@ RSpec.feature "Admin exists" do
     #     - The price must be a valid decimal numeric value and greater than zero.
     #     - The photo is optional. If not present, a stand-in photo is used. (try using)
   end
+
+  scenario "tool created without image path autopopulates image_path column" do
+    admin = create(:user, role: 1)
+    Category.create(name: "Hammer")
+    login_user(admin)
+
+    tool_name = "Jackhammer"
+    
+    assert_equal admin_dashboard_path, current_path
+    click_on "Create New Tool"
+    assert_equal admin_tools_new_path, current_path
+    fill_in "Name", with: tool_name
+    fill_in "Description", with: "Ipso quod quorum et"
+    fill_in "Price", with: "20.00"
+    # No image path specified
+    select "Hammer", from: "tool_category_id"
+
+    click_on "Create Tool"
+    assert_equal "Jackhammer", Tool.last.name
+    assert Tool.last.image_path.downcase.include?(tool_name.downcase)
+  end
+  
 end

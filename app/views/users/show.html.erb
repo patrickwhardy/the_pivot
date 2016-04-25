@@ -1,10 +1,13 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
-<h1><%= @user.username.capitalize %>'s Dashboard</h1>
+	<h1><%= @user.username.capitalize %>'s Dashboard</h1>
 
+	<div>
+		<% if @user.has_orders? %>
+		<div class="btn btn-one"><%= link_to "View Past Orders", "/orders" %></div>
+		<% end %>
 
-
-<div>
-  <% if @user.has_orders? %>
-    <div class="btn btn-one"><%= link_to "View Past Orders", "/orders" %></div>
-  <% end %>
+		<% if current_user.admin? %>
+		<div class="btn btn-one"><%= link_to "Create New Tool", admin_tools_new_path %></div>
+		<% end %>
+	</div>
 </div>
