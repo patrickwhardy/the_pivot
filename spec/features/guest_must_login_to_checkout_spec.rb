@@ -32,15 +32,16 @@ RSpec.feature "Guest user must login before checking out" do
       click_on "Login"
     end
     assert_equal username, User.last.username
-
-    click_on "Item"
+    assert_equal cart_path, current_path
     expect(page).to have_content @tools[0].name
     expect(page).to have_content @tools[1].name
     expect(page).to have_content @tools[2].name
     expect(page).to have_content "Total: $#{total_price}"
-
+    
     click_on "Logout"
     expect(page).to have_no_content "Logout"
     expect(page).to have_content "Login"
+
+
   end
 end
