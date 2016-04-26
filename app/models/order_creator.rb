@@ -7,9 +7,9 @@ class OrderCreator
   end
 
   def create_order
-    current_user = User.find(@session[:user_id])
+    # current_user = User.find(@session[:user_id])
     cart = Cart.new(@session[:cart])
-    @order = Order.new(user_id: current_user.id, total: cart.total, quantity: cart.quantity, status: "Ordered")
+    @order = Order.new(user_id: @session[:user_id], total: cart.total, quantity: cart.quantity, status: "Ordered")
   end
 
   def create_order_tool
