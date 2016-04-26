@@ -22,12 +22,14 @@ RSpec.feature "Admin logged in" do
     expect(User.find(admin.id).username).to eql(new_username)
   end
 
-  scenario "can't update anothe user's account" do
-    admin = create(:user, role: 1)
+  scenario "can't update another user's account" do
+    admin = create(:user, username: "admin", role: 1)
     user = create(:user)
     login_user(admin)
     visit edit_user_path(user.id)
 
-    expect(page).to have_content("The page you were looking for doesn't exist (404)")
+    save_and_open_page
+
+    expect(page).to have_content("#{admin.username}")
   end
 end
