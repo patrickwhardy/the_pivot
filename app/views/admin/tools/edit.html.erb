@@ -1,0 +1,10 @@
+<h1>Admin Edit Tool Page</h1>
+
+<%= form_for [:admin, @tool] do |f|%>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= f.text_field :price, placeholder: "Price" %>
+  <%= f.text_field :image_path, placeholder: "Image Path" %>
+  <%= f.collection_select :category_id, @categories, :id, :name %>
+  <%= f.submit %>
+<% end %>
