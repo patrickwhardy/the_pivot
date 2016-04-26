@@ -3,7 +3,6 @@ class Cart
 
   def initialize(session_contents)
     @contents = session_contents || {}
-    # @notice = ""
   end
 
   def add_tool(tool_id)
@@ -16,8 +15,8 @@ class Cart
   end
 
   def total
-    toolbag.inject(0) do |sum, hash|
-      sum += hash.first.price * hash.second
+    toolbag.inject(0) do |sum, (tool, qty)|   
+      sum += tool.price * qty   
     end
   end
 
@@ -33,14 +32,13 @@ class Cart
     @contents.delete(tool_id)
   end
 
-  def pluralize?
-    quantity == 1 ? "Item" : "Items"
-  end
+  # def pluralize?
+  #   quantity == 1 ? "Item" : "Items"
+  # end
 
   def update_quantity(new_data)
     if new_data[:quantity].to_i == 0
       @contents.delete(new_data[:tool_id])
-    # flash alert "item removed"
     else
       @contents[new_data[:tool_id]] = new_data[:quantity].to_i
     end
