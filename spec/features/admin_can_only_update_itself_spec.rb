@@ -28,8 +28,6 @@ RSpec.feature "Admin logged in" do
     login_user(admin)
     visit edit_user_path(user.id)
 
-    save_and_open_page
-
     expect(page).to have_content("#{admin.username}")
   end
 end
