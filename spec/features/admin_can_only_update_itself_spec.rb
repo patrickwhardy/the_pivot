@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Admin logged in" do
   include SpecTestHelper
-  
+
   scenario "can update its own account" do
     admin = create(:user, role: 1)
     new_username = "nonsense"
@@ -24,6 +24,11 @@ RSpec.feature "Admin logged in" do
   end
 
   scenario "can't update anothe user's account" do
+    admin = create(:user, role: 1)
+    user = create(:user)
+    login_user(admin)
+    visit edit_user_path(user.id)
 
+    expect(page).to have_content("The page you were looking for doesn't exist (404)")
   end
 end
