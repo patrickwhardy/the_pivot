@@ -1,14 +1,16 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = Order.create(user_id: current_user.id, total: @cart.total, quantity: @cart.quantity, status: "Ordered")
-    session[:cart].each do |tool_id, quantity|
-      OrderTool.create(tool_id: tool_id, quantity: quantity, order_id: @order.id)
+    @order_creator = OrderCreator.new(session)
+    if @order_creator.save
+      flash[:success] = "Order was successfully placed."
+      @cart.clear_contents
+      session[:cart] = @cart.contents
+      redirect_to orders_path
+    else
+      flash[:error] = "Something went wrong. Please try again."
+      redirect_to cart_path
     end
-    flash[:success] = "Order was successfully placed."
-    @cart.clear_contents
-    session[:cart] = @cart.contents
-    redirect_to orders_path
   end
 
   def index
