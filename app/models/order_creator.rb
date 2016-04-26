@@ -14,15 +14,14 @@ class OrderCreator
 
   def create_order_tool
     @order_tools = @session[:cart].map do |tool_id, quantity|
-      OrderTool.create(tool_id: tool_id, quantity: quantity, order_id: @order.id)
+      OrderTool.new(tool_id: tool_id, quantity: quantity)
     end
   end
 
   def save
+    # byebug
     if @order.save
       @order_tools.each { |order_tool| order_tool.update_attributes(order_id: @order.id) }
-    else
-      @order_tools.each { |order_tool| order_tool.destroy }
     end
   end
 end

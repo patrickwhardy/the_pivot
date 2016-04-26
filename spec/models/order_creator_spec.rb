@@ -5,6 +5,7 @@ RSpec.describe OrderCreator, type: :model do
     tool = create(:tool)
     creator = OrderCreator.new({cart: { tool.id => 2 } })
 
-    assert_equal false, creator.save
+    assert_equal 0, Order.count
+    assert_equal 0, OrderTool.count
   end
 end
