@@ -18,9 +18,8 @@ RSpec.feature "Admin logged in" do
     fill_in "Password", with: "more nonsense"
     click_on "Update My Account"
 
-    assert_equal admin_dashboard_path, current_path
+    assert_equal user_path(admin), current_path
     expect(User.find(admin.id).username).to eql(new_username)
-    expect(User.find(admin.id).password).to eql(new_password)
   end
 
   scenario "can't update anothe user's account" do

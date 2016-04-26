@@ -27,6 +27,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    if @user.save
+      redirect_to dashboard_path
+    else
+      flash[:error] = "An error occurred. Please try again."
+      render :edit
+    end
+  end
+
+
+
   private
 
   def user_params

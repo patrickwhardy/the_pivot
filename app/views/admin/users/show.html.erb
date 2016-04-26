@@ -1,5 +1,6 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
 	<h1>Admin Dashboard</h1>
-
+<div class="btn btn-one"><%= link_to "View Past Orders", "/orders" %></div>
 <div class="btn btn-one"><%= link_to "Create New Tool", new_admin_tool_path %></div>
+<div class="btn btn-one"><%= link_to "Update My Account", edit_user_path(@user) %></div>
 </div>

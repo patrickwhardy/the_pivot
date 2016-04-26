@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :tools, only: [:index, :show]
 
-  resources :users, only: [:new, :index, :create]
+  resources :users, only: [:new, :index, :create, :edit, :update]
   get "/users/:id", to: "users#show", as: :dashboard
   delete "/users/logout", to: "sessions#destroy", as: :logout
 
