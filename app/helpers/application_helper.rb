@@ -24,5 +24,5 @@ def bootstrap_class_for(flash_type)
     flash_type.to_s
   end
 end
-  
+
 end

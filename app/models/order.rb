@@ -11,10 +11,4 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def subtotal(tool_id)
-    order_tool = OrderTool.find_by(tool_id: tool_id, order_id: self.id)
-    tool = Tool.find(tool_id)
-    tool.price * order_tool.quantity
-  end
-
 end
