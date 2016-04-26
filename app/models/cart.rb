@@ -32,10 +32,6 @@ class Cart
     @contents.delete(tool_id)
   end
 
-  # def pluralize?
-  #   quantity == 1 ? "Item" : "Items"
-  # end
-
   def update_quantity(new_data)
     if new_data[:quantity].to_i == 0
       @contents.delete(new_data[:tool_id])

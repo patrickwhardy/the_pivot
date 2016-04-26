@@ -23,7 +23,7 @@
 		<%= order_tool.quantity %>
     </div>
     <div class="col-md-1 cart-col">
-      Subtotal: <%= number_to_currency(@order.subtotal(tool.id), :precision => 2) %>
+      Subtotal: <%= number_to_currency(order_tool.subtotal, :precision => 2) %>
     </div>
   </div>
   <% end %>
