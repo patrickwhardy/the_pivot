@@ -10,8 +10,8 @@ RSpec.feature "User can reserve a tool on a date" do
     tool2 = create(:tool)
     login_user(user1)
     year = "2017"
-    month = "05"
-    day = "02"
+    month = "May"
+    day = "2"
     # when I view a tool,
     visit tool_path(tool1.id)
     # save_and_open_page
