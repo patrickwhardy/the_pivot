@@ -1,6 +1,9 @@
 class CartToolsController < ApplicationController
   def create
-    @tool = Tool.find(params[:id])
+    year = params[:reserve_date]["date(1i)"]
+    month = params[:reserve_date]["date(2i)"]
+    day = params[:reserve_date]["date(3i)"]
+    date = DateReserved.find_or_create_by(date_reserved: "#{year}-#{month}-#{day}")
     @cart.add_tool(@tool.id)
     session[:cart] = @cart.contents
 
