@@ -9,9 +9,12 @@
 		<h4><%= number_to_currency(@tool.price, precision: 2) %></h4>
 
 		<% if @tool.out_of_stock? %>
-		Out of Stock
+			Out of Stock
 		<% else %>
-		<%= link_to "Add to Cart", cart_tools_path(tool: @tool.id), method: "post", class: "btn btn-one btn-sm" %>
+			<%= form_for :date do |f| %>
+				<%= date_select('reserve_date', 'date') %>
+				<div class="btn btn-one btn-sm"><%= f.submit "Add to Cart" %> </div>
+			<% end %>
 		<% end %>
 
 	</div>

@@ -32,7 +32,7 @@ RSpec.feature "User can view a past order" do
 
     click_on "#{order_tool2.tool.name}"
 
-    assert_equal tools_path(order_tool2.tool.id),current_path
+    assert_equal tool_path(order_tool2.tool.id),current_path
     expect(page).to have_content "#{tool2.name}"
     expect(page).to have_content "#{tool2.description}"
   end

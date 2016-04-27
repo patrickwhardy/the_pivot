@@ -11,7 +11,7 @@
       <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class: "cart-image") %>
     </div>
     <div class="col-md-3">
-      <%= link_to "#{tool.name}", tools_path(tool.id) %><br>
+      <%= link_to "#{tool.name}", tool_path(tool) %><br>
       <%= tool.description %>
     </div>
     <div class="col-md-2 cart-col">

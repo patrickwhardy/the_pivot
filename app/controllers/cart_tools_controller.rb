@@ -1,11 +1,25 @@
 class CartToolsController < ApplicationController
   def create
-    @tool = Tool.find(params[:tool])
-    @cart.add_tool(@tool.id)
-    session[:cart] = @cart.contents
+    year = params[:reserve_date]["date(1i)"]
+    month = params[:reserve_date]["date(2i)"]
+    day = params[:reserve_date]["date(3i)"]
+    date = DateReserved.find_or_create_by(date_reserved: "#{year}-#{month}-#{day}")
+    @tool = Tool.find(params[:id])
 
-    flash[:success] = "Tool added to cart."
-    redirect_to tools_path
+    if !Reservation.where({tool_id: @tool.id, date_reserved_id: date.id }).empty?
+      flash[:error] = "Tool Unavailable"
+      redirect_to tool_path(@tool)
+    else
+      # byebug
+      @cart.add_tool(@tool.id)
+      session[:cart] = @cart.contents
+      session[:date] = {"#{@tool.id}" => date.id}
+      flash[:success] = "Tool added to cart."
+      redirect_to tools_path
+    end
+      # byebug
+
+
   end
 
   def destroy
@@ -13,6 +27,4 @@ class CartToolsController < ApplicationController
     flash[:alert] = "Tool removed from cart."
     redirect_to cart_path
   end
-
-
 end

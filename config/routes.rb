@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create, :show]
 
   resources :tools, only: [:index, :show]
+  post "/tools/:id", to: "cart_tools#create"
 
   resources :users, only: [:new, :index, :create, :edit, :update]
   get "/users/:id", to: "users#show", as: :dashboard
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
 
   resources :cart_tools, only: [:create, :destroy]
   resource :cart, only: [:show, :update]
-  put "/cart_tools", to: "cart_tools#update"
   get "/:category_name", to: 'categories#view', as: :category_name
 
 end
