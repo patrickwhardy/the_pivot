@@ -1,8 +1,6 @@
 require "rails_helper"
 RSpec.feature "Admin can login" do
-  # As an Admin
-  #       When I log in
-  #       Then I am redirected to "/admin/dashboard"
+ 
   scenario "already has account" do
     admin = create(:user, role: 1)
     visit login_path

@@ -3,12 +3,7 @@ require "rails_helper"
 RSpec.feature "Admin logs in with tools created" do
   include SpecTestHelper
   scenario "then can edit a tool" do
-    # Background: an existing item
-    # As an admin
-    # When I visit "admin/items"
-    # And I click "Edit"
-    # Then my current path should be "/admin/items/:ITEM_ID/edit"
-    # And I should be able to upate title, description, image, and status
+ 
     new_name = "name"
     new_description = "description"
     new_price = "111"
