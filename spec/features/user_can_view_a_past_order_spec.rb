@@ -48,6 +48,4 @@ RSpec.feature "User can view a past order" do
     assert_equal root_path, current_path
     expect(page).to have_content "Not a valid request."
   end
-
-
 end

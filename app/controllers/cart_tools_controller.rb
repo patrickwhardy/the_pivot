@@ -10,16 +10,12 @@ class CartToolsController < ApplicationController
       flash[:error] = "Tool Unavailable"
       redirect_to tool_path(@tool)
     else
-      # byebug
       @cart.add_tool(@tool.id)
       session[:cart] = @cart.contents
       session[:date] = {"#{@tool.id}" => date.id}
       flash[:success] = "Tool added to cart."
       redirect_to tools_path
     end
-      # byebug
-
-
   end
 
   def destroy

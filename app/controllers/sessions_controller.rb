@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def new
     @user = User.new
     @checkout = true if env["PATH_INFO"] == "/cart/login"
@@ -22,12 +21,21 @@ class SessionsController < ApplicationController
         redirect_to cart_path
       else
         flash[:success] = "Login successful. Welcome to ToolChest, #{@user.username.capitalize}"
-        redirect_to dashboard_path(@user.id)
+        if env["PATH_INFO"] == "/cart/login"
+          redirect_to cart_path
+        else
+          redirect_to dashboard_path(@user.id)
+        end
       end
     else
-       flash.now[:error] = 'Invalid email/password combination'
-       render :new if params[:user_action] != "checkout"
-       render :cart_login if params[:user_action] == "checkout"
+      if params[:user_action] == "checkout"
+        flash[:error] = "Unable to login. Please check your username
+                        and password or create an account."
+        redirect_to cart_login_path
+      else
+        flash.now[:error] = "Invalid email/password combination"
+        render :new
+      end
     end
   end
 end
