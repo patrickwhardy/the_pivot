@@ -11,15 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425135059) do
+ActiveRecord::Schema.define(version: 20160427171728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_tools", force: :cascade do |t|
+    t.integer  "tool_id"
+    t.decimal  "unit_price"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cart_tools", ["tool_id"], name: "index_cart_tools_on_tool_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "date_reserveds", force: :cascade do |t|
+    t.date     "date_reserved"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "order_tools", force: :cascade do |t|
@@ -45,15 +61,27 @@ ActiveRecord::Schema.define(version: 20160425135059) do
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "tool_id"
+    t.integer  "date_reserved_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "reservations", ["date_reserved_id"], name: "index_reservations_on_date_reserved_id", using: :btree
+  add_index "reservations", ["tool_id"], name: "index_reservations_on_tool_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+
   create_table "tools", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.decimal  "price"
     t.string   "image_path"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "category_id"
-    t.integer  "inventory"
+    t.integer  "inventory",   default: 0
   end
 
   add_index "tools", ["category_id"], name: "index_tools_on_category_id", using: :btree
@@ -66,8 +94,12 @@ ActiveRecord::Schema.define(version: 20160425135059) do
     t.integer  "role",            default: 0
   end
 
+  add_foreign_key "cart_tools", "tools"
   add_foreign_key "order_tools", "orders"
   add_foreign_key "order_tools", "tools"
   add_foreign_key "orders", "users"
+  add_foreign_key "reservations", "date_reserveds"
+  add_foreign_key "reservations", "tools"
+  add_foreign_key "reservations", "users"
   add_foreign_key "tools", "categories"
 end
