@@ -9,10 +9,15 @@ RSpec.feature "User can reserve a tool on a date" do
     tool1 = create(:tool)
     tool2 = create(:tool)
     login_user(user1)
-    date = "05/05/2016"
+    date = "05/02/2016"
+    year = "2016"
+    month = "05"
+    day = "02"
     # when I view a tool,
     visit tool_path(tool1.id)
-    fill_in "Reservation Date", with: date
+    fill_in "reserve_date[date(1i)]", with: year
+    fill_in "reserve_date[date(2i)]", with: month
+    fill_in "reserve_date[date(3i)]", with: day
     click_on "Add to Cart"
     click_on "Item"
     click_on "Checkout"
@@ -27,12 +32,16 @@ RSpec.feature "User can reserve a tool on a date" do
     click_on "Logout"
 
     visit tool_path(tool1.id)
-    fill_in "Reservation Date", with: date
+    fill_in "reserve_date[date(1i)]", with: year
+    fill_in "reserve_date[date(2i)]", with: month
+    fill_in "reserve_date[date(3i)]", with: day
     click_on "Add to Cart"
     expect(page).to have_content "Tool Unavailable"
 
     visit tool_path(tool2.id)
-    fill_in "Reservation Date", with: date
+    fill_in "reserve_date[date(1i)]", with: year
+    fill_in "reserve_date[date(2i)]", with: month
+    fill_in "reserve_date[date(3i)]", with: day
     click_on "Add to Cart"
     click_on "Item"
     expect(page).to have_content "Login or Create Account to Checkout"

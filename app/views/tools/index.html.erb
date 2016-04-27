@@ -13,12 +13,9 @@
       <div class="pull-right">
       <% if tool.out_of_stock? %>
         Out of Stock
-      <% else %>
-        <%= link_to "Add to Cart", cart_tools_path(tool: tool.id), method: "post", class: "btn btn-one btn-sm" %>
-        <% end %>
+      <% end %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
-

@@ -1,6 +1,6 @@
 class CartToolsController < ApplicationController
   def create
-    @tool = Tool.find(params[:tool])
+    @tool = Tool.find(params[:id])
     @cart.add_tool(@tool.id)
     session[:cart] = @cart.contents
 
@@ -13,6 +13,4 @@ class CartToolsController < ApplicationController
     flash[:alert] = "Tool removed from cart."
     redirect_to cart_path
   end
-
-
 end
