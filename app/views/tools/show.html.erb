@@ -13,7 +13,7 @@
 		<% else %>
 			<%= form_for :date do |f| %>
 				<%= date_select('reserve_date', 'date') %>
-				<div class="btn btn-one btn-sm"><%= f.submit "Add to Cart" %> </div>
+				<%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
 			<% end %>
 		<% end %>
 
