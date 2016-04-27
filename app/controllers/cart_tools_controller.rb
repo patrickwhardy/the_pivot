@@ -5,16 +5,24 @@ class CartToolsController < ApplicationController
     day = params[:reserve_date]["date(3i)"]
     date = DateReserved.find_or_create_by(date_reserved: "#{year}-#{month}-#{day}")
     @tool = Tool.find(params[:id])
-    reservation = @tool.reservations.new(date_reserved_id: date.id, user_id: current_user.id)
-    if reservation.save
+    # reservation = @tool.reservations.new(date_reserved_id: date.id, user_id: current_user.id)
+    # if reservation.save
+    if Reservation.where({tool_id: @tool.id, date_reserved_id: date.id })
+      flash[:error] = "Tool Unavailable"
+      redirect_to tool_path(@tool)
+    else
+      byebug
       @cart.add_tool(@tool.id)
       session[:cart] = @cart.contents
       flash[:success] = "Tool added to cart."
       redirect_to tools_path
-    else
-      flash[:error] = "Tool Unavailable"
-      redirect_to tool_path(@tool.id)
     end
+      # byebug
+
+    # else
+    #   flash[:error] = "Tool Unavailable"
+    #   redirect_to tool_path(@tool.id)
+    # end
   end
 
   def destroy
