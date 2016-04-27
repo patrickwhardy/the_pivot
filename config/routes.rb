@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create", as: :session_users
-  get "/cart/login", to: "sessions#cart_login", as: :cart_login
+  get "/cart/login", to: "sessions#new", as: :cart_login
   resources :orders, only: [:index, :create, :show]
 
   resources :tools, only: [:index, :show]

@@ -6,6 +6,7 @@
     <%= f.text_field :username %>
     <%= f.label :password %>
     <%= f.password_field :password %>
+    <%= hidden_field_tag :user_action, "checkout" if @checkout %>    
     <%= f.submit "Login" %>
   <% end %>
 </div>
