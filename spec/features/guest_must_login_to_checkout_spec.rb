@@ -37,11 +37,9 @@ RSpec.feature "Guest user must login before checking out" do
     expect(page).to have_content @tools[1].name
     expect(page).to have_content @tools[2].name
     expect(page).to have_content "Total: $#{total_price}"
-    
+
     click_on "Logout"
     expect(page).to have_no_content "Logout"
     expect(page).to have_content "Login"
-
-
   end
 end

@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
+    if current_admin?
+      redirect_to admin_dashboard_path
+    elsif current_user
       @user = current_user
     else
       redirect_to login_path
@@ -35,14 +37,16 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     if @user.save
-      redirect_to dashboard_path
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to dashboard_path
+      end
     else
       flash[:error] = "An error occurred. Please try again."
       render :edit
     end
   end
-
-
 
   private
 
