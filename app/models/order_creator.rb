@@ -1,9 +1,18 @@
 class OrderCreator
 
   def initialize(session)
+    # byebug
     @session = session
     create_order
     create_order_tool
+    create_reservations
+  end
+
+  def create_reservations
+    # byebug
+    @session[:date].each do |tool_id, date_id|
+      reservation = Reservation.create(tool_id: tool_id, date_reserved_id: date_id, user_id: @session[:user_id])
+    end
   end
 
   def create_order

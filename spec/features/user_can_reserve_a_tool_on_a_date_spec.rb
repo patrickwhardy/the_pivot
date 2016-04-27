@@ -20,7 +20,9 @@ RSpec.feature "User can reserve a tool on a date" do
     select month, from: "reserve_date_date_2i"
     select day, from: "reserve_date_date_3i"
     click_on "Add to Cart"
+    # save_and_open_page
     click_on "Item"
+    # byebug
     click_on "Checkout"
     temp_date = DateReserved.last
 
@@ -38,7 +40,6 @@ RSpec.feature "User can reserve a tool on a date" do
     select month, from: "reserve_date_date_2i"
     select day, from: "reserve_date_date_3i"
     click_on "Add to Cart"
-    save_and_open_page
     expect(page).to have_content "Tool Unavailable"
 
     visit tool_path(tool2.id)
