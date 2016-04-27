@@ -7,11 +7,13 @@ RSpec.feature "Vistor can remove an item from the cart" do
 
     visit tools_path
     within(".#{saw.name}") do
-      click_on "Add to Cart"
+      click_on "#{saw.name}"
     end
+    click_on "Add to Cart"
     within(".#{screwdriver.name}") do
-      click_on "Add to Cart"
+      click_on "#{screwdriver.name}"
     end
+    click_on "Add to Cart"
     click_on "Item"
 
     within(".#{screwdriver.name}") do

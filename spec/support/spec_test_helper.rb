@@ -10,8 +10,9 @@ module SpecTestHelper
     num.times do |n|
       tool = @tools[n-1]
       within(".#{tool.name}") do
-        click_on "Add to Cart"
+        click_on "#{tool.name}"
       end
+      click_on "Add to Cart"
     end
   end
 
