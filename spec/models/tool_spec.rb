@@ -10,4 +10,6 @@ RSpec.describe Tool, type: :model do
     assert_equal false, tool2.out_of_stock?
   end
 
+  it { should have_many :reservations}
+
 end
