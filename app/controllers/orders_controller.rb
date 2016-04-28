@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # byebug
     @order_creator = OrderCreator.new(session)
     if @order_creator.save
       flash[:success] = "Order was successfully placed."

@@ -2,18 +2,21 @@
   <h2>Shopping Cart:</h2>
   <% @toolbag.each do |tool, quantity| %>
     <div class="row cart-row <%= tool.name %>">
-    <div class="col-md-3">
-      <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class: "cart-image") %>
+    <div class="col-md-3 col-xs-12 cart-image thumbnail">
+      <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class: "img-responsive") %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2 col-xs-12 ">
       <h4><%= tool.name %></h4>
       <%= tool.description %>
     </div>
-    <div class="col-md-2 cart-col">
+    <div class="col-md-2">
+      Reservation:<br><%= @reserved_dates[tool.id.to_s] %>
+    </div>
+    <div class="col-md-2 col-xs-12 cart-col">
       Price:<br>
       <%= number_to_currency(tool.price, :precision => 2) %>
     </div>
-    <div class="col-md-1 cart-col">
+    <div class="col-md-1 col-xs-3 cart-col">
       Quantity:
       <%= form_for :cart_tool, :html => {:method => :put} do |f| %>
       <%= f.number_field :quantity, value: quantity, min: 0 %>
@@ -21,10 +24,10 @@
       <%= f.submit "Update", class: "btn btn-xs q-butt btn-info pull-right" %>
       <% end %>
     </div>
-    <div class="col-md-1 cart-col">
+    <div class="col-md-1 col-xs-3 cart-col">
       Subtotal: <%= number_to_currency(@cart.subtotal(tool.id), :precision => 2) %>
     </div>
-    <div class="col-md-1 dele-col">
+    <div class="col-md-1 col-xs-3 dele-col">
       <span class="dele-col-sp"><%= link_to "Remove", cart_tool_path(tool.id), method: :delete, class: "btn btn-danger btn-xs" %></span>
   </div>
   </div>

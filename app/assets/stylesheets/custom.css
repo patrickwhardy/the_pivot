@@ -43,6 +43,12 @@
   background: #EAEAEA;
 }
 
+.cart-image {
+  height: 150px;
+  width: 300px;
+  overflow: hidden;
+}
+
 .tool-card-image {
   height: 200px;
   width: 400px;
@@ -104,8 +110,8 @@ input[type="number"] {
 
 .dele-col-sp {
    position: absolute;
-   top: 75px;
-   right: 35px;
+   top: 55px;
+   right: 25px;
 }
 
 .cart-col {
@@ -119,12 +125,6 @@ input[type="number"] {
     height: 200px;
     width: 400px;
 }*/
-
-.cart-image {
-  height: 100px;
-  width: 200px;
-  overflow: hidden;
-}
 
 /*
 img.cart-thumb {
