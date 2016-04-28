@@ -11,5 +11,4 @@ RSpec.describe Tool, type: :model do
   end
 
   it { should have_many :reservations}
-
 end
