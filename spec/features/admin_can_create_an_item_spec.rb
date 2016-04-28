@@ -4,17 +4,16 @@ RSpec.feature "Admin exists" do
   include SpecTestHelper
 
   scenario "logs in to create item" do
-
     admin = create(:user, role: 1)
     Category.create(name: "Hammer")
     login_user(admin)
 
     assert_equal admin_dashboard_path, current_path
-    
+
     click_on "Create New Tool"
-    
+
     assert_equal new_admin_tool_path, current_path
-    
+
     fill_in "Name", with: "Jackhammer"
     fill_in "Description", with: "Ipso quod quorum et"
     fill_in "Price", with: "20.00"
@@ -27,7 +26,6 @@ RSpec.feature "Admin exists" do
     assert_equal "Ipso quod quorum et", Tool.last.description
     assert_equal 20.00, Tool.last.price
     assert_equal "Image", Tool.last.image_path
-
   end
 
   scenario "tool created without image path autopopulates image_path column" do
@@ -43,12 +41,10 @@ RSpec.feature "Admin exists" do
     fill_in "Name", with: tool_name
     fill_in "Description", with: "Ipso quod quorum et"
     fill_in "Price", with: "20.00"
-    # No image path is specified
     select "Hammer", from: "tool_category_id"
 
     click_on "Create Tool"
     assert_equal "Jackhammer", Tool.last.name
     assert Tool.last.image_path.downcase.include?(tool_name.downcase)
   end
-
 end

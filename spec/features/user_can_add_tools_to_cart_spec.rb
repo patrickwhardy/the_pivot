@@ -17,17 +17,6 @@ RSpec.feature "Vistor can add tools to cart" do
   end
 
   scenario "visitor adds multiple tools to cart and views cart total" do
-    # drill = create(:tool, name: "Drill")
-    # chainsaw = create(:tool, name: "Chainsaw")
-    # total_price = drill.price + chainsaw.price
-    #
-    # visit tools_path
-    # within(".#{drill.name}") do
-    #   click_on "Add to Cart"
-    # end
-    # within(".#{chainsaw.name}") do
-    #   click_on "Add to Cart"
-    # end
     add_tools_to_cart(2)
     total_price = Tool.first.price + Tool.last.price
     click_on "Item"

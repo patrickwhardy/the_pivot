@@ -15,8 +15,8 @@ class Cart
   end
 
   def total
-    toolbag.inject(0) do |sum, (tool, qty)|   
-      sum += tool.price * qty   
+    toolbag.inject(0) do |sum, (tool, qty)|
+      sum += tool.price * qty
     end
   end
 
@@ -38,7 +38,6 @@ class Cart
     else
       @contents[new_data[:tool_id]] = new_data[:quantity].to_i
     end
-
   end
 
   def subtotal(tool_id)

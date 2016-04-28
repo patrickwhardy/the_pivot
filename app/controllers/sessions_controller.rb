@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       if @user.admin?
-        flash[:success] = "Admin Login successful. Please continue checking out."
+        flash[:success] = "Admin Login successful."
         redirect_to admin_dashboard_path
       elsif params[:user_action] == "checkout"
         flash[:success] = "Login successful. Please continue checking out."
