@@ -17,15 +17,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Account created. Welcome to ToolChest, #{@user.username.capitalize}"
+      flash[:success] = "Account created. Welcome to TinyStay, #{@user.username.capitalize}"
       if session[:cart]
         redirect_to cart_path
       else
         redirect_to dashboard_path(@user.id)
       end
     else
-      flash[:error] = "Username and password are required to create an account."
-      render :new
+      flash[:error] = @user.errors.full_messages.join(", ")
+      redirect_to request.referrer
     end
   end
 
@@ -51,6 +51,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :email, :first_name, :last_name)
   end
 end

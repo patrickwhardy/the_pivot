@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   post "/tools/:id", to: "cart_tools#create"
 
   resources :users, only: [:new, :index, :create, :edit, :update]
+
   get "/users/:id", to: "users#show", as: :dashboard
   delete "/users/logout", to: "sessions#destroy", as: :logout
-
   resources :cart_tools, only: [:create, :destroy]
   resource :cart, only: [:show, :update]
-  
+
   get "/:category_name", to: 'categories#view', as: :category_name
 end
