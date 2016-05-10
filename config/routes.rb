@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'tools#index'
 
-  namespace :admin do
+  namespace :user, path: ":path", as: :user do
     get "/dashboard", to: "users#show"
-    resources :tools, only: [:create, :new, :edit, :update, :index]
+    resources :homes, only: [:create, :new, :edit, :update, :index, :show]
   end
 
   get "/login", to: "sessions#new", as: :login

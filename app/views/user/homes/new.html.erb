@@ -1,0 +1,9 @@
+<h1>List a New Home</h1>
+
+<%= form_for [:user, @home] do |f|%>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= f.text_field :price_per_night, placeholder: "Price per night" %>
+  <%= f.text_field :address, placeholder: "Address" %>
+  <%= f.submit %>
+<% end %>
