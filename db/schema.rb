@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160510195108) do
   add_index "tools", ["category_id"], name: "index_tools_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
