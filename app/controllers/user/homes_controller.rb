@@ -1,6 +1,7 @@
 class User::HomesController < ApplicationController
   def new
     @home = Home.new
+    photo = @home.photos.build
   end
 
   def create
@@ -22,6 +23,6 @@ class User::HomesController < ApplicationController
   private
 
   def home_params
-    params.require(:home).permit(:name, :description, :price_per_night, :address)
+    params.require(:home).permit(:name, :description, :price_per_night, :address, photos_attributes: [:id, :image, :_destroy])
   end
 end
