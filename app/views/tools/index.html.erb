@@ -10,11 +10,6 @@
       <h4><%= link_to tool.name, tool_path(tool.id) %></h4>
       <p><%= tool.description %></p>
       <p><%= number_to_currency(tool.price, :precision => 2) %></p>
-      <div class="pull-right">
-      <% if tool.out_of_stock? %>
-        Out of Stock
-      <% end %>
-      </div>
     </div>
   </div>
   <% end %>
