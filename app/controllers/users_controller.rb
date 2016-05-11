@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      @user.slug = @user.username.parameterize
       flash[:success] = "Account created. Welcome to TinyStay, #{@user.username.capitalize}"
       if session[:cart]
         redirect_to cart_path
