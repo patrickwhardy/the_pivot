@@ -4,6 +4,6 @@ class Home < ActiveRecord::Base
   validates :price_per_night, presence: true
   validates :address,         presence: true
   belongs_to :user
-  has_many :photos, :dependent => :destroy
+  has_many :photos, :dependent => :destroy, inverse_of: :home
   accepts_nested_attributes_for :photos, :allow_destroy => true
 end
