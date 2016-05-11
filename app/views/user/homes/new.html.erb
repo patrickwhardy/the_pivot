@@ -1,5 +1,5 @@
-<div id="new-home"
-  <h1>List a New Home</h1>
+<div id="new-home">
+  <h1>Create a New Home</h1>
   <div class="container">
     <div class="jumbotron">
       <%= nested_form_for [:user, @home] do |f|%>
@@ -10,7 +10,7 @@
         <%= f.fields_for :photos %> <br>
         <%= f.link_to_remove "Remove this photo" %>
         <p><%= f.link_to_add "Add a photo", :photos %></p>
-        <%= f.submit, class: "btn btn-large btn-primary" %>
+        <%= f.submit "Create Home", class: "btn btn-large btn-primary" %>
       <% end %>
     </div>
   </div>

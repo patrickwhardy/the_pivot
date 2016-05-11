@@ -13,6 +13,7 @@ RSpec.feature "User can create a home" do
       attach_file "Image", "spec/asset_specs/photos/photo.jpeg"
       click_button "Create Home"
       expect(current_path).to eq(user_home_path(user, Home.last.id))
+      save_and_open_page
       expect(page).to have_content("Home successfully created.")
       expect(page).to have_content("My Home")
     end
