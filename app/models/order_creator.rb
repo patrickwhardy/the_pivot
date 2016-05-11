@@ -1,6 +1,7 @@
 class OrderCreator
 
   def initialize(session)
+    #reservation, reserved_date, order_reservations, orders
     @session = session
     create_order
     create_order_tool

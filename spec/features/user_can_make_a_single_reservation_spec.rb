@@ -1,3 +1,4 @@
+require "rails_helper"
 # As a logged-in user,
 # if I visit /a-specific-tiny-home,
 # I can select a checkin date,
@@ -39,14 +40,14 @@ RSpec.feature "User can make a single reservation" do
     click_on("Add to Cart")
     expect(current_path).to eq(user_home_path(home_owner.slug, home))
     expect(page).to have_content("You've added this reservation to your cart")
-    expect(page).to have_content("1 Reservation - $10000.00")
+    expect(page).to have_content("1 Reservation - $3,400.00")
 
-    click_on("1 Reservation - $10000.00")
+    click_on("1 Reservation - $3,400.00")
 
     expect(current_path).to eq(cart_path)
-    click_on("Checkout")
-
-    expect(current_path).to eq(user_dashboard_path(user.slug))
+    click_link("Checkout Now")
+save_and_open_page
+    expect(current_path).to eq(dashboard_path(user.slug))
     expect(page).to have_content(checkin_date)
     expect(page).to have_content(checkout_date)
     expect(page).to have_content(home.name)
