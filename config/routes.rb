@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'tools#index'
+  root to: 'homes#index'
 
   namespace :user, path: ":path", as: :user do
     resources :homes, only: [:create, :new, :edit, :update, :index, :show]
