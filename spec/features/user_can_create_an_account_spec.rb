@@ -9,6 +9,7 @@ RSpec.feature "User can create an account" do
       fill_in "Username", with: "username"
       fill_in "First name", with: "first name"
       fill_in "Last name", with: "last name"
+      attach_file "Avatar", "spec/asset_specs/photos/photo.jpeg"
       click_button "Create Account"
 
       expect(current_path).to eq(dashboard_path(User.last.id))
