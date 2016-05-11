@@ -1,13 +1,17 @@
-<h1>List a New Home</h1>
-
-<%= nested_form_for [:user, @home] do |f|%>
-  <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.text_field :description, placeholder: "Description" %>
-  <%= f.text_field :price_per_night, placeholder: "Price per night" %>
-  <%= f.text_field :address, placeholder: "Address" %>
-
-  <%= f.fields_for :photos %>
-  <%= f.link_to_remove "Remove this photo" %>
-  <p><%= f.link_to_add "Add a photo", :photos %></p>
-  <%= f.submit %>
-<% end %>
+<div id="new-home"
+  <h1>List a New Home</h1>
+  <div class="container">
+    <div class="jumbotron">
+      <%= nested_form_for [:user, @home] do |f|%>
+        <%= f.text_field :name, placeholder: "Name" %> <br>
+        <%= f.text_field :description, placeholder: "Description" %> <br>
+        <%= f.text_field :price_per_night, placeholder: "Price per night" %> <br>
+        <%= f.text_field :address, placeholder: "Address" %> <br>
+        <%= f.fields_for :photos %> <br>
+        <%= f.link_to_remove "Remove this photo" %>
+        <p><%= f.link_to_add "Add a photo", :photos %></p>
+        <%= f.submit, class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
