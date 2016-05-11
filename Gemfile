@@ -35,6 +35,10 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "faker"
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
+gem 'figaro'
+gem 'nested_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

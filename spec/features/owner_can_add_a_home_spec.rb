@@ -10,6 +10,7 @@ RSpec.feature "User can create a home" do
       fill_in "Description", with: "My Description"
       fill_in "Price per night", with: "100"
       fill_in "Address", with: "My Address"
+      attach_file "Image", "spec/asset_specs/photos/photo.jpeg"
       click_button "Create Home"
       expect(current_path).to eq(user_home_path(user, Home.last.id))
       expect(page).to have_content("Home successfully created.")

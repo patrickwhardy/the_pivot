@@ -4,5 +4,8 @@ FactoryGirl.define do
     description "MyString"
     price_per_night "MyString"
     address "MyString"
+    after(:create) do |home|
+      home.photos << create(:photo)
+    end
   end
 end
