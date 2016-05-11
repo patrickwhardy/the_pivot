@@ -9,7 +9,7 @@ class User::HomesController < ApplicationController
     @home = @user.homes.new(home_params)
     if @home.save
       flash[:notice] = "Home successfully created."
-      redirect_to user_home_path(@user, @home)
+      redirect_to user_home_path(@user.slug, @home)
     else
       flash[:error] = @home.errors.full_messages.join(", ")
       redirect_to request.referrer
@@ -17,7 +17,12 @@ class User::HomesController < ApplicationController
   end
 
   def show
-    @home = Home.find(params[:id])
+    @user = User.find_by(slug: params[:path])
+    if @user.nil?
+      redirect_to root_path
+    else
+      @home = @user.homes.find(params[:id])
+    end
   end
 
   private

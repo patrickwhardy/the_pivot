@@ -7,5 +7,6 @@ FactoryGirl.define do
     after(:create) do |home|
       home.photos << create(:photo)
     end
+    user
   end
 end

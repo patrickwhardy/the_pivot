@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'tools#index'
+  root to: 'homes#index'
 
   namespace :user, path: ":path", as: :user do
-    get "/dashboard", to: "users#show"
     resources :homes, only: [:create, :new, :edit, :update, :index, :show]
   end
 
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create, :edit, :update]
 
-  get "/users/:id", to: "users#show", as: :dashboard
+  get "/:user/dashboard", to: "users#show", as: :dashboard
   delete "/users/logout", to: "sessions#destroy", as: :logout
   resources :cart_tools, only: [:create, :destroy]
   resource :cart, only: [:show, :update]
