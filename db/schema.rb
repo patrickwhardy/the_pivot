@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 20160511040243) do
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "home_id"
+  end
+
+  add_index "photos", ["home_id"], name: "index_photos_on_home_id", using: :btree
+
   create_table "reservations", force: :cascade do |t|
     t.integer  "tool_id"
     t.integer  "date_reserved_id"
@@ -88,20 +100,25 @@ ActiveRecord::Schema.define(version: 20160511040243) do
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "role",            default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "role",                default: 0
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "description"
     t.string   "username"
     t.string   "slug"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_foreign_key "order_tools", "orders"
   add_foreign_key "order_tools", "tools"
   add_foreign_key "orders", "users"
+  add_foreign_key "photos", "homes"
   add_foreign_key "reservations", "date_reserveds"
   add_foreign_key "reservations", "tools"
   add_foreign_key "reservations", "users"
