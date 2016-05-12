@@ -20,11 +20,11 @@ class SessionsController < ApplicationController
         flash[:success] = "Login successful. Please continue checking out."
         redirect_to cart_path
       else
-        flash[:success] = "Login successful. Welcome to ToolChest, #{@user.username.capitalize}"
+        flash[:success] = "Login successful. Welcome to Tiny Stay, #{@user.username.capitalize}"
         if env["PATH_INFO"] == "/cart/login"
           redirect_to cart_path
         else
-          redirect_to dashboard_path(@user.id)
+          redirect_to dashboard_path(@user.slug)
         end
       end
     else

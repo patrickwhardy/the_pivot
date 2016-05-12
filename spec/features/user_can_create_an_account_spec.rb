@@ -12,7 +12,7 @@ RSpec.feature "User can create an account" do
       attach_file "Avatar", "spec/asset_specs/photos/photo.jpeg"
       click_button "Create Account"
 
-      expect(current_path).to eq(dashboard_path(User.last.id))
+      expect(current_path).to eq('/username/dashboard')
       expect(page).to have_content("Welcome, first name")
     end
   end
