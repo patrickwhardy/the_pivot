@@ -9,7 +9,7 @@ RSpec.feature "search by zip" do
     end
 
     num_relevant.times do |n|
-      create(:home, name: "relevant home #{n}", description: "asdf 80212 asdf")
+      create(:home, name: "relevant home #{n}", address: "asdf 80212 asdf")
     end
 
     visit root_path

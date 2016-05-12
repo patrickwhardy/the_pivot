@@ -231,3 +231,8 @@ background: #F6F6F6;
   /*position: relative;*/
   margin: 0 auto;
 }
+
+.card-image img {
+  max-height: 180px;
+  max-width: 318px;
+}

@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show]
 
-  resources :tools, only: [:index, :show]
-  # post "/tools/:id", to: "cart_tools#create"
   post ":user/homes/:id", to: "cart_homes#create"
 
   resources :users, only: [:new, :index, :create, :edit, :update]
