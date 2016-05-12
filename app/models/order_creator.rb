@@ -1,33 +1,36 @@
 class OrderCreator
 
-  def initialize(session)
-    #reservation, reserved_date, order_reservations, orders
-    @session = session
-    create_order
-    create_order_tool
-  end
-
-  def create_reservations
-    @session[:date].each do |tool_id, date_id|
-      reservation = Reservation.create(tool_id: tool_id, date_reserved_id: date_id, user_id: @session[:user_id])
-    end
+  def initialize(cart, user)
+    @cart = cart
+    @user = user
+    @order = create_order
+    create_reservations
+    # @cart.each do |reservation|
+    #   order.reservations << Reservation.create()
   end
 
   def create_order
-    cart = Cart.new(@session[:cart])
-    @order = Order.new(user_id: @session[:user_id], total: cart.total, quantity: cart.quantity, status: "Ordered")
-  end
-
-  def create_order_tool
-    @order_tools = @session[:cart].map do |tool_id, quantity|
-      OrderTool.new(tool_id: tool_id, quantity: quantity)
-    end
+    Order.new(user: @user, total: @cart.total)
   end
 
   def save
-    if @order.save
-      @order_tools.each { |order_tool| order_tool.update_attributes(order_id: @order.id) }
-      create_reservations
+    @order.save
+  end
+
+  def create_reservations
+    @cart.contents.each do |reservation|
+      new_reservation = Reservation.new(
+        home_id: reservation["home"],
+        checkin: reservation["checkin"],
+        checkout: reservation["checkout"]
+      )
+      checkin_date = Date.parse(reservation["checkin"])
+      checkout_date = Date.parse(reservation["checkout"]) - 1
+      (checkin_date..checkout_date).each do |date|
+        new_reservation.reservation_nights << ReservationNight.new(night: date)
+      end
+
+      @order.reservations << new_reservation
     end
   end
 end

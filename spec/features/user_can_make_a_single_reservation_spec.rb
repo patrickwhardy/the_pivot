@@ -46,7 +46,7 @@ RSpec.feature "User can make a single reservation" do
 
     expect(current_path).to eq(cart_path)
     click_link("Checkout Now")
-save_and_open_page
+
     expect(current_path).to eq(dashboard_path(user.slug))
     expect(page).to have_content(checkin_date)
     expect(page).to have_content(checkout_date)

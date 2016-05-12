@@ -1,5 +1,4 @@
 class Reservation < ActiveRecord::Base
-  belongs_to :tool
-  belongs_to :date_reserved
-  belongs_to :user
+  has_many :reservation_nights
+  belongs_to :home
 end

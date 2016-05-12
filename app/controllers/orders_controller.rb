@@ -15,12 +15,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order_creator = OrderCreator.new(session)
+    @order_creator = OrderCreator.new(@cart, current_user)
     if @order_creator.save
       flash[:success] = "Order was successfully placed."
       @cart.clear_contents
       session[:cart] = @cart.contents
-      redirect_to orders_path
+      redirect_to dashboard_path(current_user.slug)
     else
       flash[:error] = "Something went wrong. Please try again."
       redirect_to cart_path
