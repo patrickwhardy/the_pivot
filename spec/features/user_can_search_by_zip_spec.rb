@@ -16,9 +16,9 @@ RSpec.feature "search by zip" do
     page.fill_in "home_description", with: "80212"
     click_on "Search"
 
+    expect(page).to have_content("relevant home 0")
     expect(page).to have_content("relevant home 1")
-    expect(page).to have_content("relevant home 1")
-    expect(page).to have_content("relevant home 1")
+    expect(page).to have_content("relevant home 2")
     expect(page).to have_no_content("filler")
   end
 end
