@@ -1,6 +1,6 @@
 <div class="container new-form">
   <h1><%= @home.name %></h1>
-  <img src="<%= @home.photos.first %>" height="300" width="500">
+  <img src="<%= @home.photos.first.image.url %>" height="300" width="500">
   <p><b>Description: </b><%= @home.description %></p>
 
   <h5>Price per night: <%= @home.price_per_night %></h5>
