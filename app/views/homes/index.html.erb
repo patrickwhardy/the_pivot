@@ -1,5 +1,14 @@
-<% @homes.each do |home| %>
-<ul>
-  <li><%= home.name %></li>
-</ul>
+
+<div class="container">
+  <% @homes.each do |home| %>
+    <div class="col-md-4">
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= home.name %></h4>
+    <p class="card-text"><%= home.description %></p>
+    <%= link_to "Reserve Now", user_home_path(home.user.slug, home), class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
 <% end %>
+</div>

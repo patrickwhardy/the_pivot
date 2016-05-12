@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   def index
     if params["commit"] == "Search"
-      @homes = Home.where("description LIKE ?", "%#{params[:home][:address]}%").all
+      @homes = Home.where("address LIKE ?", "%#{params[:home][:address]}%").all
     else
       @homes = Home.all
     end
