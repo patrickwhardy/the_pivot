@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homes#index'
+  post "/", to: "homes#index"
 
   namespace :user, path: ":path", as: :user do
     resources :homes, only: [:create, :new, :edit, :update, :index, :show]
@@ -22,5 +23,6 @@ Rails.application.routes.draw do
   resources :cart_tools, only: [:create, :destroy]
   resource :cart, only: [:show, :update]
 
+  get "/search", to: "homes#search", as: :search
   get "/:category_name", to: 'categories#view', as: :category_name
 end
