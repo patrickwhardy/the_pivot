@@ -1,0 +1,9 @@
+<h1>Home Search Page</h1>
+
+<div>
+  <%= form_for(@home, url: root_path) do |f| %>
+  <%= f.label "Zip" %>
+  <%= f.text_field "description" %>
+  <%= f.submit "Search" %>
+  <% end %>
+</div>
