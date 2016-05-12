@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
         if env["PATH_INFO"] == "/cart/login"
           redirect_to cart_path
         else
-          redirect_to dashboard_path(@user.id)
+          redirect_to dashboard_path(@user.slug)
         end
       end
     else
