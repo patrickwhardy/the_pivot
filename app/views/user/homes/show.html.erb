@@ -1,12 +1,13 @@
-<h1><%= @home.name %></h1>
-<p>
-  <%= @home.description %>
-</p>
+<div class="container new-form">
+  <h1><%= @home.name %></h1>
+  <img src="<%= @home.photos.first %>" height="300" width="500">
+  <p><b>Description: </b><%= @home.description %></p>
 
-<h1><%= @home.price_per_night %></h1>
+  <h5>Price per night: <%= @home.price_per_night %></h5>
 
-<%= form_for :date do |f| %>
-  <%= date_select('checkin_date', 'date') %>
-  <%= date_select('checkout_date', 'date') %>
-  <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
-<% end %>
+  <%= form_for :date do |f| %>
+    <%= date_select('checkin_date', 'date') %>
+    <%= date_select('checkout_date', 'date') %>
+    <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
+  <% end %>
+</div>

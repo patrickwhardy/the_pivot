@@ -13,6 +13,7 @@ RSpec.feature "User can create an account" do
       click_button "Create Account"
 
       expect(current_path).to eq(dashboard_path(User.last.id))
+      save_and_open_page
       expect(page).to have_content("Welcome, first name")
     end
   end

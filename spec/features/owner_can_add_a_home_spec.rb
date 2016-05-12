@@ -17,7 +17,6 @@ RSpec.feature "User can create a home" do
       expect(page).to have_content("My Home")
     end
   end
-
   context "with invalid home information" do
     it "redirects back to home creation page" do
       user = create(:user)
