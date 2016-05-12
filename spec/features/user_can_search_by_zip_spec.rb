@@ -19,7 +19,6 @@ RSpec.feature "search by zip" do
     click_on "Search"
 
     expect(current_path).to eq(root_path)
-    save_and_open_page
     expect(page).to have_content("relevant home 0")
     expect(page).to have_content("relevant home 1")
     expect(page).to have_content("relevant home 2")
