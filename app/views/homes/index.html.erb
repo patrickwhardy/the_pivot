@@ -6,7 +6,7 @@
   <div class="card-block">
     <h4 class="card-title"><%= home.name %></h4>
     <p class="card-text"><%= home.description %></p>
-    <%= link_to "Reserve Now", user_home_path(home.user, home), class: "btn btn-primary" %>
+    <%= link_to "Reserve Now", user_home_path(home.user.slug, home), class: "btn btn-primary" %>
   </div>
 </div>
 </div>
