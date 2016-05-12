@@ -1,0 +1,43 @@
+# As a logged-in owner,
+# I can visit my user dashboard,
+# there is a button "add a tiny home",
+# there is a button to "view all my homes",
+# and then I can see upcoming and past reservations for all my homes.
+require "rails_helper"
+
+RSpec.feature "User sees reservation tables on dashboard" do
+  it "user with reservations" do
+    order = create(:order)
+    user = order.user
+    home = create(:home)
+
+    order.reservations << Reservation.new(
+          checkin: Date.parse("2017-05-22"),
+          checkout: Date.parse("2017-05-25"),
+          home: home
+    )
+
+    order.reservations << Reservation.new(
+          checkin: Date.parse("2015-05-22"),
+          checkout: Date.parse("2015-05-25"),
+          home: home
+    )
+
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+    visit dashboard_path(user)
+
+    within ".upcoming-reservations" do
+      expect(page).to have_content(order.reservations.first.checkin)
+      expect(page).to have_content(order.reservations.first.checkout)
+      expect(page).not_to have_content(order.reservations.last.checkin)
+      expect(page).not_to have_content(order.reservations.last.checkout)
+    end
+
+    within ".past-reservations" do
+      expect(page).to have_content(order.reservations.last.checkin)
+      expect(page).to have_content(order.reservations.last.checkout)
+      expect(page).not_to have_content(order.reservations.first.checkin)
+      expect(page).not_to have_content(order.reservations.first.checkout)
+    end
+  end
+end

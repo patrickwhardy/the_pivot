@@ -2,7 +2,7 @@
 	<h1>Welcome, <%= @user.first_name %></h1><br>
 </div>
 <div class="container">
-	<table class="table">
+	<table class="table upcoming-reservations">
 		<thread>
 			<th>Home Name</th>
 			<th>Address</th>
@@ -10,7 +10,24 @@
 			<th>Check Out</th>
 		</thread>
 		<tbody>
-			<% @user.reservations.each do |reservation| %>
+			<% @user.upcoming_reservations.each do |reservation| %>
+			<td><%= reservation.home.name %></td>
+			<td><%= reservation.home.address %></td>
+			<td><%= reservation.checkin %></td>
+			<td><%= reservation.checkout %></td>
+			<% end %>
+		</tbody>
+	</table>
+
+	<table class="table past-reservations">
+		<thread>
+			<th>Home Name</th>
+			<th>Address</th>
+			<th>Check In</th>
+			<th>Check Out</th>
+		</thread>
+		<tbody>
+			<% @user.past_reservations.each do |reservation| %>
 			<td><%= reservation.home.name %></td>
 			<td><%= reservation.home.address %></td>
 			<td><%= reservation.checkin %></td>
