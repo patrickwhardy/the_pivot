@@ -50,6 +50,7 @@ group :development, :test do
   gem 'mocha'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '3.0.1'
+  gem 'simplecov', :require => false
 end
 
 group :development do

@@ -4,6 +4,14 @@
 			<div class="navbar-brand"> <%= link_to "Tiny Stay", root_path %> </div>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
+		  <li class="active">
+		    <div>
+		      <%= form_for(Home.new, url: root_path) do |f| %>
+		      <%= f.text_field "address", placeholder: "City, State, or Zip" %>
+		      <%= f.submit "Search" %>
+		      <% end %>
+		    </div>
+		  </li>
 		<li class="active">
 		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= pluralize(@cart.quantity, "Reservation") %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
 		</li>
