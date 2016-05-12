@@ -1,4 +1,3 @@
-<div class="new-user">
   <div class="container new-form">
     <h1>Create an Account</h1>
   <%= form_for @user do |f| %><br>
@@ -17,11 +16,10 @@
     <div class="form-group">
       <%= f.text_field :last_name, placeholder: "Last name" %>
     </div>
-    <div class="form-group">
+    <div class="fild-field">
       <%= f.label :avatar %>
       <%= f.file_field :avatar, placeholder: "Avatar" %>
     </div>
     <%= f.submit "Create Account" %>
   <% end %>
-</div>
 </div>

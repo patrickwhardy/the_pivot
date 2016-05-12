@@ -226,3 +226,8 @@ background: #F6F6F6;
   border-radius: 15px;
   text-align: center;
 }
+
+.file-field {
+  /*position: relative;*/
+  margin: 0 auto;
+}
