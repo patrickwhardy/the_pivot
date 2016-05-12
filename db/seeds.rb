@@ -5,21 +5,25 @@ class Seed
   end
 
   def create_users
-    User.create(
+    user = User.new(
       email: "josh@turing.io",
       password: "password",
       username: "josh@turing.io",
       first_name: "josh",
       last_name: "mejia"
     )
-    User.create(
+    user.slug = user.username.parameterize
+    puts user.save
+    User.new(
       email: "andrew@turing.io",
       password: "password",
       username: "andrew@turing.io",
       first_name: "andrew",
       last_name: "carmer"
     )
-    User.create(
+    user.slug = user.username.parameterize
+    puts user.save
+    User.new(
       email: "jorge@turing.io",
       password: "password",
       username: "jorge@turing.io",
@@ -27,14 +31,18 @@ class Seed
       last_name: "jorge",
       role: 1
     )
+    user.slug = user.username.parameterize
+    puts user.save
     100.times do |n|
-      user = User.create(
+      user = User.new(
         email: Faker::Internet.email,
         password: "password",
         username: Faker::Internet.user_name,
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
       )
+      user.slug = user.username.parameterize
+      puts user.save
       10.times do |n|
         order = Order.new(
           total: Faker::Number.number(4),
@@ -70,6 +78,7 @@ class Seed
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name
       )
+      user.slug = user.username.parameterize
       50.times do |n|
         home = Home.new(
           name: Faker::Hipster.words(3).join(" "),
