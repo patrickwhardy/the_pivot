@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   def index
-    if request.referrer == "http://www.example.com/search"
-      @homes = Home.where("description LIKE ?", "%#{params[:home][:description]}%").all
+    if params["commit"] == "Search"
+      @homes = Home.where("description LIKE ?", "%#{params[:home][:address]}%").all
     else
       @homes = Home.all
     end

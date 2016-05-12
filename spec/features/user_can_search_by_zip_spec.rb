@@ -12,10 +12,14 @@ RSpec.feature "search by zip" do
       create(:home, name: "relevant home #{n}", description: "asdf 80212 asdf")
     end
 
-    visit search_path
-    page.fill_in "home_description", with: "80212"
+    visit root_path
+    within ".navbar" do
+      page.fill_in "home_address", with: "80212"
+    end
     click_on "Search"
 
+    expect(current_path).to eq(root_path)
+    save_and_open_page
     expect(page).to have_content("relevant home 0")
     expect(page).to have_content("relevant home 1")
     expect(page).to have_content("relevant home 2")
