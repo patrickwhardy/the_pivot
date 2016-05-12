@@ -35,6 +35,20 @@ class Seed
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
       )
+      10.times do |n|
+        order = Order.new(
+          total: Faker::Number.number(4),
+          user: user
+        )
+        reservation = Reservation.new(
+          home_id: rand(1..1000),
+          checkin: Faker::Date.forward(23),
+          checkout: Faker::Date.forward(23)
+        )
+        order.reservations << reservation
+        puts order.save
+        puts order.errors.full_messages
+      end
     end
   end
 
@@ -67,10 +81,22 @@ class Seed
         user.homes << home
       end
       puts user.save
+      10.times do |n|
+        order = Order.new(
+          total: Faker::Number.number(4),
+          user: user
+        )
+        reservation = Reservation.new(
+          home_id: rand(1..1000),
+          checkin: Faker::Date.forward(23),
+          checkout: Faker::Date.forward(23)
+        )
+        order.reservations << reservation
+        puts order.save
+        puts order.errors.full_messages
+      end
     end
   end
 end
 
 Seed.new
-
-# 10 orders per registered customer
