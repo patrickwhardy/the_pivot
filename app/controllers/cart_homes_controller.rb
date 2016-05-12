@@ -1,10 +1,13 @@
 class CartHomesController < ApplicationController
   def create
-      @cart.add_home(params[:id], params[:checkin_date], params[:checkout_date] )
+    reserved_dates = @cart.add_home(params[:id], params[:checkin_date], params[:checkout_date])
+    if reserved_dates == []
       session[:cart] = @cart.contents
-      # session[:date] = {"#{@tool.id}" => date.id}
       flash[:success] = "You've added this reservation to your cart"
-      redirect_to request.referrer
+    else
+      flash[:error] = "This home is already reserved on #{reserved_dates.join(", ")}"
+    end
+    redirect_to request.referrer
   end
 
   def destroy
