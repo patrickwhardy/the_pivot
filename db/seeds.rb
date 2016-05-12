@@ -95,10 +95,12 @@ class Seed
           total: Faker::Number.number(4),
           user: user
         )
+        checkin = Faker::Date.forward(23)
+        checkout = checkin + rand(1..10)
         reservation = Reservation.new(
           home_id: rand(1..1000),
-          checkin: Faker::Date.forward(23),
-          checkout: Faker::Date.forward(23)
+          checkin: checkin,
+          checkout: checkout
         )
         order.reservations << reservation
         puts order.save
