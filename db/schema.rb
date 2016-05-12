@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511040243) do
+ActiveRecord::Schema.define(version: 20160511234251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,17 +73,24 @@ ActiveRecord::Schema.define(version: 20160511040243) do
 
   add_index "photos", ["home_id"], name: "index_photos_on_home_id", using: :btree
 
-  create_table "reservations", force: :cascade do |t|
-    t.integer  "tool_id"
-    t.integer  "date_reserved_id"
-    t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+  create_table "reservation_nights", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.date    "night"
   end
 
-  add_index "reservations", ["date_reserved_id"], name: "index_reservations_on_date_reserved_id", using: :btree
-  add_index "reservations", ["tool_id"], name: "index_reservations_on_tool_id", using: :btree
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+  add_index "reservation_nights", ["reservation_id"], name: "index_reservation_nights_on_reservation_id", using: :btree
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "home_id"
+    t.date     "checkin"
+    t.date     "checkout"
+    t.integer  "order_id"
+  end
+
+  add_index "reservations", ["home_id"], name: "index_reservations_on_home_id", using: :btree
+  add_index "reservations", ["order_id"], name: "index_reservations_on_order_id", using: :btree
 
   create_table "tools", force: :cascade do |t|
     t.string   "name"
@@ -119,8 +126,7 @@ ActiveRecord::Schema.define(version: 20160511040243) do
   add_foreign_key "order_tools", "tools"
   add_foreign_key "orders", "users"
   add_foreign_key "photos", "homes"
-  add_foreign_key "reservations", "date_reserveds"
-  add_foreign_key "reservations", "tools"
-  add_foreign_key "reservations", "users"
+  add_foreign_key "reservation_nights", "reservations"
+  add_foreign_key "reservations", "orders"
   add_foreign_key "tools", "categories"
 end

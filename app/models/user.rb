@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :homes
+  has_many :orders
+  has_many :reservations, through: :orders
   validates :email,      presence: true, uniqueness: true
   validates :username,   presence: true, uniqueness: true
   validates :first_name, presence: true

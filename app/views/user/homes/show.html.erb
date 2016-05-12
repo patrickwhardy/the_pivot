@@ -4,3 +4,9 @@
 </p>
 
 <h1><%= @home.price_per_night %></h1>
+
+<%= form_for :date do |f| %>
+  <%= date_select('checkin_date', 'date') %>
+  <%= date_select('checkout_date', 'date') %>
+  <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
+<% end %>

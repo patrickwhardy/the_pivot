@@ -1,3 +1,12 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
 	<h1>Welcome, <%= @user.first_name %></h1>
+	<p>
+		<% if @user.reservations %>
+			<% @user.reservations.each do |reservation| %>
+			<%= reservation.checkin %>
+			<%= reservation.checkout %>
+			<%= reservation.home.name %>
+			<% end %>
+		<% end %>
+	</p>
 </div>
