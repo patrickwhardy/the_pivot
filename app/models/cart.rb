@@ -12,6 +12,8 @@ class Cart
     @contents << { home: home_id, checkin: checkin_date, checkout: checkout_date, total_days: total_days }
   end
 
+
+
   def get_homes
     @cart_homes ||= @contents.each { |reservation| reservation["home"] = Home.find(reservation["home"]) }
   end
