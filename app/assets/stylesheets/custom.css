@@ -13,15 +13,11 @@
   color: white;
 }
 
-/*.jumbo-text:hover:after{
-  content: 'Rent Only the Tools You Need';
-}*/
-
 .jumbo-p {
   color: white;
 }
 
- #jumbo-hover { 
+ #jumbo-hover {
   position: relative;
   z-index: 100;
   padding: 95px;
@@ -79,14 +75,14 @@
 }
 
 input[type="number"] {
-      font-size:   80%; 
+      font-size:   80%;
       padding:     0px;
       padding-left: 5px;
       width: 40px;
       height: 22px;
       margin-top: 5px;
       margin-bottom: 10px;
-} 
+}
 
 .navbar-default .navbar-brand a {
     color: #0C4659;
@@ -117,22 +113,6 @@ input[type="number"] {
 .cart-col {
   text-align: right;
 }
-
-/*.tool-thumb {
-    max-width: 100%;
-    display: block;
-    max-height:30%;
-    height: 200px;
-    width: 400px;
-}*/
-
-/*
-img.cart-thumb {
-  height: 100px;
-  width: 200px; 
-  text-align: right;
-  margin-right: 10px;
-}*/
 
 .cart-row {
   border-top-width: 2px;
@@ -190,7 +170,7 @@ background: #F6F6F6;
   background-image: -o-linear-gradient(top, #179f98, #179f98);
   background-image: linear-gradient(#179f98, #179f98);
   border-color: #179f98 #179f98 hsl(177, 74%, 36%);
-  color: #fff !important;  
+  color: #fff !important;
   font-weight: bold !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
@@ -235,8 +215,19 @@ background: #F6F6F6;
   background-image: -o-linear-gradient(top, #179f98, #179f98);
   background-image: linear-gradient(#179f98, #179f98);
   border-color: #179f98 #179f98 hsl(177, 74%, 36%);
-  color: #fff !important;  
+  color: #fff !important;
   font-weight: bold !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
+}
+
+.new-form {
+  background-color: #B8B8B8;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.file-field {
+  /*position: relative;*/
+  margin: 0 auto;
 }
