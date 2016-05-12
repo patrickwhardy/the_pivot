@@ -1,0 +1,14 @@
+<div class="container">
+  <% @homes.each do |home| %>
+    <div class="col-md-4">
+<div class="card">
+  <img class="card-img-top card-img" src="<%= home.photos.last.image.url %>">
+  <div class="card-block">
+    <h4 class="card-title"><%= home.name %></h4>
+    <p class="card-text"><%= home.description %></p>
+    <%= link_to "Reserve Now", user_home_path(home.user, home), class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
+<% end %>
+</div>

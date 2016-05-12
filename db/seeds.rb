@@ -61,15 +61,19 @@ class Seed
   end
 
   def create_homes
-    photo1 = Photo.new(
+    photo1 = Photo.create(
       image: File.open(File.join(Rails.root, '/public/photos/tinyhome1.jpg'))
     )
-    photo2 = Photo.new(
+    photo2 = Photo.create(
       image: File.open(File.join(Rails.root, '/public/photos/tinyhome2.jpg'))
     )
-    photo3 = Photo.new(
+    photo3 = Photo.create(
       image: File.open(File.join(Rails.root, '/public/photos/tinyhome3.jpg'))
     )
+    photo1 = Photo.find(1)
+    photo2 = Photo.find(2)
+    photo3 = Photo.find(3)
+
     20.times do |n|
       user = User.new(
         email: Faker::Internet.email,
