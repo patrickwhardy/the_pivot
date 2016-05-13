@@ -34,7 +34,19 @@ RSpec.feature "Admin can view all homes" do
       expect(page).to have_content("Edit")
       expect(page).to have_content("Suspend")
       expect(page).to have_content("Delete")
-    end
-    
+    end    
+  end
+
+  scenario "regular user is logged in" do
+    admin_user = create(:user, first_name: "admin")
+    admin_role = create(:role, role: "admin")
+    UserRole.create(user: admin_user, role: admin_role)
+    regular_user = create(:user, first_name: "regular")
+    regular_role = create(:role, role: "user")
+    UserRole.create(user: regular_user, role: regular_role)
+    ApplicationController.any_instance.stubs(:current_user).returns(regular_user)
+
+    visit admin_homes_path
+    expect(page).to have_content("404")
   end
 end
