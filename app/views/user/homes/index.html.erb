@@ -1,6 +1,6 @@
 <h1>Homes for <%= @user.username %></h1>
 <div class="container">
-  <% @homes.each do |home| %>
+  <% @user.homes.each do |home| %>
     <div class="col-md-4">
 <div class="card">
   <div class="card-block">

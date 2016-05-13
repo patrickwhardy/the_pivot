@@ -6,7 +6,6 @@ class User::HomesController < ApplicationController
 
   def index
     @user = User.find_by(slug: params[:path])
-    @homes = @user.homes
   end
 
   def edit
