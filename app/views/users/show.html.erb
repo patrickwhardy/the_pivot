@@ -1,6 +1,7 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
 	<h1>Welcome, <%= @user.first_name %>
-	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div></h1>
+	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
+	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
 </div>
 
 <div class="container">
