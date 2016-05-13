@@ -39,6 +39,9 @@ RSpec.feature "User sees reservation tables on dashboard" do
       expect(page).not_to have_content(order.reservations.first.checkin)
       expect(page).not_to have_content(order.reservations.first.checkout)
     end
+
+    click_on("Add a Home")
+    expect(current_path).to eq(new_user_home_path(user.slug))
   end
 
   it "shows owner their home's reservations" do
