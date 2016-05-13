@@ -2,21 +2,13 @@ require "rails_helper"
 
 RSpec.feature "Admin can view all homes" do
   scenario "admin is logged in" do
-    # As a logged-in admin,
-# when I am on my dashboard,
-# and I click on "view all homes,"
-# I can see a page that lists all the homes for all owners,
-# and for each  home,
-# see a link to edit that home,
-# see a link to suspend that home,
-    # and see a link to delete that home.
     admin_user = create(:user)
     admin_role = create(:role, role: "admin")
     UserRole.create(user: admin_user, role: admin_role)
     ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
     home_one = create(:home, name: "home 1")
     home_two = create(:home, name: "home 2")
-    
+
     visit dashboard_path(admin_user.slug)
     click_on "View All Homes"
 
@@ -34,7 +26,7 @@ RSpec.feature "Admin can view all homes" do
       expect(page).to have_content("Edit")
       expect(page).to have_content("Suspend")
       expect(page).to have_content("Delete")
-    end    
+    end
   end
 
   scenario "regular user is logged in" do

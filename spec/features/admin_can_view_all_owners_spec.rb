@@ -2,16 +2,6 @@ require "rails_helper"
 
 RSpec.feature "Admin is logged in" do
   scenario "goes to view all owners" do
-# As a logged-in admin,
-# when I am on my dashboard,
-# and I click on "view all owners,"
-# I can see a page that lists all the owners,
-# and for each owner,
-# I can see a link to that owner's show page,
-# see a link to that owner's dashboard,
-# see a link to edit that owner,
-# see a link to suspend that owner,
-# and see a link to delete that owner.
     admin_user = create(:user)
     admin_role = create(:role, role: "admin")
     UserRole.create(user: admin_user, role: admin_role)
@@ -20,7 +10,7 @@ RSpec.feature "Admin is logged in" do
     home_two = create(:home, name: "home 2")
     home_three = create(:home, name: "home 3", user: home_one.user)
     homeless_user = create(:user)
-    
+
     visit dashboard_path(admin_user.slug)
     click_on "View All Owners"
 
