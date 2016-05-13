@@ -47,7 +47,7 @@ class UsersController < ApplicationController
         redirect_to dashboard_path(@user.slug)
       end
     else
-      flash[:error] = "An error occurred. Please try again."
+      flash[:error] = @user.errors.full_messages.join(", ")
       render :edit
     end
   end
