@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_admin?
-      redirect_to admin_dashboard_path
-    elsif current_user
+    if current_user
       @user = current_user
     else
       redirect_to login_path

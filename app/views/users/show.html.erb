@@ -1,5 +1,9 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
-	<h1>Welcome, <%= @user.first_name %></h1><br>
+  <h1>Welcome, <%= @user.first_name %></h1><br>
+  <% if @user.admin? %>
+  <p>View All Owners</p>
+  <p>View All Homes</p>
+  <% end %>
 </div>
 <div class="container">
 	<table class="table">
