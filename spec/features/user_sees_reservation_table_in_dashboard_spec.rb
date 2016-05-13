@@ -13,6 +13,12 @@ RSpec.feature "User sees reservation tables on dashboard" do
     )
 
     order.reservations << Reservation.new(
+          checkin: Date.parse("2017-06-22"),
+          checkout: Date.parse("2017-06-25"),
+          home: home
+    )
+
+    order.reservations << Reservation.new(
           checkin: Date.parse("2015-05-22"),
           checkout: Date.parse("2015-05-25"),
           home: home
@@ -20,7 +26,7 @@ RSpec.feature "User sees reservation tables on dashboard" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit dashboard_path(user)
-
+save_and_open_page
     within ".upcoming-reservations" do
       expect(page).to have_content(order.reservations.first.checkin)
       expect(page).to have_content(order.reservations.first.checkout)

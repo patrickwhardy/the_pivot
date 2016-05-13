@@ -16,12 +16,12 @@
 		</thread>
 		<tbody>
 			<% @user.upcoming_reservations.each do |reservation| %>
-			<div class="row">
-				<td><%= reservation.home.name %></td>
-				<td><%= reservation.home.address %></td>
-				<td><%= reservation.checkin %></td>
-				<td><%= reservation.checkout %></td>
-			</div>
+				<tr>
+					<td><%= reservation.home.name %></td>
+					<td><%= reservation.home.address %></td>
+					<td><%= reservation.checkin %></td>
+					<td><%= reservation.checkout %></td>
+				</tr>
 			<% end %>
 		</tbody>
 	</table>
@@ -36,10 +36,12 @@
 		</thread>
 		<tbody>
 			<% @user.past_reservations.each do |reservation| %>
-			<td><%= reservation.home.name %></td>
-			<td><%= reservation.home.address %></td>
-			<td><%= reservation.checkin %></td>
-			<td><%= reservation.checkout %></td>
+				<tr>
+					<td><%= reservation.home.name %></td>
+					<td><%= reservation.home.address %></td>
+					<td><%= reservation.checkin %></td>
+					<td><%= reservation.checkout %></td>
+				</tr>
 			<% end %>
 		</tbody>
 	</table>
@@ -55,10 +57,12 @@
 		<tbody>
 			<% @user.homes.each do |home| %>
 				<% home.upcoming_reservations.each do |reservation| %>
-					<td><%= reservation.home.name %></td>
-					<td><%= reservation.home.address %></td>
-					<td><%= reservation.checkin %></td>
-					<td><%= reservation.checkout %></td>
+					<tr>
+						<td><%= reservation.home.name %></td>
+						<td><%= reservation.home.address %></td>
+						<td><%= reservation.checkin %></td>
+						<td><%= reservation.checkout %></td>
+					</tr>
 				<% end %>
 			<% end %>
 		</tbody>
@@ -75,10 +79,12 @@
 			<tbody>
 				<% @user.homes.each do |home| %>
 					<% home.past_reservations.each do |reservation| %>
-						<td><%= reservation.home.name %></td>
-						<td><%= reservation.home.address %></td>
-						<td><%= reservation.checkin %></td>
-						<td><%= reservation.checkout %></td>
+						<tr>
+							<td><%= reservation.home.name %></td>
+							<td><%= reservation.home.address %></td>
+							<td><%= reservation.checkin %></td>
+							<td><%= reservation.checkout %></td>
+						</tr>
 					<% end %>
 				<% end %>
 			</tbody>
