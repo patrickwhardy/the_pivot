@@ -26,6 +26,10 @@ class User::HomesController < ApplicationController
     end
   end
 
+  def index
+    @user = User.find_by(slug: params[:path])
+  end
+
   private
 
   def home_params
