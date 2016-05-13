@@ -1,11 +1,24 @@
-<h1>Edit User Page for <%= @user.username %></h1>
-
-<div class="new-user">
-  <%= form_for @user, method: :put do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Update My Account" %>
-  <% end %>
+<h1>Edit <%= @user.username %>'s Account</h1>
+<%= form_for @user, method: :patch do |f| %><br>
+  <div class="form-group">
+    <%= f.text_field :username, placeholder: "Username" %>
+  </div>
+  <div class="form-group">
+    <%= f.email_field :email, placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <%= f.password_field :password, placeholder: "Password" %>
+  <div><br>
+  <div class="form-group">
+    <%= f.text_field :first_name, placeholder: "First name" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :last_name, placeholder: "Last name" %>
+  </div>
+  <div class="fild-field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, placeholder: "Avatar" %>
+  </div>
+  <%= f.submit "Edit Account" %>
+<% end %>
 </div>
