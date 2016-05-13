@@ -6,6 +6,7 @@ RSpec.feature "Admin can see dashboard" do
 # when I view my dashboard,
 # I can see a button to "view all owners,"
 # I can see a button to "view all homes,"
+# and I can see a button to "view all pending requests."
     admin_user = create(:user)
     admin_role = create(:role, role: "admin")
     UserRole.create(user: admin_user, role: admin_role)
