@@ -1,9 +1,12 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
-	<h1>Welcome, <%= @user.first_name %></h1><br>
-	<%= link_to "Edit Account", edit_user_path(@user.slug) %>
+	<h1>Welcome, <%= @user.first_name %>
+	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
+	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
 </div>
+
 <div class="container">
-	<table class="table">
+	<h4>Upcoming Reservations: </h4>
+	<table class="table upcoming-reservations">
 		<thread>
 			<th>Home Name</th>
 			<th>Address</th>
@@ -11,7 +14,7 @@
 			<th>Check Out</th>
 		</thread>
 		<tbody>
-			<% @user.reservations.each do |reservation| %>
+			<% @user.upcoming_reservations.each do |reservation| %>
 			<td><%= reservation.home.name %></td>
 			<td><%= reservation.home.address %></td>
 			<td><%= reservation.checkin %></td>
@@ -19,4 +22,63 @@
 			<% end %>
 		</tbody>
 	</table>
+
+	<h4>Past Reservations: </h4>
+	<table class="table past-reservations">
+		<thread>
+			<th>Home Name</th>
+			<th>Address</th>
+			<th>Check In</th>
+			<th>Check Out</th>
+		</thread>
+		<tbody>
+			<% @user.past_reservations.each do |reservation| %>
+			<td><%= reservation.home.name %></td>
+			<td><%= reservation.home.address %></td>
+			<td><%= reservation.checkin %></td>
+			<td><%= reservation.checkout %></td>
+			<% end %>
+		</tbody>
+	</table>
+
+	<h4>Your Homes' Upcoming Reservations: </h4>
+	<table class="table homes-upcoming-reservations">
+		<thread>
+			<th>Home Name</th>
+			<th>Address</th>
+			<th>Check In</th>
+			<th>Check Out</th>
+		</thread>
+		<tbody>
+			<% @user.homes.each do |home| %>
+				<% home.upcoming_reservations.each do |reservation| %>
+					<td><%= reservation.home.name %></td>
+					<td><%= reservation.home.address %></td>
+					<td><%= reservation.checkin %></td>
+					<td><%= reservation.checkout %></td>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+
+	<h4>Your Homes' Past Reservations: </h4>
+	<table class="table homes-past-reservations">
+			<thread>
+				<th>Home Name</th>
+				<th>Address</th>
+				<th>Check In</th>
+				<th>Check Out</th>
+			</thread>
+			<tbody>
+				<% @user.homes.each do |home| %>
+					<% home.past_reservations.each do |reservation| %>
+						<td><%= reservation.home.name %></td>
+						<td><%= reservation.home.address %></td>
+						<td><%= reservation.checkin %></td>
+						<td><%= reservation.checkout %></td>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>

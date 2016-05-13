@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
   default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   enum role: %w(user admin)
+
+  def upcoming_reservations
+    self.reservations.where("checkout > ?", Date.today)
+  end
+
+  def past_reservations
+    self.reservations.where("checkout < ?", Date.today)
+  end
 end
