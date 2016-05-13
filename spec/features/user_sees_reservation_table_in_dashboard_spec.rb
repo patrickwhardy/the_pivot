@@ -26,7 +26,7 @@ RSpec.feature "User sees reservation tables on dashboard" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit dashboard_path(user)
-save_and_open_page
+
     within ".upcoming-reservations" do
       expect(page).to have_content(order.reservations.first.checkin)
       expect(page).to have_content(order.reservations.first.checkout)
@@ -40,6 +40,9 @@ save_and_open_page
       expect(page).not_to have_content(order.reservations.first.checkin)
       expect(page).not_to have_content(order.reservations.first.checkout)
     end
+
+    expect(page).not_to have_content("Your Homes' Upcoming Reservations:")
+    expect(page).not_to have_content("Your Homes' Past Reservations:")
 
     click_on("Add a Home")
     expect(current_path).to eq(new_user_home_path(user.slug))

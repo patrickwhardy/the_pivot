@@ -15,7 +15,6 @@ RSpec.feature "user can view profiles" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit dashboard_path(user)
-# save_and_open_page
     click_on("View All Homes")
     expect(current_path).to eq(user_homes_path(user.slug))
     expect(page).to have_content(user.first_name)
