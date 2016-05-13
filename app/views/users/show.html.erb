@@ -1,13 +1,8 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
 	<h1>Welcome, <%= @user.first_name %>
-<<<<<<< HEAD
 		<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
 		<div class="btn btn-one"> <%= link_to "View All Homes", user_homes_path(@user.slug) %> </div>
 		<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %></div></h1>
-=======
-	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
-	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
->>>>>>> master
 </div>
 
 <div class="container">
@@ -21,10 +16,12 @@
 		</thread>
 		<tbody>
 			<% @user.upcoming_reservations.each do |reservation| %>
-			<td><%= reservation.home.name %></td>
-			<td><%= reservation.home.address %></td>
-			<td><%= reservation.checkin %></td>
-			<td><%= reservation.checkout %></td>
+			<div class="row">
+				<td><%= reservation.home.name %></td>
+				<td><%= reservation.home.address %></td>
+				<td><%= reservation.checkin %></td>
+				<td><%= reservation.checkout %></td>
+			</div>
 			<% end %>
 		</tbody>
 	</table>

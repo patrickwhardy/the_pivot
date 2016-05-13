@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-# As a logged-in owner,
-# I can visit my user dashboard,
-# there is a button "add a tiny home",
-# there is a button to "view all my homes",
-# and then I can see upcoming and past reservations for all my homes.
->>>>>>> master
 require "rails_helper"
 
 RSpec.feature "User sees reservation tables on dashboard" do
