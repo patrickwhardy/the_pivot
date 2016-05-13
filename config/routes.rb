@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   post ":user/homes/:id", to: "cart_homes#create"
 
-  resources :users, only: [:new, :index, :create, :edit, :update]
+  resources :users, only: [:new, :index, :edit, :create, :update]
 
   get "/:user/dashboard", to: "users#show", as: :dashboard
   delete "/users/logout", to: "sessions#destroy", as: :logout

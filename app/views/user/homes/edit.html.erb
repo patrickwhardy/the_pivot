@@ -1,0 +1,23 @@
+<div class="container new-form">
+  <br><h1>Edit <%= @home.name %></h1>
+  <%= nested_form_for [@user, @home], method: :patch do |f|%>
+    <div class="form-group">
+      <%= f.text_field :name, placeholder: "Name" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :description, placeholder: "Description" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :price_per_night, placeholder: "Price per night" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :address, placeholder: "Address" %>
+    </div>
+    <div class="form-group">
+      <%= f.fields_for :photos %>
+      <%= f.link_to_remove "Remove this photo" %>
+      <p><%= f.link_to_add "Add a photo", :photos %></p>
+    </div>
+    <%= f.submit "Edit Home" %>
+  <% end %><br>
+</div>
