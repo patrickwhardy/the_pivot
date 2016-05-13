@@ -29,20 +29,23 @@ class UsersController < ApplicationController
   end
 
   def edit
+    redirect_to root_path unless current_user
     @user = current_user
   end
 
   def update
     @user = current_user
     @user.update(user_params)
+    @user.slug = @user.username.parameterize
     if @user.save
+      flash[:notice] = "Account successfully updated"
       if current_admin?
         redirect_to admin_dashboard_path
       else
-        redirect_to dashboard_path
+        redirect_to dashboard_path(@user.slug)
       end
     else
-      flash[:error] = "An error occurred. Please try again."
+      flash[:error] = @user.errors.full_messages.join(", ")
       render :edit
     end
   end

@@ -1,9 +1,10 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
   <h1>Welcome, <%= @user.first_name %></h1><br>
   <% if @user.admin? %>
-  <%= link_to "View All Homes", admin_homes_path %>
-  <%= link_to "View All Owners", admin_owners_path %>
+    <%= link_to "View All Homes", admin_homes_path %>
+    <%= link_to "View All Owners", admin_owners_path %>
   <% end %>
+	<%= link_to "Edit Account", edit_user_path(@user.slug) %>
 </div>
 <div class="container">
 	<table class="table">
