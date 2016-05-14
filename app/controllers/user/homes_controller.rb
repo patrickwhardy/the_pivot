@@ -4,6 +4,37 @@ class User::HomesController < ApplicationController
     photo = @home.photos.build
   end
 
+  def index
+    @user = User.find_by(slug: params[:path])
+  end
+
+  def edit
+    @user = current_user
+    if @user
+      @home = current_user.homes.find_by(id: params[:id])
+      redirect_to root_path if @home.nil?
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @user = current_user
+    @home = current_user.homes.find_by(id: params[:id])
+    if @home.nil?
+      redirect_to root_path
+    else
+      @home.update(home_params)
+      if @home.save
+        flash[:notice] = "Home successfully updated"
+        redirect_to user_home_path(@user.slug, @home)
+      else
+        flash[:error] = @home.errors.full_messages.join(", ")
+        render :edit
+      end
+    end
+  end
+
   def create
     @user = current_user
     @home = @user.homes.new(home_params)
@@ -24,6 +55,10 @@ class User::HomesController < ApplicationController
     else
       @home = @user.homes.find(params[:id])
     end
+  end
+
+  def index
+    @user = User.find_by(slug: params[:path])
   end
 
   private
