@@ -39,11 +39,7 @@ class UsersController < ApplicationController
     @user.slug = @user.username.parameterize
     if @user.save
       flash[:notice] = "Account successfully updated"
-      if current_admin?
-        redirect_to admin_dashboard_path
-      else
-        redirect_to dashboard_path(@user.slug)
-      end
+      redirect_to dashboard_path(@user.slug)
     else
       flash[:error] = @user.errors.full_messages.join(", ")
       render :edit

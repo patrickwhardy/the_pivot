@@ -5,11 +5,15 @@
 
   <h5>Price per night: <%= @home.price_per_night %></h5>
 
-  <%= form_for :date do |f| %>
-    <%= f.label :checkin %>
-    <%= date_select('checkin_date', 'date') %>
-    <%= f.label :checkout %>
-    <%= date_select('checkout_date', 'date') %>
-    <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
+  <% if @home.suspended? %>
+    <p>This home has been suspended.</p>
+  <% else %>
+    <%= form_for :date do |f|  %>
+      <%= f.label :checkin %>
+      <%= date_select('checkin_date', 'date') %>
+      <%= f.label :checkout %>
+      <%= date_select('checkout_date', 'date') %>
+      <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
+   <% end %>
   <% end %>
 </div>

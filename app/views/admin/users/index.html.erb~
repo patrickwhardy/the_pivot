@@ -1,0 +1,5 @@
+<h1>Admin Owners Index page</h1>
+
+
+<h2>All Owners</h2>
+<%= render "admin/shared/user_table" %>
