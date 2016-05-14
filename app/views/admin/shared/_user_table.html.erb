@@ -12,7 +12,7 @@
       <td><%= link_to "User Dashboard", dashboard_path(user.slug) %></td>
       <td><%= link_to "User Homes", user_homes_path(user.slug) %></td>      
       <td><%= link_to "Edit", edit_user_path(user) %></td>
-      <td>Delete</td>
+      <td><%= link_to "Delete", user_path(user), method: "delete" %></td>
       </tr>
       <% end %>
     </tbody>

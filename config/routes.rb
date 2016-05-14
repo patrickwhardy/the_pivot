@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     patch "/homes/:id/suspend", to: "homes#suspend", as: :suspend_home
     patch "/homes/:id/reactivate", to: "homes#reactivate", as: :reactivate_home
     resources :owners, only: [:index]
+    resources :users, only: [:index]
   end
 
   namespace :user, path: ":path", as: :user do
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   # post "/tools/:id", to: "cart_tools#create"
   post ":user/homes/:id", to: "cart_homes#create"
 
-  resources :users, only: [:new, :index, :edit, :create, :update]
+  resources :users, only: [:new, :index, :edit, :create, :update, :destroy]
 
   get "/:user/dashboard", to: "users#show", as: :dashboard
   delete "/users/logout", to: "sessions#destroy", as: :logout
