@@ -13,10 +13,12 @@ RSpec.feature "Admin can suspend a home" do
 
     within(".home-#{home_one.id}") do
       click_on("Suspend")
-      expect(page).to have_content("Reactivate")
-      expect(page).to have_no_content("Suspend")
     end
 
+    within(".home-#{home_one.id}") do
+      click_on("Reactivate")
+    end
+ 
     ApplicationController.any_instance.stubs(:current_user).returns(nil)
 
     visit user_home_path(home_one.user.slug, home_one.id)

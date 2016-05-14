@@ -18,5 +18,10 @@ class Home < ActiveRecord::Base
 
   def suspend
     self.suspended = true
+    self.save
+  end
+
+  def suspended?
+    self.suspended
   end
 end

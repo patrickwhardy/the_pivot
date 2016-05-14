@@ -10,5 +10,7 @@ class Admin::HomesController < ApplicationController
 
   def suspend
     Home.find(params[:id]).suspend if current_admin?
+    @homes = Home.all
+    redirect_to admin_homes_path
   end
 end

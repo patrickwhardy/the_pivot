@@ -13,7 +13,11 @@
       <td><%= home.name %></td>
       <td><%= home.user.username %></td>
       <td>Edit</td>
-      <td><%= link_to "Suspend", admin_suspend_home_path(home), method: :patch %></td>
+      <% if !home.suspended? %>
+        <td><%= link_to "Suspend", admin_suspend_home_path(home), method: :patch %></td>
+      <% else %>
+        <td><%= link_to "Reactivate", admin_reactivate_home_path(home), method: :patch %></td>
+      <% end %>
       <td>Delete</td>
       </tr>
       <% end %>
