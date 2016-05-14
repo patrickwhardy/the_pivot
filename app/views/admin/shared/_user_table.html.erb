@@ -6,12 +6,12 @@
       <th>User Homes</th>
     </thread>
     <tbody>
-      <% @owners.each do |owner| %>
-      <tr class="owner-<%= owner.id %>">
-      <td><%= owner.username %></td>
-      <td><%= link_to "User Dashboard", dashboard_path(owner.slug) %></td>
-      <td><%= link_to "User Homes", user_homes_path(owner.slug) %></td>      
-      <td>Edit</td>
+      <% @users.each do |user| %>
+      <tr class="user-<%= user.id %>">
+      <td><%= user.username %></td>
+      <td><%= link_to "User Dashboard", dashboard_path(user.slug) %></td>
+      <td><%= link_to "User Homes", user_homes_path(user.slug) %></td>      
+      <td><%= link_to "Edit", edit_user_path(user) %></td>
       <td>Delete</td>
       </tr>
       <% end %>
