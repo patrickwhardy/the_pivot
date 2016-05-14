@@ -1,8 +1,12 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
-	<h1>Welcome, <%= @user.first_name %>
-		<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
-		<div class="btn btn-one"> <%= link_to "View All Homes", user_homes_path(@user.slug) %> </div>
-		<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %></div></h1>
+  <h1>Welcome, <%= @user.first_name %>
+  <% if @user.admin? %>
+    <div class="btn btn-one"><%= link_to "View All Homes", admin_homes_path %> </div>
+    <div class="btn btn-one"><%= link_to "View All Owners", admin_owners_path %> </div>
+  <% end %>
+	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
+	<div class="btn btn-one"> <%= link_to "View Your Homes", user_homes_path(@user.slug) %> </div>
+	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
 </div>
 
 <div class="container">
@@ -42,10 +46,10 @@
 					<td><%= reservation.checkin %></td>
 					<td><%= reservation.checkout %></td>
 				</tr>
-			<% end %>
+      <% end %>
 		</tbody>
 	</table>
-
+	
 	<% unless @user.homes.empty?  %>
 		<h4>Your Homes' Upcoming Reservations: </h4>
 		<table class="table homes-upcoming-reservations">
