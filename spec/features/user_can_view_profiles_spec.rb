@@ -1,9 +1,4 @@
 require "rails_helper"
-# As a logged-in owner,
-# when I go to my user dashboard,
-# I can click "View all homes,"
-# and then am taken to the owner show page,
-# and under each home I see the buttons "edit" and "delete".
 RSpec.feature "user can view profiles" do
   it "owner views their profile" do
     user = create(:user)
