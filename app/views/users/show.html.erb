@@ -5,6 +5,7 @@
     <div class="btn btn-one"><%= link_to "View All Owners", admin_owners_path %> </div>
   <% end %>
 	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
+	<div class="btn btn-one"> <%= link_to "View Your Homes", user_homes_path(@user.slug) %> </div>
 	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
 </div>
 
@@ -19,12 +20,12 @@
 		</thread>
 		<tbody>
 			<% @user.upcoming_reservations.each do |reservation| %>
-      <tr>
-			<td><%= reservation.home.name %></td>
-			<td><%= reservation.home.address %></td>
-			<td><%= reservation.checkin %></td>
-			<td><%= reservation.checkout %></td>
-      </tr>
+				<tr>
+					<td><%= reservation.home.name %></td>
+					<td><%= reservation.home.address %></td>
+					<td><%= reservation.checkin %></td>
+					<td><%= reservation.checkout %></td>
+				</tr>
 			<% end %>
 		</tbody>
 	</table>
@@ -38,41 +39,20 @@
 			<th>Check Out</th>
 		</thread>
 		<tbody>
-      <% @user.past_reservations.each do |reservation| %>
-      <tr>
-      <td><%= reservation.home.name %></td>
-			<td><%= reservation.home.address %></td>
-			<td><%= reservation.checkin %></td>
-			<td><%= reservation.checkout %></td>
-      </tr>
-      <% end %>
-		</tbody>
-	</table>
-
-	<h4>Your Homes' Upcoming Reservations: </h4>
-	<table class="table homes-upcoming-reservations">
-		<thread>
-			<th>Home Name</th>
-			<th>Address</th>
-			<th>Check In</th>
-			<th>Check Out</th>
-		</thread>
-		<tbody>
-			<% @user.homes.each do |home| %>
-				<% home.upcoming_reservations.each do |reservation| %>
-          <tr>
-      		<td><%= reservation.home.name %></td>
+			<% @user.past_reservations.each do |reservation| %>
+				<tr>
+					<td><%= reservation.home.name %></td>
 					<td><%= reservation.home.address %></td>
 					<td><%= reservation.checkin %></td>
 					<td><%= reservation.checkout %></td>
-          </tr>
-      	<% end %>
-			<% end %>
+				</tr>
+      <% end %>
 		</tbody>
 	</table>
-
-	<h4>Your Homes' Past Reservations: </h4>
-	<table class="table homes-past-reservations">
+	
+	<% unless @user.homes.empty?  %>
+		<h4>Your Homes' Upcoming Reservations: </h4>
+		<table class="table homes-upcoming-reservations">
 			<thread>
 				<th>Home Name</th>
 				<th>Address</th>
@@ -81,16 +61,38 @@
 			</thread>
 			<tbody>
 				<% @user.homes.each do |home| %>
-					<% home.past_reservations.each do |reservation| %>
-            <tr>
-          	<td><%= reservation.home.name %></td>
-						<td><%= reservation.home.address %></td>
-						<td><%= reservation.checkin %></td>
-						<td><%= reservation.checkout %></td>
-            </tr>
+					<% home.upcoming_reservations.each do |reservation| %>
+						<tr>
+							<td><%= reservation.home.name %></td>
+							<td><%= reservation.home.address %></td>
+							<td><%= reservation.checkin %></td>
+							<td><%= reservation.checkout %></td>
+						</tr>
 					<% end %>
 				<% end %>
 			</tbody>
 		</table>
+		<h4>Your Homes' Past Reservations: </h4>
+		<table class="table homes-past-reservations">
+				<thread>
+					<th>Home Name</th>
+					<th>Address</th>
+					<th>Check In</th>
+					<th>Check Out</th>
+				</thread>
+				<tbody>
+					<% @user.homes.each do |home| %>
+						<% home.past_reservations.each do |reservation| %>
+							<tr>
+								<td><%= reservation.home.name %></td>
+								<td><%= reservation.home.address %></td>
+								<td><%= reservation.checkin %></td>
+								<td><%= reservation.checkout %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
+		<% end %>
 	</div>
 </div>
