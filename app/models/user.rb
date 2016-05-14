@@ -13,10 +13,17 @@ class User < ActiveRecord::Base
   default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  enum status: %w(active deleted)
+
   def admin?
     roles.map do |role|
       role.role == "admin"
     end.any?
+  end
+
+  def retire
+    self.deleted!
+    homes.each { |home| home.suspended! }
   end
 
   def upcoming_reservations
@@ -25,5 +32,9 @@ class User < ActiveRecord::Base
 
   def past_reservations
     self.reservations.where("checkout < ?", Date.today)
+  end
+
+  def self.home_owners
+    User.where("EXISTS(SELECT 1 from homes where users.id = homes.user_id)")
   end
 end
