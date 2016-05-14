@@ -27,6 +27,7 @@ RSpec.feature "Admin can modify user or owner" do
     click_button "Edit Account"
 
     expect(current_path).to eq("/new-username/dashboard")
+    expect(page).to have_no_content("View All Owners") # this is how to test that the admin didn't just actually edit himself instead of @owner
     expect(page).to have_content("Account successfully updated")
     expect(page).to have_content("Welcome, new first name")    
   end
@@ -58,6 +59,7 @@ RSpec.feature "Admin can modify user or owner" do
     click_button "Edit Account"
 
     expect(current_path).to eq("/new-username/dashboard")
+    expect(page).to have_no_content("View All Owners") # this is how to test that the admin didn't just actually edit himself instead of @owner
     expect(page).to have_content("Account successfully updated")
     expect(page).to have_content("Welcome, new first name")    
   end
