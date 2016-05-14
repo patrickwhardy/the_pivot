@@ -25,7 +25,7 @@ RSpec.feature "User sees reservation tables on dashboard" do
     )
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
-    visit dashboard_path(user)
+    visit dashboard_path(user.slug)
 
     within ".upcoming-reservations" do
       expect(page).to have_content(order.reservations.first.checkin)
@@ -66,7 +66,7 @@ RSpec.feature "User sees reservation tables on dashboard" do
     )
 
     ApplicationController.any_instance.stubs(:current_user).returns(owner)
-    visit dashboard_path(owner)
+    visit dashboard_path(owner.slug)
 
     within ".homes-upcoming-reservations" do
       expect(page).to have_content(order.reservations.first.checkin)

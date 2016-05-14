@@ -9,7 +9,7 @@ RSpec.feature "user can view profiles" do
     end
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
-    visit dashboard_path(user)
+    visit dashboard_path(user.slug)
     click_on("View Your Homes")
 
     expect(current_path).to eq(user_homes_path(user.slug))

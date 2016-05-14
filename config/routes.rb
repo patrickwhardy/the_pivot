@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # post "/tools/:id", to: "cart_tools#create"
   post ":user/homes/:id", to: "cart_homes#create"
 
-  resources :users, only: [:new, :index, :edit, :create, :update, :destroy]
+  resources :users, only: [:new, :index, :edit, :create, :update, :destroy], param: :slug
 
   get "/:user/dashboard", to: "users#show", as: :dashboard
   delete "/users/logout", to: "sessions#destroy", as: :logout
