@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Admin is logged in" do
   scenario "goes to view all owners" do
-    admin_user = create(:user)
+     admin_user = create(:user)
     admin_role = create(:role, role: "admin")
     UserRole.create(user: admin_user, role: admin_role)
     ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
@@ -20,7 +20,6 @@ RSpec.feature "Admin is logged in" do
       expect(page).to have_link("User Dashboard", href: dashboard_path(home_one.user.slug))
       expect(page).to have_link("User Homes", href: user_homes_path(home_one.user.slug))
       expect(page).to have_content("Edit")
-      expect(page).to have_content("Suspend")
       expect(page).to have_content("Delete")
     end
     within(".owner-#{home_two.user.id}") do
@@ -28,7 +27,6 @@ RSpec.feature "Admin is logged in" do
       expect(page).to have_link("User Dashboard", href: dashboard_path(home_two.user.slug))
       expect(page).to have_link("User Homes", href: user_homes_path(home_two.user.slug))
       expect(page).to have_content("Edit")
-      expect(page).to have_content("Suspend")
       expect(page).to have_content("Delete")
     end
     expect(page).to have_no_content(homeless_user.username)
