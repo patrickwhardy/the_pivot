@@ -24,4 +24,9 @@ class Home < ActiveRecord::Base
   def suspended?
     self.suspended
   end
+
+  def reactivate
+    self.suspended = false
+    self.save
+  end
 end

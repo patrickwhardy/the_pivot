@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :homes, only: [:index]
     patch "/homes/:id/suspend", to: "homes#suspend", as: :suspend_home
-    patch "/homes/:id/suspend", to: "homes#reactivate", as: :reactivate_home
+    patch "/homes/:id/reactivate", to: "homes#reactivate", as: :reactivate_home
     resources :owners, only: [:index]
   end
 

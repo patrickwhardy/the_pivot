@@ -15,8 +15,9 @@ RSpec.feature "Admin can suspend a home" do
       click_on("Suspend")
     end
 
+    expect(page).to have_content "#{home_one.name} has been suspended"
     within(".home-#{home_one.id}") do
-      click_on("Reactivate")
+      expect(page).to have_content("Reactivate")
     end
  
     ApplicationController.any_instance.stubs(:current_user).returns(nil)
@@ -32,14 +33,13 @@ RSpec.feature "Admin can suspend a home" do
 
     within(".home-#{home_one.id}") do
       click_on("Reactivate")
-      expect(page).to have_content("Suspend")
-      expect(page).to have_no_content("Reactivate")
+      expect(page).to have_no_content("Suspend")
     end
+    expect(page).to have_content "#{home_one.name} is reactivated"
     
     ApplicationController.any_instance.stubs(:current_user).returns(nil)
     visit user_home_path(home_one.user.slug, home_one.id)
-    
-    expect(page).to have_content("Add to Cart")
+    expect(page).to have_button("Add to Cart")
   end
 end
 

@@ -48,7 +48,6 @@ class User::HomesController < ApplicationController
   end
 
   def show
-
     @user = User.find_by(slug: params[:path])
     if @user.nil?
       redirect_to root_path
