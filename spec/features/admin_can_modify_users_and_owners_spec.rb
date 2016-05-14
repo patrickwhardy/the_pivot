@@ -63,5 +63,13 @@ RSpec.feature "Admin can modify user or owner" do
   end
 
   scenario "Admin wants to delete user" do
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin_user)
+    visit dashboard_path(@admin_user.slug)
+    click_on "View All Users"
+    within ".user-#{@owner.id}" do
+      click_on "Delete"
+    end
+    # insert expected functions after deleting user
+    expect(true).to eq false
   end
 end
