@@ -11,7 +11,8 @@
     <p class="card-text"><%= home.description %></p>
     <%= link_to "Reserve Now", user_home_path(@user.slug, home), class: "btn btn-primary" %>
     <% if @user == current_user %>
-      <%= link_to "Edit Home", edit_user_home_path(@user.slug, home) %>
+      <%= link_to "Edit Home", edit_user_home_path(@user.slug, home), class: "btn btn-primary" %>
+      <%= link_to "Delete Home", user_home_path(@user.slug, home), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

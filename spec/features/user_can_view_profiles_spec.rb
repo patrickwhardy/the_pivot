@@ -28,5 +28,8 @@ RSpec.feature "user can view profiles" do
       expect(page).to have_content(home.name)
       expect(page).to have_content(home.description)
     end
+
+    expect(page).to have_content("Edit Home")
+    expect(page).to have_content("Delete Home")
   end
 end
