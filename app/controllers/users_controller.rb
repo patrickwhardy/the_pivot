@@ -33,22 +33,25 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(slug: params[:slug])
     if @user == current_user || current_admin?
-    @user.update(user_params)
-    @user.slug = @user.username.parameterize
-    if @user.save
-      flash[:notice] = "Account successfully updated"
-      redirect_to dashboard_path(@user.slug)
-    else
-      flash[:error] = @user.errors.full_messages.join(", ")
-      render :edit
+      @user.update(user_params)
+      @user.slug = @user.username.parameterize
+      if @user.save
+        flash[:notice] = "Account successfully updated"
+        redirect_to dashboard_path(@user.slug)
+      else
+        flash[:error] = @user.errors.full_messages.join(", ")
+        render :edit
+      end
     end
-  end
   end
 
   def destroy
     @user = User.find_by(slug: params[:slug])
     if @user == current_user || current_admin?
-      User.destroy(@user.id)
+      session.clear if @user == current_user
+      @user.retire
+      @user.save
+      flash[:notice] = "Account successfully deleted"
       redirect_to request.referrer
     else
       redirect_to root_path

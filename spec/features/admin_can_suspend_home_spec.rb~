@@ -1,8 +1,0 @@
-require "rails_helper"
-
-RSpec.feature "Admin can suspend a home" do
-  scenario "Admin is logged in" do
-    
-  end
-
-end
