@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   root to: 'homes#index'
   post "/", to: "homes#index"
 
+  namespace :admin do
+    resources :homes, only: [:index]
+    resources :owners, only: [:index]
+  end
+
   namespace :user, path: ":path", as: :user do
     resources :homes, only: [:create, :new, :edit, :update, :index, :show]
   end
@@ -12,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show]
 
+  resources :tools, only: [:index, :show]
+  # post "/tools/:id", to: "cart_tools#create"
   post ":user/homes/:id", to: "cart_homes#create"
 
   resources :users, only: [:new, :index, :edit, :create, :update]

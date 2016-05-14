@@ -1,0 +1,23 @@
+<h1>Admin Homes Index Page</h1>
+
+<h2>All Homes</h2>
+<div class="container">
+  <table class="table">
+    <thread>
+      <th>Home</th>
+      <th>User</th>
+    </thread>
+    <tbody>
+      <% @homes.each do |home| %>
+      <tr class="home-<%= home.id %>">
+      <td><%= home.name %></td>
+      <td><%= home.user.username %></td>
+      <td>Edit</td>
+      <td>Suspend</td>
+      <td>Delete</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

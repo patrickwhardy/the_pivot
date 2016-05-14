@@ -1,5 +1,9 @@
 <div class="user-info container col-md-10 col-md-offset-1 rounded">
-	<h1>Welcome, <%= @user.first_name %>
+  <h1>Welcome, <%= @user.first_name %>
+  <% if @user.admin? %>
+    <div class="btn btn-one"><%= link_to "View All Homes", admin_homes_path %> </div>
+    <div class="btn btn-one"><%= link_to "View All Owners", admin_owners_path %> </div>
+  <% end %>
 	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
 	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
 </div>
@@ -15,10 +19,12 @@
 		</thread>
 		<tbody>
 			<% @user.upcoming_reservations.each do |reservation| %>
+      <tr>
 			<td><%= reservation.home.name %></td>
 			<td><%= reservation.home.address %></td>
 			<td><%= reservation.checkin %></td>
 			<td><%= reservation.checkout %></td>
+      </tr>
 			<% end %>
 		</tbody>
 	</table>
@@ -32,12 +38,14 @@
 			<th>Check Out</th>
 		</thread>
 		<tbody>
-			<% @user.past_reservations.each do |reservation| %>
-			<td><%= reservation.home.name %></td>
+      <% @user.past_reservations.each do |reservation| %>
+      <tr>
+      <td><%= reservation.home.name %></td>
 			<td><%= reservation.home.address %></td>
 			<td><%= reservation.checkin %></td>
 			<td><%= reservation.checkout %></td>
-			<% end %>
+      </tr>
+      <% end %>
 		</tbody>
 	</table>
 
@@ -52,11 +60,13 @@
 		<tbody>
 			<% @user.homes.each do |home| %>
 				<% home.upcoming_reservations.each do |reservation| %>
-					<td><%= reservation.home.name %></td>
+          <tr>
+      		<td><%= reservation.home.name %></td>
 					<td><%= reservation.home.address %></td>
 					<td><%= reservation.checkin %></td>
 					<td><%= reservation.checkout %></td>
-				<% end %>
+          </tr>
+      	<% end %>
 			<% end %>
 		</tbody>
 	</table>
@@ -72,10 +82,12 @@
 			<tbody>
 				<% @user.homes.each do |home| %>
 					<% home.past_reservations.each do |reservation| %>
-						<td><%= reservation.home.name %></td>
+            <tr>
+          	<td><%= reservation.home.name %></td>
 						<td><%= reservation.home.address %></td>
 						<td><%= reservation.checkin %></td>
 						<td><%= reservation.checkout %></td>
+            </tr>
 					<% end %>
 				<% end %>
 			</tbody>
