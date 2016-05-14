@@ -2,16 +2,14 @@ require "rails_helper"
 
 RSpec.feature "Admin is logged in" do
   scenario "goes to view all owners" do
-    admin_user = create(:user)
-    admin_role = create(:role, role: "admin")
-    UserRole.create(user: admin_user, role: admin_role)
-    ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
+    admin = create(:admin)
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
     home_one = create(:home, name: "home 1")
     home_two = create(:home, name: "home 2")
     home_three = create(:home, name: "home 3", user: home_one.user)
     homeless_user = create(:user)
 
-    visit dashboard_path(admin_user.slug)
+    visit dashboard_path(admin.slug)
     click_on "View All Owners"
 
     expect(current_path).to eq(admin_owners_path)
@@ -33,13 +31,8 @@ RSpec.feature "Admin is logged in" do
   end
 
   scenario "regular user is logged in" do
-    admin_user = create(:user, first_name: "admin")
-    admin_role = create(:role, role: "admin")
-    UserRole.create(user: admin_user, role: admin_role)
-    regular_user = create(:user, first_name: "regular")
-    regular_role = create(:role, role: "user")
-    UserRole.create(user: regular_user, role: regular_role)
-    ApplicationController.any_instance.stubs(:current_user).returns(regular_user)
+    user = create(:user)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit admin_owners_path
     expect(page).to have_content("404")
