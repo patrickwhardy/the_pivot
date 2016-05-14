@@ -6,7 +6,7 @@
     <div class="col-md-4">
 <div class="card">
   <div class="card-block">
-    <img class="card-img-top" src="<%= home.photos.first.image.url %>">
+    <img class="card-img-top" src="<%= home.photos.first.image.url %>", height="300" width="500">
     <h4 class="card-title"><%= home.name %></h4>
     <p class="card-text"><%= home.description %></p>
     <%= link_to "Reserve Now", user_home_path(@user.slug, home), class: "btn btn-primary" %>
