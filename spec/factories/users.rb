@@ -14,5 +14,21 @@ FactoryGirl.define do
     sequence :slug do |n|
       "user-#{n}"
     end
+
+    factory :deleted_user do
+      status 1
+    end
+
+    factory :admin do
+      sequence :username do |n|
+        "admin_user #{n}"
+      end
+      sequence :email do |n|
+        "admin_user#{n}@example.com"
+      end
+      after(:create) do |admin|
+        admin.roles << create(:admin_role)
+      end
+    end
   end
 end
