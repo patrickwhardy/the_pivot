@@ -15,4 +15,8 @@ class Home < ActiveRecord::Base
   def past_reservations
     self.reservations.where("checkout < ?", Date.today)
   end
+
+  def suspend
+    self.suspended = true
+  end
 end

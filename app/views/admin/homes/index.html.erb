@@ -13,7 +13,7 @@
       <td><%= home.name %></td>
       <td><%= home.user.username %></td>
       <td>Edit</td>
-      <td>Suspend</td>
+      <td><%= link_to "Suspend", admin_suspend_home_path(home), method: :patch %></td>
       <td>Delete</td>
       </tr>
       <% end %>
