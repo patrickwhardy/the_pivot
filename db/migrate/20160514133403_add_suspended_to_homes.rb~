@@ -1,0 +1,7 @@
+class AddSuspendedToHomes < ActiveRecord::Migration
+  def change
+    add_column :homes, :suspended, :boolean
+    add_column :homes, :default, :string
+    add_column :homes, :false, :string
+  end
+end

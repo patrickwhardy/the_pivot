@@ -15,20 +15,18 @@ RSpec.feature "Admin is logged in" do
     click_on "View All Owners"
 
     expect(current_path).to eq(admin_owners_path)
-    within(".owner-#{home_one.user.id}") do
+    within(".user-#{home_one.user.id}") do
       expect(page).to have_content(home_one.user.username)
       expect(page).to have_link("User Dashboard", href: dashboard_path(home_one.user.slug))
       expect(page).to have_link("User Homes", href: user_homes_path(home_one.user.slug))
       expect(page).to have_content("Edit")
-      expect(page).to have_content("Suspend")
       expect(page).to have_content("Delete")
     end
-    within(".owner-#{home_two.user.id}") do
+    within(".user-#{home_two.user.id}") do
       expect(page).to have_content(home_two.user.username)
       expect(page).to have_link("User Dashboard", href: dashboard_path(home_two.user.slug))
       expect(page).to have_link("User Homes", href: user_homes_path(home_two.user.slug))
       expect(page).to have_content("Edit")
-      expect(page).to have_content("Suspend")
       expect(page).to have_content("Delete")
     end
     expect(page).to have_no_content(homeless_user.username)

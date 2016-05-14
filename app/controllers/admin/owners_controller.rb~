@@ -1,3 +1,0 @@
-class Admin::OwnersController < ActiveController
-
-end

@@ -25,15 +25,15 @@ RSpec.feature "User can edit their account" do
     user_two = create(:user)
 
     ApplicationController.any_instance.stubs(:current_user).returns(user_one)
-    visit edit_user_path(user_two)
+    visit edit_user_path(user_two.slug)
     expect(page).not_to have_content("Edit #{user_two.username}'s Account")
-    expect(page).to have_content("Edit #{user_one.username}'s Account")
+    expect(current_path).to eq(root_path)
   end
 
   scenario "Guest user cannot reach edit page" do
     user = create(:user)
 
-    visit edit_user_path(user)
+    visit edit_user_path(user.slug)
     expect(page).not_to have_content("Edit #{user.username}'s Account")
     expect(current_path).to eq(root_path)
   end
