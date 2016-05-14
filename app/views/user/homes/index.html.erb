@@ -1,9 +1,12 @@
-<h1>Homes for <%= @user.username %></h1>
+<h1>Homes for <%= @user.first_name + " " + @user.last_name%></h1>
+<img src="<%= @user.avatar %>">
+<p><%= @user.description %></p>
 <div class="container">
   <% @user.homes.each do |home| %>
     <div class="col-md-4">
 <div class="card">
   <div class="card-block">
+    <img class="card-img-top" src="<%= home.photos.first.image.url %>">
     <h4 class="card-title"><%= home.name %></h4>
     <p class="card-text"><%= home.description %></p>
     <%= link_to "Reserve Now", user_home_path(@user.slug, home), class: "btn btn-primary" %>
