@@ -4,9 +4,7 @@ class OrderCreator
     @cart = cart
     @user = user
     @order = create_order
-    create_reservations
-    # @cart.each do |reservation|
-    #   order.reservations << Reservation.create()
+    create_reservations_and_reservation_nights
   end
 
   def create_order
@@ -17,20 +15,25 @@ class OrderCreator
     @order.save
   end
 
-  def create_reservations
-    @cart.contents.each do |reservation|
-      new_reservation = Reservation.new(
-        home_id: reservation["home"],
-        checkin: reservation["checkin"],
-        checkout: reservation["checkout"]
-      )
-      checkin_date = Date.parse(reservation["checkin"])
-      checkout_date = Date.parse(reservation["checkout"]) - 1
+  def create_reservations_and_reservation_nights
+    @cart.contents.each do |cart_reservation|
+      reservation = create_reservation(cart_reservation)
+      checkin_date = Date.parse(cart_reservation["checkin"])
+      checkout_date = Date.parse(cart_reservation["checkout"]) - 1
       (checkin_date..checkout_date).each do |date|
-        new_reservation.reservation_nights << ReservationNight.new(night: date)
+        reservation.reservation_nights << ReservationNight.new(night: date)
       end
-
-      @order.reservations << new_reservation
+      @order.reservations << reservation
     end
+  end
+
+  private
+
+  def create_reservation(reservation)
+    reservation = Reservation.new(
+      home_id: reservation["home"],
+      checkin: reservation["checkin"],
+      checkout: reservation["checkout"]
+    )
   end
 end

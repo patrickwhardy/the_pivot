@@ -16,9 +16,12 @@ class User < ActiveRecord::Base
   enum status: %w(active deleted)
 
   def admin?
-    roles.map do |role|
-      role.role == "admin"
-    end.any?
+    roles.exists?(role: "admin")
+  end
+
+  def retire
+    self.deleted!
+    homes.each { |home| home.suspended! }
   end
 
   def retire

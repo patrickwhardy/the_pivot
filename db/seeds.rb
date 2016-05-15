@@ -70,11 +70,8 @@ class Seed
     photo3 = Photo.create(
       image: File.open(File.join(Rails.root, '/public/photos/tinyhome3.jpg'))
     )
-    photo1 = Photo.find(1)
-    photo2 = Photo.find(2)
-    photo3 = Photo.find(3)
 
-    20.times do |n|
+    50.times do |n|
       user = User.new(
         email: Faker::Internet.email,
         password: "password",

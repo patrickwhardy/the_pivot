@@ -3,6 +3,5 @@ class Order < ActiveRecord::Base
   belongs_to :user
   validates :user_id, presence: true
 
-  enum status: ["Completed", "Cancelled", "Ordered", "Paid"]
-
+  enum status: %w(ordered paid completed cancelled)
 end

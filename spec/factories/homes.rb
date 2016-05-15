@@ -8,5 +8,9 @@ FactoryGirl.define do
       home.photos << create(:photo)
     end
     user
+    
+    factory :suspended_home do
+      status 1
+    end
   end
 end
