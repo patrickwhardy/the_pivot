@@ -14,7 +14,7 @@ RSpec.describe Home, type: :model do
     it { is_expected.to have_many(:reservations) }
   end
 
-  describe ".upcoming_reservations" do
+  describe "#upcoming_reservations" do
     it "returns reservations with a checkout later than today" do
       reservation = create(:upcoming_reservation)
       home = reservation.home
@@ -24,7 +24,7 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  describe ".past_reservations" do
+  describe "#past_reservations" do
     it "returns reservations with a checkout earlier than today" do
       reservation = create(:past_reservation)
       home = reservation.home
@@ -34,7 +34,7 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  describe ".suspended?" do
+  describe "#suspended?" do
     it "should return true when asked on suspended home" do
       home = create(:suspended_home)
       expect(home.suspended?).to be(true)
@@ -46,7 +46,7 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  describe ".suspended!" do
+  describe "#suspended!" do
     it "should change an active home to suspended" do
       home = create(:home)
       home.suspended!
@@ -60,7 +60,7 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  describe ".active?" do
+  describe "#active?" do
     it "should return true when asked on active home" do
       home = create(:home)
       expect(home.active?).to be(true)
@@ -72,7 +72,7 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  describe ".active!" do
+  describe "#active!" do
     it "should change a suspended home to be active" do
       home = create(:suspended_home)
       home.active!
