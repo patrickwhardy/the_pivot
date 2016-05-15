@@ -1,9 +1,7 @@
 class Admin::BaseController < ApplicationController
-  before_action :check_for_admin
+  before_action :require_admin
 
-  def check_for_admin
-    unless current_admin?
-      render file: "#{Rails.root}/public/404.html", status: 404
-    end
+  def require_admin
+    redirect_to root_path unless current_admin?
   end
 end

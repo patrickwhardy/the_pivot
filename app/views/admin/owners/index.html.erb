@@ -2,25 +2,4 @@
 
 
 <h2>All Owners</h2>
-<div class="container">
-  <table class="table">
-    <thread>
-      <th>User</th>
-      <th>User Dashboard</th>
-      <th>User Homes</th>
-    </thread>
-    <tbody>
-      <% @owners.each do |owner| %>
-      <tr class="owner-<%= owner.id %>">
-      <td><%= owner.username %></td>
-      <td><%= link_to "User Dashboard", dashboard_path(owner.slug) %></td>
-      <td><%= link_to "User Homes", user_homes_path(owner.slug) %></td>      
-      <td>Edit</td>
-      <td>Suspend</td>
-      <td>Delete</td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
+<%= render "admin/shared/user_table" %>

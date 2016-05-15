@@ -2,14 +2,12 @@ require "rails_helper"
 
 RSpec.feature "Admin can view all homes" do
   scenario "admin is logged in" do
-    admin_user = create(:user)
-    admin_role = create(:role, role: "admin")
-    UserRole.create(user: admin_user, role: admin_role)
-    ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
+    admin = create(:admin)
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
     home_one = create(:home, name: "home 1")
     home_two = create(:home, name: "home 2")
 
-    visit dashboard_path(admin_user.slug)
+    visit dashboard_path(admin.slug)
     click_on "View All Homes"
 
     expect(current_path).to eq(admin_homes_path)
@@ -30,15 +28,10 @@ RSpec.feature "Admin can view all homes" do
   end
 
   scenario "regular user is logged in" do
-    admin_user = create(:user, first_name: "admin")
-    admin_role = create(:role, role: "admin")
-    UserRole.create(user: admin_user, role: admin_role)
-    regular_user = create(:user, first_name: "regular")
-    regular_role = create(:role, role: "user")
-    UserRole.create(user: regular_user, role: regular_role)
-    ApplicationController.any_instance.stubs(:current_user).returns(regular_user)
+    user = create(:user)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit admin_homes_path
-    expect(page).to have_content("404")
+    expect(current_path).to eq(root_path)
   end
 end

@@ -4,11 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = current_user
-    else
-      redirect_to login_path
-    end
+    @user = User.find_by(slug: params[:user])
+    redirect_to root_path unless current_user == @user || current_admin?
   end
 
   def create
@@ -16,7 +13,7 @@ class UsersController < ApplicationController
     @user.slug = @user.username.parameterize
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Account created. Welcome to TinyStay, #{@user.username.capitalize}"
+      flash[:success] = "Account created. Welcome to TinyStay, #{@user.username}"
       if session[:cart]
         redirect_to cart_path
       else
@@ -29,30 +26,47 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless current_user
-    @user = current_user
+    @user = User.find_by(slug: params[:slug])
+    redirect_to root_path unless current_user == @user || current_admin?
   end
 
   def update
-    @user = current_user
-    @user.update(user_params)
-    @user.slug = @user.username.parameterize
-    if @user.save
-      flash[:notice] = "Account successfully updated"
-      if current_admin?
-        redirect_to admin_dashboard_path
-      else
+    @user = User.find_by(slug: params[:slug])
+    if @user == current_user || current_admin?
+      @user.update(user_params)
+      @user.slug = @user.username.parameterize
+      if @user.save
+        flash[:notice] = "Account successfully updated"
         redirect_to dashboard_path(@user.slug)
+      else
+        flash[:error] = @user.errors.full_messages.join(", ")
+        render :edit
       end
+    end
+  end
+
+  def destroy
+    @user = User.find_by(slug: params[:slug])
+    if @user == current_user || current_admin?
+      session.clear if @user == current_user
+      @user.retire
+      @user.save
+      flash[:notice] = "Account successfully deleted"
+      redirect_to request.referrer
     else
-      flash[:error] = @user.errors.full_messages.join(", ")
-      render :edit
+      redirect_to root_path
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :first_name, :last_name)
+    params.require(:user).permit(
+      :username,
+      :password,
+      :email,
+      :first_name,
+      :last_name
+    )
   end
 end

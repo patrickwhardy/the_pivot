@@ -15,4 +15,6 @@ class Home < ActiveRecord::Base
   def past_reservations
     self.reservations.where("checkout < ?", Date.today)
   end
+
+  enum status: %w(active suspended)
 end

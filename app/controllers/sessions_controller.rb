@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    @checkout = true if env["PATH_INFO"] == "/cart/login"
   end
 
   def destroy
@@ -11,31 +10,13 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password]) && @user.active?
       session[:user_id] = @user.id
-      if @user.admin?
-        flash[:success] = "Admin Login successful."
-        redirect_to admin_dashboard_path
-      elsif params[:user_action] == "checkout"
-        flash[:success] = "Login successful. Please continue checking out."
-        redirect_to cart_path
-      else
-        flash[:success] = "Login successful. Welcome to Tiny Stay, #{@user.username.capitalize}"
-        if env["PATH_INFO"] == "/cart/login"
-          redirect_to cart_path
-        else
-          redirect_to dashboard_path(@user.slug)
-        end
-      end
+      flash[:success] = "Login successful. Welcome to Tiny Stay, #{@user.username.capitalize}"
+      redirect_to dashboard_path(@user.slug)
     else
-      if params[:user_action] == "checkout"
-        flash[:error] = "Unable to login. Please check your username
-                        and password or create an account."
-        redirect_to cart_login_path
-      else
-        flash.now[:error] = "Invalid email/password combination"
-        render :new
-      end
+      flash[:error] = "Invalid email/password combination"
+      redirect_to login_path
     end
   end
 end
