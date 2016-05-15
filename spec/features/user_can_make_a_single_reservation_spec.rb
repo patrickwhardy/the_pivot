@@ -133,7 +133,8 @@ RSpec.feature "User can make reservations" do
       click_on("1 Reservation - $3,400.00")
 
       expect(current_path).to eq(cart_path)
-      click_link("Login or Create Account to Checkout")
+      expect(page).to have_link("Login")
+      click_link("Create Account to Checkout")
 
       expect(current_path).to eq(new_user_path)
     end

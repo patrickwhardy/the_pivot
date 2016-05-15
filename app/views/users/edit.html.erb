@@ -15,7 +15,10 @@
   <div class="form-group">
     <%= f.text_field :last_name, placeholder: "Last name" %>
   </div>
-  <div class="fild-field">
+  <div class="form-group">
+    <%= f.text_area :description, :cols => "40", :rows => "6", placeholder: "Description: Tell your renters and hosts a thing or two about yourself." %>
+  </div>
+  <div class="file-field">
     <%= f.label :avatar %>
     <%= f.file_field :avatar, placeholder: "Avatar" %>
   </div>
