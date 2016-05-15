@@ -16,7 +16,7 @@
 		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= pluralize(@cart.quantity, "Reservation") %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
 		</li>
 		<li class="active">
-				<%= link_to "My Dashboard", dashboard_path(current_user) if current_user %>
+				<%= link_to "My Dashboard", dashboard_path(current_user.slug) if current_user %>
 		</li>
 		<li class="active">
 				<%= link_to "Logout", logout_path, method: :delete if current_user %>

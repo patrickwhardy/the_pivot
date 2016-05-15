@@ -4,11 +4,11 @@
 <div class="col-md-offset-1 col-md-9 cart-total">
   Total: <%= number_to_currency(@cart.total, :precision => 2) %>
   <br>
-  <div class="btn btn-one">
     <% if current_user %>
-      <%= link_to "Checkout Now", orders_path, method: "post" %></div>
+      <div class="btn btn-one"><%= link_to "Checkout Now", orders_path, method: "post" %></div>
     <% else %>
-      <%= link_to "Login or Create Account to Checkout", new_user_path %></div>
+      <div class="btn btn-one"><%= link_to "Login", login_path %></div> or
+      <div class="btn btn-one"><%= link_to "Create Account to Checkout", new_user_path %></div>
     <% end %>
 </div>
 </div>
