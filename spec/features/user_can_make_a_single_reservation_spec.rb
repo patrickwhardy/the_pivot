@@ -1,16 +1,4 @@
 require "rails_helper"
-# As a logged-in user,
-# if I visit /a-specific-tiny-home,
-# I can select a checkin date,
-# I can select a checkout date,
-# and then if I click "Add to Cart",
-# I get a message on the same page that added the reservation,
-# I see 1 item in my cart,
-# I see the cart updated with the new total cost,
-# and then if I click on "My Cart",
-# I can click "Checkout",
-# and then I am on my user dashboard page,
-# and can see that reservation in my upcoming reservations list.
 
 RSpec.feature "User can make reservations" do
   context "as a logged in user" do
