@@ -16,12 +16,12 @@ Rails.application.routes.draw do
 
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create", as: :session_users
+  delete "/logout", to: "sessions#destroy", as: :logout
   resources :orders, only: [:index, :create, :show]
 
   resources :users, only: [:new, :index, :edit, :create, :update, :destroy], param: :slug
 
   get "/:user/dashboard", to: "users#show", as: :dashboard
-  delete "/users/logout", to: "sessions#destroy", as: :logout
   get "/cart", to: "carts#show"
   post ":user/homes/:id", to: "carts#create"
 
