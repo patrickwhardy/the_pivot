@@ -14,7 +14,7 @@ RSpec.describe "Cart" do
 
       @cart.add_home(home.id, checkin, checkout)
       expected_contents = [{
-        "home"       => 42,
+        "home"       => home.id,
         "checkin"    => Date.parse("Tue, 02 May 2017"),
         "checkout"   => Date.parse("on, 05 Jun 2017"),
         "total_days" => 34
