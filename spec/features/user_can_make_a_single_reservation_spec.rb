@@ -86,7 +86,6 @@ RSpec.feature "User can make reservations" do
       select day_out, from: "checkout_date_date_3i"
 
       click_on("Add to Cart")
-  
       click_on("2 Reservations - $6,700.00")
 
       expect(current_path).to eq(cart_path)
