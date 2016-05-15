@@ -12,8 +12,6 @@ class Cart
     @contents << { home: home_id, checkin: checkin_date, checkout: checkout_date, total_days: total_days }
   end
 
-
-
   def get_homes
     @cart_homes ||= @contents.each { |reservation| reservation["home"] = Home.find(reservation["home"]) }
   end
@@ -30,17 +28,5 @@ class Cart
 
   def quantity
     @contents.size
-  end
-
-  def remove(tool_id)
-    @contents.delete(tool_id)
-  end
-
-  def update_quantity(new_data)
-    if new_data[:quantity].to_i == 0
-      @contents.delete(new_data[:tool_id])
-    else
-      @contents[new_data[:tool_id]] = new_data[:quantity].to_i
-    end
   end
 end

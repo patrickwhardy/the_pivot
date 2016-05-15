@@ -32,6 +32,6 @@ RSpec.feature "Admin can view all homes" do
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit admin_homes_path
-    expect(page).to have_content("404")
+    expect(current_path).to eq(root_path)
   end
 end

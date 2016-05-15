@@ -1,18 +1,16 @@
 class CartsController < ApplicationController
-  def show
-    if session[:cart]
-      @cart = Cart.new(session[:cart])
-      # @cart_homes = @cart.contents
-      # @reserved_dates = session[:date].transform_values { |date_id| DateReserved.find(date_id).date_reserved.to_formatted_s(:long_ordinal)}
+  def create
+    reserved_dates = Reservation.dates_reserved(params[:id], params[:checkin_date], params[:checkout_date])
+    if reserved_dates.empty?
+      @cart.add_home(params[:id], params[:checkin_date], params[:checkout_date])
+      session[:cart] = @cart.contents
+      flash[:success] = "You've added this reservation to your cart"
     else
-      flash[:success] = "Start shopping before viewing your cart!"
-      redirect_to root_path
+      flash[:error] = "This home is already reserved on #{reserved_dates.join(", ")}"
     end
+    redirect_to request.referrer
   end
 
-  def update
-    @cart.update_quantity(params[:cart_tool])
-    flash[:success] = "Cart updated successfully."
-    redirect_to cart_path
+  def show
   end
 end

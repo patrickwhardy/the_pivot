@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def set_cart
-    @cart = Cart.new(session[:cart])
+    @cart ||= Cart.new(session[:cart])
   end
 
   def current_user

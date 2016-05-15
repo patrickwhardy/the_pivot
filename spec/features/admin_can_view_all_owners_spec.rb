@@ -35,6 +35,6 @@ RSpec.feature "Admin is logged in" do
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit admin_owners_path
-    expect(page).to have_content("404")
+    expect(current_path).to eq(root_path)
   end
 end
