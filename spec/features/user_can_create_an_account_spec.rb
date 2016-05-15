@@ -9,11 +9,14 @@ RSpec.feature "User can create an account" do
       fill_in "Username", with: "username"
       fill_in "First name", with: "first name"
       fill_in "Last name", with: "last name"
+      fill_in "Description: Tell your renters and hosts a thing or two about yourself.", with: "This is my story and lots of info about me"
       attach_file "Avatar", "spec/asset_specs/photos/photo.jpeg"
       click_button "Create Account"
 
       expect(current_path).to eq('/username/dashboard')
       expect(page).to have_content("Welcome, first name")
+
+      expect(User.last.description).to eq("This is my story and lots of info about me")
     end
   end
 
