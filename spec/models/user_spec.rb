@@ -69,6 +69,18 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#home_owner?" do
+    it "returns true if a user owns homes" do
+      user = create(:home).user
+      expect(user.home_owner?).to be(true)
+    end
+
+    it "returns false if a user does not have any homes" do
+      user = create(:user)
+      expect(user.home_owner?).to be(false)
+    end
+  end
+
   describe ".home_owners" do
     it "returns an array of all users who have homes" do
       user = create(:user)
