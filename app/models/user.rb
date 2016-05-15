@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
     homes.each { |home| home.suspended! }
   end
 
+  def retire
+    self.deleted!
+    homes.each { |home| home.suspended! }
+  end
+
   def upcoming_reservations
     self.reservations.where("checkout > ?", Date.today)
   end

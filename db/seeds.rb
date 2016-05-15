@@ -124,3 +124,11 @@ class Seed
 end
 
 Seed.new
+
+# One Bedroom #HIPSTER friendly, #HIPSTER located tiny home
+
+# My place is close to Punch Bowl Social Denver, Sweet Action Ice Cream,
+# The Hornet, Cherry Creek, Downtown, Highlands, Washington Park, Congress Park...
+# close to everything cool in Central #city!.
+# You'll love my place because it's relaxing and comfortable.
+# Great neighbors and outdoor space with HIPSTER grill..
