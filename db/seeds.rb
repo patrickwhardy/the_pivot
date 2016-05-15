@@ -83,12 +83,12 @@ class Seed
         last_name: Faker::Name.last_name
       )
       user.slug = user.username.parameterize
-      50.times do |n|
+      rand(1..3).times do |n|
         home = Home.new(
-          name: Faker::Hipster.words(3).join(" "),
-          description: Faker::Hipster.sentence,
-          price_per_night: Faker::Number.number(3),
-          address: "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.state_abbr} #{Faker::Address.zip}",
+          name: generate_name,
+          description: generate_description,
+          price_per_night: Faker::Number.number(2),
+          address: generate_address
         )
         home.photos << [photo1.dup, photo2.dup, photo3.dup]
         user.homes << home
@@ -112,6 +112,26 @@ class Seed
       end
     end
   end
+
+  def generate_address
+    "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.state_abbr} #{Faker::Address.zip}"
+  end
+
+  def generate_name
+    "One Bedroom #{Faker::Hipster.word} friendly, centrally located tiny home"
+  end
+
+  def generate_description
+    "This tiny home is close to #{Faker::Hipster.word} #{Faker::Company.suffix}, #{Faker::Hipster.word} #{Faker::Company.suffix}, and #{Faker::Hipster.word} #{Faker::Company.suffix}. Relaxing, comfortable, with great neighbords and #{Faker::Hipster.word} ammenities"
+  end
 end
 
 Seed.new
+
+# One Bedroom #HIPSTER friendly, #HIPSTER located tiny home
+
+# My place is close to Punch Bowl Social Denver, Sweet Action Ice Cream,
+# The Hornet, Cherry Creek, Downtown, Highlands, Washington Park, Congress Park...
+# close to everything cool in Central #city!.
+# You'll love my place because it's relaxing and comfortable.
+# Great neighbors and outdoor space with HIPSTER grill..

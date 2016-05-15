@@ -4,8 +4,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'capybara/rails'
 require 'rspec/rails'
-require 'support/factory_girl'
-require "support/spec_test_helper"
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -15,4 +13,16 @@ RSpec.configure do |config|
   config.mock_with :mocha
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.start
+      # Test factories in spec/factories are working.
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
 end
