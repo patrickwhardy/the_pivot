@@ -11,7 +11,8 @@ class Seed
       password: "password",
       username: "josh@turing.io",
       first_name: "josh",
-      last_name: "mejia"
+      last_name: "mejia",
+      description: Faker::Lorem.paragraph(2)
     )
     user.slug = user.username.parameterize
     puts user.save
@@ -20,7 +21,8 @@ class Seed
       password: "password",
       username: "andrew@turing.io",
       first_name: "andrew",
-      last_name: "carmer"
+      last_name: "carmer",
+      description: Faker::Lorem.paragraph(2)
     )
     user.slug = user.username.parameterize
     puts user.save
@@ -30,7 +32,8 @@ class Seed
       username: "jorge@turing.io",
       first_name: "jorge",
       last_name: "jorge",
-      role: 1
+      role: 1,
+      description: Faker::Lorem.paragraph(2)
     )
     user.roles << Role.new(role: "admin")
     user.slug = user.username.parameterize
@@ -43,6 +46,7 @@ class Seed
         username: Faker::Internet.user_name,
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
+        description: Faker::Lorem.paragraph(2)
       )
       user.slug = user.username.parameterize
       puts user.save
@@ -71,7 +75,8 @@ class Seed
         password: "password",
         username: Faker::Internet.user_name,
         first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name
+        last_name: Faker::Name.last_name,
+        description: Faker::Lorem.paragraph(2)
       )
       user.slug = user.username.parameterize
       rand(1..3).times do |n|
