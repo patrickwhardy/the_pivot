@@ -15,8 +15,9 @@ class Seed
       description: Faker::Lorem.paragraph(2)
     )
     user.slug = user.username.parameterize
+    user.roles << Role.new(role: "admin")    
     puts user.save
-    User.new(
+    user = User.new(
       email: "andrew@turing.io",
       password: "password",
       username: "andrew@turing.io",
@@ -25,8 +26,9 @@ class Seed
       description: Faker::Lorem.paragraph(2)
     )
     user.slug = user.username.parameterize
+    user.roles << Role.new(role: "admin")    
     puts user.save
-    User.new(
+    user = User.new(
       email: "jorge@turing.io",
       password: "password",
       username: "jorge@turing.io",
