@@ -5,6 +5,7 @@ class Seed
   end
 
   def create_users
+    puts "Creating Required Users"
     user = User.new(
       email: "josh@turing.io",
       password: "password",
@@ -31,8 +32,10 @@ class Seed
       last_name: "jorge",
       role: 1
     )
+    user.roles << Role.new(role: "admin")
     user.slug = user.username.parameterize
     puts user.save
+    puts "Creating Generic Users"
     100.times do |n|
       user = User.new(
         email: Faker::Internet.email,
@@ -61,16 +64,7 @@ class Seed
   end
 
   def create_homes
-    photo1 = Photo.create(
-      image: File.open(File.join(Rails.root, '/public/photos/tinyhome1.jpg'))
-    )
-    photo2 = Photo.create(
-      image: File.open(File.join(Rails.root, '/public/photos/tinyhome2.jpg'))
-    )
-    photo3 = Photo.create(
-      image: File.open(File.join(Rails.root, '/public/photos/tinyhome3.jpg'))
-    )
-
+    puts "Creating Home Owners and Homes"
     50.times do |n|
       user = User.new(
         email: Faker::Internet.email,
@@ -87,10 +81,16 @@ class Seed
           price_per_night: Faker::Number.number(2),
           address: generate_address
         )
-        home.photos << [photo1.dup, photo2.dup, photo3.dup]
+        home.photos << Photo.create(
+          image: File.open(File.join(Rails.root, '/public/photos/tinyhome1.jpg'))
+        )
+        home.photos << Photo.create(
+          image: File.open(File.join(Rails.root, '/public/photos/tinyhome2.jpg'))
+        )
         user.homes << home
       end
       puts user.save
+      puts "Creating Orders for User"
       10.times do |n|
         order = Order.new(
           total: Faker::Number.number(4),
@@ -124,11 +124,3 @@ class Seed
 end
 
 Seed.new
-
-# One Bedroom #HIPSTER friendly, #HIPSTER located tiny home
-
-# My place is close to Punch Bowl Social Denver, Sweet Action Ice Cream,
-# The Hornet, Cherry Creek, Downtown, Highlands, Washington Park, Congress Park...
-# close to everything cool in Central #city!.
-# You'll love my place because it's relaxing and comfortable.
-# Great neighbors and outdoor space with HIPSTER grill..
