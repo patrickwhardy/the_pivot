@@ -8,11 +8,13 @@
   <% if @home.suspended? %>
     <p>This home has been suspended.</p>
   <% else %>
+
+
     <%= form_for :date do |f|  %>
       <%= f.label :checkin %>
-      <%= date_select('checkin_date', 'date') %>
+      <%= f.text_field :checkin_date, class: "date-picker" %>
       <%= f.label :checkout %>
-      <%= date_select('checkout_date', 'date') %>
+      <%= f.text_field :checkout_date, class: "date-picker" %>
       <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
    <% end %>
   <% end %>

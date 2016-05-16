@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_nested_form
+//= require jquery-ui
+$(document).ready(function(){
+  $('.date-picker').datepicker({
+    format: 'mm/dd/yyyy',
+    startDate: '-3d',
+    minDate: 0
+  });
+});
