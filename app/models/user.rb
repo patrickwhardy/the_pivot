@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     self.reservations.where("checkout < ?", Date.today)
   end
 
+  def home_owner?
+    !homes.empty?
+  end
+
   def self.home_owners
     User.where("EXISTS(SELECT 1 from homes where users.id = homes.user_id)")
   end

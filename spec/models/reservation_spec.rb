@@ -6,7 +6,7 @@ RSpec.describe Reservation, type: :model do
     it { is_expected.to belong_to(:home) }
   end
 
-  describe "self.dates_reserved" do
+  describe ".dates_reserved" do
     it "returns an array of dates reserved between given dates" do
       reservation = create(:reservation)
       home = reservation.home
@@ -35,7 +35,7 @@ RSpec.describe Reservation, type: :model do
     end
   end
 
-  describe "self.get_reserved_dates" do
+  describe ".get_reserved_dates" do
     it "returns an array of dates reserved for a home between two dates" do
       reservation = create(:reservation)
       home = reservation.home

@@ -6,9 +6,11 @@
     <div class="btn btn-one"><%= link_to "View All Users", admin_users_path %> </div>
   <% end %>
 	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
-	<div class="btn btn-one"> <%= link_to "View Your Homes", user_homes_path(@user.slug) %> </div>
-	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div>
-  <div class="btn btn-one"> <%= link_to "Delete Account", user_path(@user.slug), method: :delete %> </div>
+  <% if @user.home_owner? %>
+	  <div class="btn btn-one"> <%= link_to "View Your Homes", user_homes_path(@user.slug) %> </div>
+  <% end %>
+	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
+  <div class="btn btn-one"> <%= link_to "Delete Account", user_path(@user.slug), method: :delete %> </div></h1>
 </div>
 
 <div class="container">

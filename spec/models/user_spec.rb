@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:roles) }
   end
 
-  describe ".admin?" do
+  describe "#admin?" do
     it "returns true for an admin user" do
       admin = create(:admin)
       expect(admin.admin?).to be(true)
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".retire" do
+  describe "#retire" do
     it "changes the user's status to deleted" do
       user = create(:user)
       user.retire
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".upcoming_reservations" do
+  describe "#upcoming_reservations" do
     it "returns reservations with a checkout later than today" do
       order = create(:order)
       reservation = create(:upcoming_reservation)
@@ -57,7 +57,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "past_reservations" do
+  describe "#past_reservations" do
     it "returns reservations with a checkout earlier than today" do
       order = create(:order)
       reservation = create(:past_reservation)
@@ -69,7 +69,19 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "self.home_owners" do
+  describe "#home_owner?" do
+    it "returns true if a user owns homes" do
+      user = create(:home).user
+      expect(user.home_owner?).to be(true)
+    end
+
+    it "returns false if a user does not have any homes" do
+      user = create(:user)
+      expect(user.home_owner?).to be(false)
+    end
+  end
+
+  describe ".home_owners" do
     it "returns an array of all users who have homes" do
       user = create(:user)
       home_owner = create(:home).user
@@ -78,7 +90,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".active?" do
+  describe "#active?" do
     it "returns true for an active user" do
       user = create(:user)
       expect(user.active?).to be(true)
@@ -90,7 +102,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".active!" do
+  describe "#active!" do
     it "changes a deleted user to active" do
       user = create(:deleted_user)
       user.active!
@@ -104,7 +116,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".deleted?" do
+  describe "#deleted?" do
     it "returns true for a deleted user" do
       user = create(:deleted_user)
       expect(user.deleted?).to be(true)
@@ -116,7 +128,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".deleted!" do
+  describe "#deleted!" do
     it "changes an active user to deleted" do
       user = create(:user)
       user.deleted!
