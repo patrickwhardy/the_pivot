@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
   def create
-    reserved_dates = Reservation.dates_reserved(params[:id], params[:checkin_date], params[:checkout_date])
+    reserved_dates = Reservation.dates_reserved(
+      params[:id], params[:checkin_date], params[:checkout_date]
+    )
     if reserved_dates.empty?
       @cart.add_home(params[:id], params[:checkin_date], params[:checkout_date])
       session[:cart] = @cart.contents
@@ -12,5 +14,6 @@ class CartsController < ApplicationController
   end
 
   def show
+    @contents = @cart.reservations
   end
 end

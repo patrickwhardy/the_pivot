@@ -10,7 +10,7 @@ RSpec.describe Order, type: :model do
     it { is_expected.to have_many(:reservations) }
   end
 
-  describe ".completed?" do
+  describe "#completed?" do
     it "returns true for completed order" do
       order = create(:completed_order)
       expect(order.completed?).to be(true)
@@ -22,7 +22,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".completed!" do
+  describe "#completed!" do
     it "changes an incomplete order to completed" do
       order = create(:paid_order)
       order.completed!
@@ -36,7 +36,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".cancelled?" do
+  describe "#cancelled?" do
     it "returns true for a cancelled order" do
       order = create(:cancelled_order)
       expect(order.cancelled?).to be(true)
@@ -48,7 +48,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".cancelled!" do
+  describe "#cancelled!" do
     it "changes an non cancelled order to cancelled" do
       order = create(:order)
       order.cancelled!
@@ -62,7 +62,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".ordered?" do
+  describe "#ordered?" do
     it "returns true for an ordered order" do
       order = create(:order)
       expect(order.ordered?).to be(true)
@@ -74,7 +74,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".ordered!" do
+  describe "#ordered!" do
     it "changes a paid order to ordered" do
       order = create(:paid_order)
       order.ordered!
@@ -88,7 +88,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".paid?" do
+  describe "#paid?" do
     it "returns true for a paid order" do
       order = create(:paid_order)
       expect(order.paid?).to be(true)
@@ -100,7 +100,7 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe ".paid!" do
+  describe "#paid!" do
     it "changes an order to paid" do
       order = create(:order)
       order.paid!
