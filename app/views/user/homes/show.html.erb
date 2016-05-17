@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="carousel-wrapper col-md-8">
-      <%= render "user/homes/carousel" %>
+      <%= render partial: "user/homes/carousel", locals: { home: @home } %>
     </div>
     <div class="col-md-4">
       <iframe class="map"
@@ -25,10 +25,12 @@
     </div>
     <div class="row extra-margin">
       <div class="col-md-2">
-        <img src="<%= @home.user.avatar.url %>" class="home-show-avatar">
+        <a href="/<%= @home.user.slug %>/homes">
+          <img src="<%= @home.user.avatar.url %>" class="home-show-avatar">
+        </a>
+        <h6 class="center"><%= @home.user.first_name %></h6>
       </div>
-      <div class="col-md-6">
-        <h6><%= @home.user.first_name %> says</h6>
+      <div class="col-md-6 home-description">
         <p><%= @home.description %></p>
       </div>
       <div class="col-md-4">

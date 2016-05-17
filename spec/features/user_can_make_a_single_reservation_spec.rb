@@ -134,7 +134,7 @@ RSpec.feature "User can make reservations" do
 
       expect(current_path).to eq(cart_path)
       expect(page).to have_link("Login")
-      click_link("Create Account to Checkout")
+      click_link("Signup")
 
       expect(current_path).to eq(new_user_path)
     end

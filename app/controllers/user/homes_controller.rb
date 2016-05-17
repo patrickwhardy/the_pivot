@@ -60,6 +60,13 @@ class User::HomesController < ApplicationController
     @user = User.find_by(slug: params[:path])
   end
 
+  def destroy
+    home = current_user.homes.find(params[:id])
+    home.suspended!
+    flash[:warning] = "#{home.name} has been suspended"
+    redirect_to admin_homes_path
+  end
+
   private
 
   def home_params

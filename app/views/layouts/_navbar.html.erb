@@ -1,12 +1,14 @@
 <nav class="navbar navbar-dark bg-inverse">
-	<div class="navbar-brand"> <%= link_to "Tiny Stay", root_path %> </div>
-		<form class="form-inline pull-xs-right">
-			<%= form_for(Home.new, url: root_path) do |f| %>
-			<%= f.text_field "address", placeholder: "City, State, or Zip", class: "form-control" %>
-			<%= f.submit "Search", class: "btn btn-one" %>
-			<% end %>
-		</form>
-	  <ul class="nav navbar-nav">
+	<div class="logo"> <%= link_to "tiny stay", root_path %> </div>
+	  <ul class="nav navbar-nav pull-xs-right">
+			<li class="nav-item nav-search">
+				<form class="form-inline">
+					<%= form_for(Home.new, url: root_path) do |f| %>
+					<%= f.text_field "address", placeholder: "Where are you going?", class: "form-control" %>
+					<%= f.submit "Search", class: "btn btn-one" %>
+					<% end %>
+				</form>
+			</li>
 	    <li class="nav-item">
 	  		<%= link_to "My Dashboard", dashboard_path(current_user.slug), class: "nav-link" if current_user %>
 	    </li>
@@ -16,7 +18,6 @@
 	    </li>
 	    <li class="nav-item">
 				<a href="/cart" class="nav-link"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= pluralize(@cart.quantity, "Reservation") %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
-				</li>
-	    </li>
+			</li>
 	  </ul>
 </nav>
