@@ -18,18 +18,9 @@ RSpec.feature "User cannot book a home that is reserved" do
     end
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit user_home_path(home.user.slug, home)
-    year = "2017"
-    month = "May"
-    day_in = "1"
-    day_out = "5"
 
-    select year, from: "checkin_date_date_1i"
-    select month, from: "checkin_date_date_2i"
-    select day_in, from: "checkin_date_date_3i"
-
-    select year, from: "checkout_date_date_1i"
-    select month, from: "checkout_date_date_2i"
-    select day_out, from: "checkout_date_date_3i"
+    fill_in "date_checkin_date", with: "01/05/2017"
+    fill_in "date_checkout_date", with: "05/05/2017"
 
     click_on("Add to Cart")
 

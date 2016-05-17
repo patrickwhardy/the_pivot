@@ -11,19 +11,10 @@ RSpec.feature "User can make reservations" do
 
       checkin_date = Date.parse("2017-05-02")
       checkout_date = Date.parse("2017-06-05")
-      year = "2017"
-      month_in = "May"
-      day_in = "2"
-      month_out = "June"
-      day_out = "5"
 
-      select year, from: "checkin_date_date_1i"
-      select month_in, from: "checkin_date_date_2i"
-      select day_in, from: "checkin_date_date_3i"
 
-      select year, from: "checkout_date_date_1i"
-      select month_out, from: "checkout_date_date_2i"
-      select day_out, from: "checkout_date_date_3i"
+      fill_in "date_checkin_date", with: "02/05/2017"
+      fill_in "date_checkout_date", with: "05/06/2017"
 
       expect(page).to have_content("0 Reservations - $0.00")
       click_on("Add to Cart")
@@ -51,19 +42,10 @@ RSpec.feature "User can make reservations" do
 
       checkin_date_one = Date.parse("2017-05-02")
       checkout_date_one = Date.parse("2017-06-05")
-      year = "2017"
-      month_in = "May"
-      day_in = "2"
-      month_out = "June"
-      day_out = "5"
 
-      select year, from: "checkin_date_date_1i"
-      select month_in, from: "checkin_date_date_2i"
-      select day_in, from: "checkin_date_date_3i"
 
-      select year, from: "checkout_date_date_1i"
-      select month_out, from: "checkout_date_date_2i"
-      select day_out, from: "checkout_date_date_3i"
+      fill_in "date_checkin_date", with: "02/05/2017"
+      fill_in "date_checkout_date", with: "05/06/2017"
 
       click_on("Add to Cart")
 
@@ -71,19 +53,10 @@ RSpec.feature "User can make reservations" do
 
       checkin_date_two = Date.parse("2017-06-02")
       checkout_date_two = Date.parse("2017-07-05")
-      year = "2017"
-      month_in = "June"
-      day_in = "2"
-      month_out = "July"
-      day_out = "5"
 
-      select year, from: "checkin_date_date_1i"
-      select month_in, from: "checkin_date_date_2i"
-      select day_in, from: "checkin_date_date_3i"
 
-      select year, from: "checkout_date_date_1i"
-      select month_out, from: "checkout_date_date_2i"
-      select day_out, from: "checkout_date_date_3i"
+      fill_in "date_checkin_date", with: "02/06/2017"
+      fill_in "date_checkout_date", with: "05/07/2017"
 
       click_on("Add to Cart")
       click_on("2 Reservations - $6,700.00")
@@ -110,19 +83,9 @@ RSpec.feature "User can make reservations" do
 
       checkin_date = Date.parse("2017-05-02")
       checkout_date = Date.parse("2017-06-05")
-      year = "2017"
-      month_in = "May"
-      day_in = "2"
-      month_out = "June"
-      day_out = "5"
 
-      select year, from: "checkin_date_date_1i"
-      select month_in, from: "checkin_date_date_2i"
-      select day_in, from: "checkin_date_date_3i"
-
-      select year, from: "checkout_date_date_1i"
-      select month_out, from: "checkout_date_date_2i"
-      select day_out, from: "checkout_date_date_3i"
+      fill_in "date_checkin_date", with: "02/05/2017"
+      fill_in "date_checkout_date", with: "05/06/2017"
 
       expect(page).to have_content("0 Reservations - $0.00")
       click_on("Add to Cart")
