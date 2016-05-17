@@ -1,15 +1,7 @@
 class CartsController < ApplicationController
   def create
-    formatted_checkin = Hash.new
-    checkin_array = params[:date][:checkin_date].split("/")
-      3.times do |num|
-        formatted_checkin["date(#{num + 1}i)"] = checkin_array[num]
-      end
-    formatted_checkout = Hash.new
-    checkout_array = params[:date][:checkout_date].split("/")
-      3.times do |num|
-        formatted_checkout["date(#{num + 1}i)"] = checkout_array[num]
-      end
+    formatted_checkin = @cart.format_dates(params[:date][:checkin_date])
+    formatted_checkout = @cart.format_dates(params[:date][:checkout_date])
     reserved_dates = Reservation.dates_reserved(
       params[:id], formatted_checkin, formatted_checkout
     )
@@ -26,4 +18,5 @@ class CartsController < ApplicationController
   def show
     @contents = @cart.reservations
   end
+
 end
