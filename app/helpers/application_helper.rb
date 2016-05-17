@@ -33,4 +33,12 @@ module ApplicationHelper
     end
   end
 
+  def determine_active_photo(photo, photos)
+    if photo == photos.first
+      "active"
+    else
+      "inactive"
+    end
+  end
+
 end

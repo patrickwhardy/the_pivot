@@ -1,27 +1,22 @@
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<div class="navbar-brand"> <%= link_to "Tiny Stay", root_path %> </div>
-		</div>
-		<ul class="nav navbar-nav navbar-right">
-		  <li class="active">
-		    <div>
-		      <%= form_for(Home.new, url: root_path) do |f| %>
-		      <%= f.text_field "address", placeholder: "City, State, or Zip" %>
-		      <%= f.submit "Search" %>
-		      <% end %>
-		    </div>
-		  </li>
-		<li class="active">
-		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= pluralize(@cart.quantity, "Reservation") %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
-		</li>
-		<li class="active">
-				<%= link_to "My Dashboard", dashboard_path(current_user.slug) if current_user %>
-		</li>
-		<li class="active">
-				<%= link_to "Logout", logout_path, method: :delete if current_user %>
-				<%= link_to "Login", login_path if !current_user %>
-		</li>
-		</ul>
-	</div>
+<nav class="navbar navbar-dark bg-inverse">
+	<div class="navbar-brand"> <%= link_to "Tiny Stay", root_path %> </div>
+		<form class="form-inline pull-xs-right">
+			<%= form_for(Home.new, url: root_path) do |f| %>
+			<%= f.text_field "address", placeholder: "City, State, or Zip", class: "form-control" %>
+			<%= f.submit "Search", class: "btn btn-one" %>
+			<% end %>
+		</form>
+	  <ul class="nav navbar-nav">
+	    <li class="nav-item">
+	  		<%= link_to "My Dashboard", dashboard_path(current_user.slug), class: "nav-link" if current_user %>
+	    </li>
+	    <li class="nav-item">
+				<%= link_to "Logout", logout_path, method: :delete, class: "nav-link" if current_user %>
+				<%= link_to "Login", login_path, class: "nav-link" if !current_user %>
+	    </li>
+	    <li class="nav-item">
+				<a href="/cart" class="nav-link"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= pluralize(@cart.quantity, "Reservation") %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
+				</li>
+	    </li>
+	  </ul>
 </nav>

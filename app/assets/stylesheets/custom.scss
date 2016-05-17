@@ -1,3 +1,13 @@
+.body-background {
+  // background-color: #303336;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+
+
 .jumbotron {
   background: url("http://netdna.tinyhouseblog.com/wp-content/uploads/2015/04/spicebox-homes-MountainMansard7.jpg");
   background-position: left top;
@@ -128,6 +138,14 @@ background: #F6F6F6;
   text-weight: bold;
 }
 
+.btn-center {
+  text-align: center;
+}
+
+.btn-wide {
+  width: 80%;
+}
+
 .btn-one a {
   color: white;
 }
@@ -238,5 +256,9 @@ background: #F6F6F6;
 }
  .user-info {
    margin-bottom: 1cm;
+   text-align: center;
+ }
+
+ .center {
    text-align: center;
  }
