@@ -83,6 +83,10 @@ RSpec.describe User, type: :model do
 
   describe ".home_owners" do
     it "returns an array of all users who have homes" do
+      expect(User.count).to eq(1)
+      horrible = User.first
+      User.delete(horrible.id)
+      expect(User.count).to eq(0)
       user = create(:user)
       home_owner = create(:home).user
 

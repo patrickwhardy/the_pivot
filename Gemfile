@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
+
+gem 'geocoder'
+
 gem 'bootstrap_form'
+
 gem 'fotofetch'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

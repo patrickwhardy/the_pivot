@@ -4,6 +4,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'capybara/rails'
 require 'rspec/rails'
+Capybara.ignore_hidden_elements = false
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
