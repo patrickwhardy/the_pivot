@@ -14,6 +14,8 @@ RSpec.feature "User can delete their account" do
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Account successfully deleted")
     expect(page).to have_content("Login")
-    expect(User.first.deleted?).to eq(true)
+
+    deleted_user = User.find(user.id)
+    expect(deleted_user.deleted?).to eq(true)
   end
 end

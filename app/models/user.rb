@@ -24,11 +24,6 @@ class User < ActiveRecord::Base
     homes.each { |home| home.suspended! }
   end
 
-  def retire
-    self.deleted!
-    homes.each { |home| home.suspended! }
-  end
-
   def upcoming_reservations
     self.reservations.where("checkout > ?", Date.today)
   end
@@ -42,7 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def self.home_owners
-    User.joins(:homes).uniq
-    # User.where("EXISTS(SELECT 1 from homes where user_id = homes.user_id)")
+#    User.joins(:homes).uniq
+     User.where("EXISTS(SELECT 1 from homes where users.id = homes.user_id)")
   end
 end

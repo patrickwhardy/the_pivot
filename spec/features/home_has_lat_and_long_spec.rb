@@ -7,8 +7,9 @@ RSpec.feature "Home has lat and long" do
   end
   
   scenario "home knows its own lat and long" do
-    expect(@home.latitude).to eq 30.304665
-    expect(@home.longitude).to eq -97.731714
+    # these lats and longs are being stubbed in geocode config
+    expect(@home.latitude).to eq 40.7143528
+    expect(@home.longitude).to eq -74.0059731
   end
 
 end
