@@ -1,5 +1,7 @@
 class Seed
   def initialize
+    @addresses = get_addresses
+    puts @addresses
     create_admins
     create_homes_and_owners
     create_generic_users
@@ -16,7 +18,7 @@ class Seed
       description: Faker::Lorem.paragraph(2)
     )
     user.slug = user.username.parameterize
-    user.roles << Role.new(role: "admin")    
+    user.roles << Role.new(role: "admin")
     puts user.save
     user = User.new(
       email: "andrew@turing.io",
@@ -27,7 +29,7 @@ class Seed
       description: Faker::Lorem.paragraph(2)
     )
     user.slug = user.username.parameterize
-    user.roles << Role.new(role: "admin")    
+    user.roles << Role.new(role: "admin")
     puts user.save
     user = User.new(
       email: "jorge@turing.io",
@@ -46,6 +48,7 @@ class Seed
   def create_homes_and_owners
     puts "Creating Home Owners and Homes"
     50.times do |n|
+      sleep(1) if n.even?
       @count = n
       user = User.new(
         email: Faker::Internet.email,
@@ -57,11 +60,11 @@ class Seed
       )
       user.slug = user.username.parameterize
       rand(1..3).times do |n|
-        home = Home.create(
+        home = Home.new(
           name: generate_name,
           description: generate_description,
           price_per_night: Faker::Number.number(2),
-          address: generate_address
+          address: @addresses.pop
         )
         home.photos << Photo.create(
           image: File.open(File.join(Rails.root, '/public/photos/tinyhome1.jpg'))
@@ -122,7 +125,7 @@ class Seed
       end
     end
   end
-  
+
   def generate_address
     "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.state_abbr} #{Faker::Address.zip}"
   end
@@ -133,6 +136,22 @@ class Seed
 
   def generate_description
     "This tiny home is close to #{Faker::Hipster.word} #{Faker::Company.suffix}, #{Faker::Hipster.word} #{Faker::Company.suffix}, and #{Faker::Hipster.word} #{Faker::Company.suffix}. Relaxing, comfortable, with great neighbords and #{Faker::Hipster.word} ammenities"
+  end
+
+  def get_addresses
+    filepath = 'db/raw_addresses'
+    array = IO.readlines(filepath)
+
+    addresses = []
+
+    array.each_with_index do |line, index|
+      if index.even?
+        address = [array[index].chomp, array[index + 1].chomp].join(", ")
+        addresses << address
+      end
+    end
+
+    addresses
   end
 end
 
