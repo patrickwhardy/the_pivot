@@ -14,8 +14,8 @@ RSpec.describe Reservation, type: :model do
       reservation.reservation_nights.create(night: reservation.checkout)
       date = reservation.checkin
 
-      checkin = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"}
-      checkout = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"5"}
+      checkin = "02/05/2017"
+      checkout = "05/05/2017"
 
       reserved = Reservation.dates_reserved(home.id, checkin, checkout)
 
@@ -26,8 +26,8 @@ RSpec.describe Reservation, type: :model do
       reservation = create(:reservation)
       home = reservation.home
 
-      checkin = { "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2" }
-      checkout = { "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"5" }
+      checkin = "02/05/2017"
+      checkout = "05/05/2017"
 
       reserved = Reservation.dates_reserved(home.id, checkin, checkout)
 

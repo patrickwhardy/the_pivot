@@ -7,8 +7,8 @@ RSpec.describe "OrderCreator" do
     @home = create(:home)
     @cart = Cart.new([{
       "home"=> @home.id,
-      "checkin"=>{"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"},
-      "checkout"=>{"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"5"},
+      "checkin" => "05/05/2017",
+      "checkout" => "05/06/2017",
       "total_days"=>34
     }])
   end
@@ -20,11 +20,11 @@ RSpec.describe "OrderCreator" do
     reservation = Reservation.last
 
     expect(reservation.home_id).to eq(@home.id)
-    expect(reservation.checkin).to eq(Date.parse("2017-05-02"))
-    expect(reservation.checkout).to eq(Date.parse("2017-06-05"))
-    expect(ReservationNight.count).to eq(34)
+    expect(reservation.checkin).to eq(Date.parse("2017-05-05"))
+    expect(reservation.checkout).to eq(Date.parse("2017-05-06"))
+    expect(ReservationNight.count).to eq(1)
     expect(order.user_id).to eq(@user.id)
-    expect(order.total).to eq(3400)
+    expect(order.total).to eq(100)
   end
 
   describe "#create_order" do
@@ -75,7 +75,7 @@ RSpec.describe "OrderCreator" do
       order_creator = OrderCreator.new(@cart, @user)
       order_creator.create_reservations_and_reservation_nights
       order_creator.save
-      expect(ReservationNight.count).to eq(68)
+      expect(ReservationNight.count).to eq(2)
     end
   end
 end

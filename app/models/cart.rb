@@ -9,7 +9,7 @@ class Cart
     @contents << {
       "home"     => home_id,
       "checkin"  => checkin,
-      "checkout" =>  checkout,
+      "checkout" => checkout
     }
   end
 
