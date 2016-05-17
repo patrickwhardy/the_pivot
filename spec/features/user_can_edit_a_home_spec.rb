@@ -10,8 +10,8 @@ RSpec.feature "User can edit a home" do
     click_on "Edit Home"
     fill_in "Name", with: "Updated Home Name"
     fill_in "Description", with: "Updated Description"
-    fill_in "Price per night", with: "20"
-    fill_in "Address", with: "Updated Address"
+    fill_in :price, with: "20"
+    fill_in :address, with: "Updated Address"
     attach_file "Image", "spec/asset_specs/photos/photo.jpeg"
     click_button "Edit Home"
 

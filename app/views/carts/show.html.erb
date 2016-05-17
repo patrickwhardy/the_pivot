@@ -1,4 +1,5 @@
-<div class="container-fluid cart-box col-md-offset-3 col-md-6 rounded">
+<div class="container">
+<div class="col-md-offset-2 col-md-8 cart-container">
   <h2>Shopping Cart:</h2>
 
   <table class="table">
@@ -19,15 +20,16 @@
       </tr>
     <% end %>
   </table>
-
-<div class="col-md-offset-1 col-md-9 cart-total">
-  Total: <%= number_with_precision(@cart.total, precision: 2) %>
-  <br>
+  <p class="total cart-total right">Total: <%= number_with_precision(@cart.total, precision: 2) %></p>
+  <div class="center">
     <% if current_user %>
       <div class="btn btn-one"><%= link_to "Checkout Now", orders_path, method: "post" %></div>
     <% else %>
-      <div class="btn btn-one"><%= link_to "Login", login_path %></div> or
-      <div class="btn btn-one"><%= link_to "Create Account to Checkout", new_user_path %></div>
+      <p class="total">To Checkout</p>
+      <div class="btn btn-one"><%= link_to "Login", login_path %></div>
+      <span class="total">or</span>
+      <div class="btn btn-one"><%= link_to "Signup", new_user_path %></div>
     <% end %>
+  </div>
 </div>
 </div>
