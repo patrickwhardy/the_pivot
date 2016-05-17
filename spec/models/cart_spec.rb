@@ -8,8 +8,8 @@ RSpec.describe "Cart" do
 
   describe "#add_home" do
     it "adds a home to the cart" do
-      checkin = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"}
-      checkout = {"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"5"}
+      checkin = "05/02/2017"
+      checkout = "06/05/2017"
       home = create(:home)
 
       @cart.add_home(home.id, checkin, checkout)
@@ -24,8 +24,8 @@ RSpec.describe "Cart" do
 
   describe "#total" do
     it "adds up the total price of all items in the cart" do
-      checkin = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"}
-      checkout = {"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"5"}
+      checkin = "05/02/2017"
+      checkout = "06/05/2017"
       home = create(:home)
 
       @cart.add_home(home.id, checkin, checkout)
@@ -36,8 +36,8 @@ RSpec.describe "Cart" do
 
   describe "#clear_contents" do
     it "empties the carts contents" do
-      checkin = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"}
-      checkout = {"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"5"}
+      checkin = "05/02/2017"
+      checkout = "06/05/2017"
       home = create(:home)
 
       @cart.add_home(home.id.to_s, checkin, checkout)
@@ -49,8 +49,8 @@ RSpec.describe "Cart" do
 
   describe "#quantity" do
     it "returns the number of items in the cart" do
-      checkin = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"}
-      checkout = {"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"5"}
+      checkin = "05/02/2017"
+      checkout = "06/05/2017"
       home = create(:home)
 
       @cart.add_home(home.id.to_s, checkin, checkout)
@@ -61,8 +61,8 @@ RSpec.describe "Cart" do
 
   describe "#reservations" do
     it "wraps the cart contents in CartReservationObjects" do
-      checkin = {"date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"2"}
-      checkout = {"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"5"}
+      checkin = "05/02/2017"
+      checkout = "06/05/2017"
       home = create(:home)
 
       @cart.add_home(home.id.to_s, checkin, checkout)

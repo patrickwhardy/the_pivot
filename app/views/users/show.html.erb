@@ -1,19 +1,30 @@
-<div class="user-info container col-md-10 col-md-offset-1 rounded">
-  <h1>Welcome, <%= @user.first_name %></h1>
-  <% if @user.admin? %>
-    <div class="btn btn-one"><%= link_to "View All Homes", admin_homes_path %> </div>
-    <div class="btn btn-one"><%= link_to "View All Owners", admin_owners_path %> </div>
-    <div class="btn btn-one"><%= link_to "View All Users", admin_users_path %> </div>
-  <% end %>
-	<div class="btn btn-one"> <%= link_to "Add a Home", new_user_home_path(@user.slug) %> </div>
-  <% if @user.home_owner? %>
-	  <div class="btn btn-one"> <%= link_to "View Your Homes", user_homes_path(@user.slug) %> </div>
-  <% end %>
-	<div class="btn btn-one"> <%= link_to "Edit Account", edit_user_path(@user.slug) %> </div></h1>
-  <div class="btn btn-one"> <%= link_to "Delete Account", user_path(@user.slug), method: :delete %> </div></h1>
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="center heading hero-name">Welcome, <%= @user.first_name %></h1>
+        <div class="row btn-links hero-links center center-block">
+            <%= link_to "Add a Home", new_user_home_path(@user.slug), class: "btn btn-one" %>
+            <% if @user.home_owner? %>
+              <%= link_to "View Your Homes", user_homes_path(@user.slug), class: "btn btn-one" %>
+            <% else %>
+              <%= link_to "View Your Homes", "#", class: "btn btn-disabled btn-wide" %>
+            <% end %>
+            <%= link_to "Edit Account", edit_user_path(@user.slug), class: "btn btn-one" %>
+            <%= link_to "Delete Account", user_path(@user.slug), method: :delete, class: "btn btn-one" %>
+            <% if @user.admin? %>
+              <%= link_to "View All Homes", admin_homes_path, class: "btn btn-one" %>
+              <%= link_to "View All Owners", admin_owners_path, class: "btn btn-one" %>
+              <%= link_to "View All Users", admin_users_path, class: "btn btn-one" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
+  <div class="reservations">
 	<h4>Upcoming Reservations: </h4>
 	<table class="table upcoming-reservations">
 		<thread>
@@ -33,7 +44,8 @@
 			<% end %>
 		</tbody>
 	</table>
-
+  </div>
+  <div class="reservations">
 	<h4>Past Reservations: </h4>
 	<table class="table past-reservations">
 		<thread>
@@ -53,8 +65,9 @@
       <% end %>
 		</tbody>
 	</table>
-
+  </div>
 	<% unless @user.homes.empty?  %>
+    <div class="reservations">
 		<h4>Your Homes' Upcoming Reservations: </h4>
 		<table class="table homes-upcoming-reservations">
 			<thread>
@@ -76,6 +89,8 @@
 				<% end %>
 			</tbody>
 		</table>
+    </div>
+    <div class="reservations">
 		<h4>Your Homes' Past Reservations: </h4>
 		<table class="table homes-past-reservations">
 				<thread>
@@ -97,6 +112,7 @@
 					<% end %>
 				</tbody>
 			</table>
+    </div>
 		<% end %>
 	</div>
 </div>

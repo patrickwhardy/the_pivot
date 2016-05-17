@@ -1,107 +1,70 @@
-.jumbotron {
-  background: url("http://netdna.tinyhouseblog.com/wp-content/uploads/2015/04/spicebox-homes-MountainMansard7.jpg");
-  background-position: left top;
-  background-size: 1270px auto;
-  padding: 20px;
-  background-repeat: no-repeat;
-  height: 465px;
+.logo {
+  font-family: 'Pacifico';
+  display: inline;
+  a {
+    color: #f8f8f8;
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  a:hover {
+    color: #179f98;
+    text-decoration: none !important;
+  }
 }
 
-.jumbo-text {
-  font-size: 56px;
-  letter-spacing: -2px;
-  color: white;
+.navbar {
+  line-height: 48px !important;
+  li {
+    font-family: 'Noto Sans', sans-serif !important;
+  }
 }
 
-.jumbo-p {
-  color: white;
+.nav-search {
+  margin: 6px auto;
+}
+.nav-item a {
+  color: #f8f8f8 !important;
+  line-height: 48px !important;
 }
 
- #jumbo-hover {
-  position: relative;
-  z-index: 100;
-  padding: 95px;
-  background: rgb(34,34,34); /* for IE */
-  background: rgba(34,34,34,0.40);
+.nav-item a:hover {
+  color: #179f98 !important;
 }
 
-#jumbo-container {
-  position: relative;
+.body-background {
+  // background-color: #303336;
 }
 
-.rounded {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+
+
+p {
+  font-family: 'Merriweather';
+}
+
+.heading {
+  font-family: 'Noto Sans', sans-serif !important;
+}
+
+.table {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.price {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.home-name {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
 }
 
 .user-info {
   background: #EAEAEA;
-}
-
-.cart-image {
-  height: 150px;
-  width: 300px;
-  overflow: hidden;
-}
-
-.tool-card-image {
-  height: 200px;
-  width: 400px;
-  overflow: hidden;
-}
-
-.tool-show-image {
-  max-height: 600px;
-  max-width: 600px;
-  overflow: hidden;
-  text-align: center;
-}
-
-.tool-card {
-  margin-top: 20px;
-}
-
-.caption {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 375px;
-  white-space: nowrap;
-}
-
-.tool-show {
-  padding: 10px;
-  background: #EAEAEA;
-}
-
-input[type="number"] {
-      font-size:   80%;
-      padding:     0px;
-      padding-left: 5px;
-      width: 40px;
-      height: 22px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-}
-
-.navbar-default .navbar-brand a {
-    color: #0C4659;
-    font-size: 45px;
-    font-weight: bolder;
-    font-family: "Droid Sans Bold", "Helvetica Neue", "Helvetica";
-}
-
-.navbar-default .navbar-brand a:hover {
-  color: hsl(177, 74%, 36%);
-  text-decoration: none;
-}
-
-.glyphy-butt {
-  margin: 2px;
-}
-
-.dele-col {
-    position: relative;
 }
 
 .dele-col-sp {
@@ -128,8 +91,22 @@ background: #F6F6F6;
   text-weight: bold;
 }
 
+.btn-center {
+  text-align: center;
+}
+
+.btn-wide {
+  width: 80%;
+}
+
 .btn-one a {
   color: white;
+  font-family: 'Noto Sans', sans-serif !important;
+}
+
+.btn-full {
+  width: 100%;
+  border-radius: 0px;
 }
 
 .btn-one a:hover {
@@ -239,4 +216,47 @@ background: #F6F6F6;
  .user-info {
    margin-bottom: 1cm;
    text-align: center;
+ }
+
+ .center {
+   text-align: center;
+ }
+
+ .container-wrapper {
+   margin: 25px auto;
+ }
+
+ .alert {
+   height: 48px;
+ }
+
+ th {
+   font-family: 'Noto Sans';
+ }
+
+ td {
+   font-family: 'Merriweather';
+ }
+
+ .total {
+   font-family: 'Merriweather';
+ }
+
+ #background {
+     background-attachment:fixed;
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     margin-left: 0px;
+     margin-top: 0px;
+     z-index: 0;
+ }
+
+ .stretch {
+     width:100%;
+     height:auto;
+ }
+
+ .cart-container {
+   margin: 24px;
  }

@@ -20,8 +20,6 @@ class Reservation < ActiveRecord::Base
   private
 
   def self.parse_dates_hash(date)
-    Date.parse(
-      "#{date["date(1i)"]}/#{date["date(2i)"]}/#{date["date(3i)"]}"
-    )
+    Date.strptime(date, "%m/%d/%Y")
   end
 end

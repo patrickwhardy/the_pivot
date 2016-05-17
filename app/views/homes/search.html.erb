@@ -1,10 +1,14 @@
-<div class="jumbotron">
-<h1>Find a Tiny Home Today</h1>
-<div>
-  <%= form_for(Home.new, url: root_path) do |f| %>
-  <%= f.text_field "address", placeholder: "City, State, or Zip" %>
-  <%= f.submit "Search" %>
-  <% end %>
-</div>
+
+<div id="background">
+
+  <h1 class="center tagline">Find your tiny home today</h1>
+  <div class="tag-search center">
+    <form class="form-inline">
+      <%= form_for(Home.new, url: root_path) do |f| %>
+      <%= f.text_field "address", placeholder: "Where are you going?", class: "form-control" %>
+      <%= f.submit "Search", class: "btn btn-one" %>
+      <% end %>
+    </form>
+
 </div>
 </div>

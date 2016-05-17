@@ -1,12 +1,10 @@
 class CartsController < ApplicationController
   def create
-    formatted_checkin = @cart.format_dates(params[:date][:checkin_date])
-    formatted_checkout = @cart.format_dates(params[:date][:checkout_date])
     reserved_dates = Reservation.dates_reserved(
-      params[:id], formatted_checkin, formatted_checkout
+      params[:id], params[:date][:checkin_date], params[:date][:checkout_date]
     )
     if reserved_dates.empty?
-      @cart.add_home(params[:id], formatted_checkin, formatted_checkout)
+      @cart.add_home(params[:id], params[:date][:checkin_date], params[:date][:checkout_date])
       session[:cart] = @cart.contents
       flash[:success] = "You've added this reservation to your cart"
     else

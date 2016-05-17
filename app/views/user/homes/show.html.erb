@@ -1,21 +1,75 @@
-<div class="container new-form">
-  <h1><%= @home.name %></h1>
-  <img src="<%= @home.photos.first.image.url %>" height="300" width="500">
-  <p><b>Description: </b><%= @home.description %></p>
-
-  <h5>Price per night: <%= @home.price_per_night %></h5>
-
-  <% if @home.suspended? %>
-    <p>This home has been suspended.</p>
-  <% else %>
-
-
-    <%= form_for :date do |f|  %>
-      <%= f.label :checkin %>
-      <%= f.text_field :checkin_date, class: "date-picker" %>
-      <%= f.label :checkout %>
-      <%= f.text_field :checkout_date, class: "date-picker" %>
-      <%= f.submit "Add to Cart", class: "btn btn-one btn-sm" %>
-   <% end %>
-  <% end %>
+<div class="carousel-container">
+<div class="container">
+  <div class="row">
+    <div class="carousel-wrapper col-md-8">
+      <%= render partial: "user/homes/carousel", locals: { home: @home } %>
+    </div>
+    <div class="col-md-4">
+      <iframe class="map"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCzigWIyUWyYIcgy-r89XrJmxiIk0wLPIM
+          &q=Space+Needle,Seattle+WA" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+</div>
+<div class="info-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="home-name"><%= @home.name %></h5>
+      </div>
+    </div>
+    <div class="row extra-margin">
+      <div class="col-md-2">
+        <a href="/<%= @home.user.slug %>/homes">
+          <img src="<%= @home.user.avatar.url %>" class="home-show-avatar">
+        </a>
+        <h6 class="center owner-name"><%= @home.user.first_name %></h6>
+      </div>
+      <div class="col-md-6 home-description">
+        <p><%= @home.description %></p>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <% if @home.suspended? %>
+                <div class="col-md-12">
+                  <p>This home has been suspended.</p>
+                </div>
+              <% else %>
+                <%= form_for :date, class: "form-control" do |f|  %>
+               <div class="row">
+                 <div class="col-md-12 left checkin-form">
+                   <row>
+                     <div class="col-md-4"><%= f.label :checkin %></div>
+                     <div class="col-md-8"><%= f.text_field :checkin_date, class: "date-picker" %></div>
+                   </row>
+                 </div>
+                 <div class="col-md-12 left checkin-form">
+                   <row>
+                     <div class="col-md-4"><%= f.label :checkout %></div>
+                     <div class="col-md-8"><%= f.text_field :checkout_date, class: "date-picker" %></div>
+                   </row>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col-md-12 btn-center checkin-form">
+                  <%= f.submit "Add to Cart", class: "btn btn-one btn-wide" %>
+                </div>
+              </div>
+               <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>

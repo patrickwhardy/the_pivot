@@ -9,7 +9,7 @@ class Cart
     @contents << {
       "home"     => home_id,
       "checkin"  => checkin,
-      "checkout" =>  checkout,
+      "checkout" => checkout
     }
   end
 
@@ -27,11 +27,5 @@ class Cart
 
   def quantity
     @contents.size
-  end
-
-  def format_dates(date)
-    formatted_date = Hash.new
-    3.times { |n| formatted_date["date(#{n + 1}i)"] = date.split("/")[n] }
-    formatted_date
   end
 end
