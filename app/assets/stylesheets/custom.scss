@@ -271,3 +271,27 @@ background: #F6F6F6;
   margin: 3px !important;
   padding: 3px !important;
 }
+
+#map a {
+  font-family: 'Noto Sans';
+  text-decoration: none;
+  color: #373a3c;
+}
+
+#map a:hover {
+  color: #179f98;
+}
+
+.g-map {
+   width: 80%;
+   height: 360px;
+}
+
+.remove-link {
+  color: #373a3c;
+}
+
+.remove-link:hover {
+  color: #179f98;
+  text-decoration: none;
+}
