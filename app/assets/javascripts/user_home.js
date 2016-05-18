@@ -1,6 +1,30 @@
 // var resDays = ["2016-07-20", "2016-07-14"];
-
-resDays = [$(".pizza").data("reserved")];
+$(document).ready(function(){
+    $('.date-picker').datepicker({
+	format: 'mm/dd/yyyy',
+	startDate: '-3d',
+	minDate: 0,
+	maxDate: '+365d',
+	constrainInput: true,
+	beforeShowDay: reservedDays
+    });
+    
+    var resDays = Array.from($(".pizza").data("reserved"));
+    
+    function reservedDays(date){
+	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+	console.log('Checking (raw): ' + m + '-' + d + '-' + y);
+	for (var i = 0; i < resDays.length; i++) {
+	    if($.inArray((m+1) + '-' + d + '-' + y,resDays) != -1) {
+		console.log('reserved:  ' + (m+1) + '-' + d + '-' + y + ' / ' + resDays[i]);
+		return [false, ""];
+	    }
+	}
+	console.log('free:  ' + (m+1) + '-' + d + '-' + y + '/' + resDays);
+	return [true, ""];
+    }
+    
+});
 // function reservedDays(date) {
 //     for (i = 0; i < resDays.length; i++) {
 // 	if(date.getMonth() == resDays[i][0] - 1
@@ -36,27 +60,3 @@ resDays = [$(".pizza").data("reserved")];
 //     }
 //     return [true, ""];
 // }
-
-function reservedDays(date){
-    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
-    console.log('Checking (raw): ' + m + '-' + d + '-' + y);
-    for (var i = 0; i < resDays.length; i++) {
-	if($.inArray((m+1) + '-' + d + '-' + y,resDays) != -1) {
-	    console.log('reserved:  ' + (m+1) + '-' + d + '-' + y + ' / ' + resDays[i]);
-	    return [false, ""];
-	}
-    }
-    console.log('free:  ' + (m+1) + '-' + d + '-' + y);
-    return [true, ""];
-}
-
-$(document).ready(function(){
-    $('.date-picker').datepicker({
-	format: 'mm/dd/yyyy',
-	startDate: '-3d',
-	minDate: 0,
-	maxDate: '+365d',
-	constrainInput: true,
-	beforeShowDay: reservedDays
-  });
-});
