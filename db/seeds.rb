@@ -34,10 +34,13 @@ class Seed
       address: "1510 Blake Street Denver CO 80202"
     )
     josh_home_one.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home1/1.jpg"))
     )
     josh_home_one.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home1/2.jpg"))
+    )
+    josh_home_one.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home1/interior.jpg"))
     )
     josh_home_two = Home.new(
       name: "Affordable pest friendly Tiny Home",
@@ -46,10 +49,13 @@ class Seed
       address: "8801 W Belleview Ave Littleton CO 80123"
     )
     josh_home_two.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home2/exterior.jpg"))
     )
     josh_home_two.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home2/exterior2.jpg"))
+    )
+    josh_home_two.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home2/interior.jpg"))
     )
     josh.homes << josh_home_one
     josh.homes << josh_home_two
@@ -71,10 +77,13 @@ class Seed
       address: "4370 Quay St Wheat Ridge, CO 80033"
     )
     ashwin_home_one.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home3/exterior.jpg"))
     )
     ashwin_home_one.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home3/exterior2.jpg"))
+    )
+    ashwin_home_one.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home3/interior.jpg"))
     )
     ashwin_home_two = Home.new(
       name: "Affordable pest friendly Tiny Home",
@@ -83,10 +92,13 @@ class Seed
       address: "2960 Inca St Unit 107, Denver, CO 80202"
     )
     ashwin_home_two.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home4/home4.jpg"))
     )
     ashwin_home_two.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home4/interior.jpg"))
+    )
+    ashwin_home_two.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home4/interior2.jpg"))
     )
     ashwin_home_three = Home.new(
       name: "One bedroom Tiny Home with a view",
@@ -95,10 +107,13 @@ class Seed
       address: "106 S University Blvd Unit 13, Denver, CO 80209"
     )
     ashwin_home_three.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home5/exterior.JPG"))
     )
     ashwin_home_three.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home5/interior.jpg"))
+    )
+    ashwin_home_three.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home5/interior2.jpg"))
     )
     ashwin.homes << ashwin_home_one
     ashwin.homes << ashwin_home_two
@@ -121,10 +136,13 @@ class Seed
       address: "4305 Zuni St, Denver, CO 80211"
     )
     patrick_home_one.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home6/exterior.jpg"))
     )
     patrick_home_one.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home6/exterior2.jpg"))
+    )
+    patrick_home_one.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home6/interior.jpg"))
     )
     patrick_home_two = Home.new(
       name: "Affordable pest friendly Tiny Home",
@@ -133,10 +151,13 @@ class Seed
       address: "10718 Troy St, Commerce City, CO 80022"
     )
     patrick_home_two.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home7/exterior.jpg"))
     )
     patrick_home_two.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home7/interior.jpg"))
+    )
+    patrick_home_two.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home7/interior2.jpg"))
     )
     patrick_home_three = Home.new(
       name: "Affordable pest friendly Tiny Home",
@@ -145,10 +166,13 @@ class Seed
       address: "18062 E 104th Pl Unit C, Commerce City, CO 80022"
     )
     patrick_home_three.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home8/exterior.jpg"))
     )
     patrick_home_three.photos << Photo.create(
-      image: File.open(File.join(Rails.root, ""))
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home8/interior.jpg"))
+    )
+    patrick_home_three.photos << Photo.create(
+      image: File.open(File.join(Rails.root, "/public/tiny_home_pictures/home8/interior2.jpg"))
     )
     patrick.homes << patrick_home_one
     patrick.homes << patrick_home_two
