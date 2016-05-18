@@ -41,4 +41,13 @@ module ApplicationHelper
     end
   end
 
+  def value(action, date)
+    if date.nil?
+      action.to_s
+    else
+      date.to_s
+    end
+  end
+
+
 end
