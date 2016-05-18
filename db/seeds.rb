@@ -128,7 +128,7 @@ class Seed
       last_name: "lupercal",
       description: "These are legally Tiny Homes, come and stay in them."
     )
-    patrick.slug = ashwin.username.parameterize
+    patrick.slug = patrick.username.parameterize
     patrick_home_one = Home.new(
       name: "One bedroom Tiny Home with a view",
       description: generate_description,
