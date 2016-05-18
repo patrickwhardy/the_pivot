@@ -12,15 +12,15 @@ $(document).ready(function(){
     var resDays = Array.from($(".pizza").data("reserved"));
     
     function reservedDays(date){
-	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+	var m = ("0" + (date.getMonth() + 1)).slice(-2), d = ("0" + date.getDate()).slice(-2), y = date.getFullYear().toString();
 	console.log('Checking (raw): ' + m + '-' + d + '-' + y);
 	for (var i = 0; i < resDays.length; i++) {
-	    if($.inArray((m+1) + '-' + d + '-' + y,resDays) != -1) {
-		console.log('reserved:  ' + (m+1) + '-' + d + '-' + y + ' / ' + resDays[i]);
+	    if($.inArray(y + '-' + m + '-' + d,resDays) != -1) {
+		console.log('reserved:  ' + y + '-' + m + '-' + d + ' / ' + resDays);
 		return [false, ""];
 	    }
 	}
-	console.log('free:  ' + (m+1) + '-' + d + '-' + y + '/' + resDays);
+	console.log('free:  ' + y + '-' + m + '-' + d + '/' + resDays);
 	return [true, ""];
     }
     
