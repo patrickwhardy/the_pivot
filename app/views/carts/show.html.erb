@@ -11,7 +11,7 @@
     <th>Subtotal</th>
     <% @contents.each do |reservation| %>
       <tr class="home-<%= reservation.id %>">
-        <td><%= reservation.name %></td>
+        <td><%= link_to reservation.name, user_home_path(reservation.home.user.slug, reservation.home) %></td>
         <td><%= reservation.checkin %></td>
         <td><%= reservation.checkout %></td>
         <td><%= reservation.total_days %></td>
