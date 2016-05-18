@@ -26,4 +26,8 @@ RSpec.configure do |config|
       DatabaseCleaner.clean
     end
   end
+
+  config.before(:each) do 
+    Home.any_instance.stubs(:geocode).returns([1,1])
+  end
 end

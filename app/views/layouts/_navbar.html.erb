@@ -2,12 +2,12 @@
 	<div class="logo"> <%= link_to "tiny stay", root_path %> </div>
 	  <ul class="nav navbar-nav pull-xs-right">
 			<li class="nav-item nav-search">
-				<form class="form-inline">
-					<%= form_tag homes_path, method: :get, class: "form-group" do %>
+				<% unless current_page?(root_path) %>
+					<%= form_tag homes_path, method: :get, class: "form-group form-inline" do %>
 			      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where to?" %>
 			      <%= submit_tag "Search", name: nil, class: "btn btn-one" %>
 			    <% end %>
-				</form>
+			<% end %>
 			</li>
 	    <li class="nav-item">
 	  		<%= link_to "My Dashboard", dashboard_path(current_user.slug), class: "nav-link" if current_user %>
