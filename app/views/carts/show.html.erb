@@ -26,7 +26,7 @@
       <div class="btn btn-one"><%= link_to "Checkout Now", orders_path, method: "post" %></div>
     <% else %>
       <p class="total">To Checkout</p>
-      <div class="btn btn-one"><%= link_to "Login", login_path %></div>
+      <div class="btn btn-one login-btn"><%= link_to "Login", login_path %></div>
       <span class="total">or</span>
       <div class="btn btn-one"><%= link_to "Signup", new_user_path %></div>
     <% end %>
