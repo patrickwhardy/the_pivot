@@ -5,8 +5,43 @@ class Seed
     create_admins
     create_homes_and_owners
     create_generic_users
+    create_demo_data
   end
 
+  def create_demo_data
+    # 8 homes in Denver in different neighborhoods
+    # 3 owners owning each of these homes with full pictures and things
+    # one reservation for each one in May or June
+    # custom photos for each one
+    # home owner account to create new home during demo and show reservation process
+    # user account to show conflict when trying to reserve on already reserved date
+
+    #shopping list: 24 tiny home picutres, 5 profile pictures
+    josh = User.new(
+      email: "josh@example.com",
+      password: "password",
+      username: "josh_turing",
+      first_name: "josh",
+      last_name: "lupercal",
+      description: "Member of the pivot team."
+    )
+    josh.slug = josh.username.parameterize
+    josh_home_one = Home.new(
+      name: generate_name,
+      description: generate_description,
+      price_per_night: Faker::Number.number(2),
+      address: @addresses.pop
+    )
+    home.photos << Photo.create(
+      image: File.open(File.join(Rails.root, '/public/photos/tinyhome1.jpg'))
+    )
+    home.photos << Photo.create(
+      image: File.open(File.join(Rails.root, '/public/photos/tinyhome2.jpg'))
+    )
+    user.homes << home
+    puts users.save
+  end
+  
   def create_admins
     puts "Creating Required Users"
     user = User.new(
