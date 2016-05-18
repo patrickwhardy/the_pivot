@@ -36,7 +36,7 @@
 		<tbody>
 			<% @user.upcoming_reservations.each do |reservation| %>
 				<tr>
-					<td><%= reservation.home.name %></td>
+					<td><%= link_to(reservation.home.name, user_home_path(reservation.home.user.slug, reservation.home.id)) %></td>
 					<td><%= reservation.home.address %></td>
 					<td><%= reservation.checkin %></td>
 					<td><%= reservation.checkout %></td>
@@ -57,7 +57,7 @@
 		<tbody>
 			<% @user.past_reservations.each do |reservation| %>
 				<tr>
-					<td><%= reservation.home.name %></td>
+					<td><%= link_to(reservation.home.name, user_home_path(reservation.home.user.slug, reservation.home.id)) %></td>
 					<td><%= reservation.home.address %></td>
 					<td><%= reservation.checkin %></td>
 					<td><%= reservation.checkout %></td>
@@ -80,7 +80,7 @@
 				<% @user.homes.each do |home| %>
 					<% home.upcoming_reservations.each do |reservation| %>
 						<tr>
-							<td><%= reservation.home.name %></td>
+							<td><%= link_to(reservation.home.name, user_home_path(reservation.home.user.slug, reservation.home.id)) %></td>
 							<td><%= reservation.home.address %></td>
 							<td><%= reservation.checkin %></td>
 							<td><%= reservation.checkout %></td>
@@ -103,7 +103,7 @@
 					<% @user.homes.each do |home| %>
 						<% home.past_reservations.each do |reservation| %>
 							<tr>
-								<td><%= reservation.home.name %></td>
+								<td><%= link_to(reservation.home.name, user_home_path(reservation.home.user.slug, reservation.home.id)) %></td>
 								<td><%= reservation.home.address %></td>
 								<td><%= reservation.checkin %></td>
 								<td><%= reservation.checkout %></td>
