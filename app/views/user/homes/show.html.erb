@@ -8,7 +8,7 @@
       <iframe class="map"
         frameborder="0" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCzigWIyUWyYIcgy-r89XrJmxiIk0wLPIM
-          &q=Space+Needle,Seattle+WA" allowfullscreen>
+          &q=<%= @home.latitude %>+<%= @home.longitude %>" allowfullscreen>
       </iframe>
     </div>
   </div>
@@ -31,6 +31,7 @@
         <h6 class="center owner-name"><%= @home.user.first_name %></h6>
       </div>
       <div class="col-md-6 home-description">
+        <p><strong><%= @home.address %></strong></p>
         <p><%= @home.description %></p>
       </div>
       <div class="col-md-4">
@@ -55,6 +56,11 @@
                      <div class="col-md-4"><%= f.label :checkout %></div>
                      <div class="col-md-8"><%= f.text_field :checkout_date, class: "date-picker" %></div>
                    </row>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col-md-12 center">
+                   <h6>$<%= number_with_precision(@home.price_per_night, precision: 2) %> Per Night</h6>
                  </div>
                </div>
                <div class="row">

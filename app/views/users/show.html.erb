@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class="center heading hero-name">Welcome, <%= @user.first_name %></h1>
-        <div class="row btn-links hero-links center center-block">
+        <div class="row btn-links hero-links center">
             <%= link_to "Add a Home", new_user_home_path(@user.slug), class: "btn btn-one" %>
             <% if @user.home_owner? %>
               <%= link_to "View Your Homes", user_homes_path(@user.slug), class: "btn btn-one" %>
             <% else %>
-              <%= link_to "View Your Homes", "#", class: "btn btn-disabled btn-wide" %>
+              <%= link_to "View Your Homes", "#", class: "btn btn-one disabled" %>
             <% end %>
             <%= link_to "Edit Account", edit_user_path(@user.slug), class: "btn btn-one" %>
             <%= link_to "Delete Account", user_path(@user.slug), method: :delete, class: "btn btn-one" %>

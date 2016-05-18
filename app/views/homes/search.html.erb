@@ -2,12 +2,18 @@
 <div id="background">
 
   <h1 class="center tagline">Find your tiny home today</h1>
-  <div class="tag-search center">
-    <form class="form-inline">
-      <%= form_for(Home.new, url: root_path) do |f| %>
-      <%= f.text_field "address", placeholder: "Where are you going?", class: "form-control" %>
-      <%= f.submit "Search", class: "btn btn-one" %>
-      <% end %>
+  <div class="tag-search center container">
+    <div class="row">
+    <%= form_tag homes_path, method: :get, class: "form-group center" do %>
+      <div class="col-md-2 col-md-offset-2"><%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where to?" %></div>
+        <div class="col-md-2"><%= text_field_tag :checkin, params[:checkin], class: "date-picker form-control", placeholder: "Arrival" %></div>
+        <div class="col-md-2"><%= text_field_tag :checkout, params[:checkout], class: "date-picker form-control", placeholder: "Departure" %></div>
+        <div class="col-md-2"><%= submit_tag "Search", class: "btn btn-one btn-wide" %></div>
+    <% end %>
+        </div>
+      </div>
+      </div>
+
     </form>
 
 </div>
