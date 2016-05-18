@@ -13,7 +13,11 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password]) && @user.active?
       session[:user_id] = @user.id
       flash[:success] = "Login successful. Welcome to Tiny Stay, #{@user.username.capitalize}"
-      redirect_to dashboard_path(@user.slug)
+      if session[:cart]
+        redirect_to cart_path
+      else
+        redirect_to dashboard_path(@user.slug)
+      end
     else
       flash[:error] = "Invalid email/password combination"
       redirect_to login_path

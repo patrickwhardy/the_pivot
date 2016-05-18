@@ -1,0 +1,10 @@
+require "rails_helper"
+
+RSpec.feature "user redirected back to cart" do
+  scenario "user logs from cart checkout page" do
+    user = create(:user)
+    home = create(:home)
+    ApplicationController.
+    cart_contents = {"home" => home.id, "checkin" => Date.parse("2016-07-01"), "checkout" => Date.parse("2016-07-22")}
+  end
+end
