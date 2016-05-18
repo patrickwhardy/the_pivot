@@ -27,9 +27,9 @@ module ApplicationHelper
 
   def link_to_suspend_or_reactivate_button(home)
     if !home.suspended?
-      link_to "Suspend", admin_suspend_home_path(home), method: :patch
+      link_to "Suspend", admin_suspend_home_path(home), method: :patch, class: "btn btn-one"
     else
-      link_to "Reactivate", admin_reactivate_home_path(home), method: :patch
+      link_to "Reactivate", admin_reactivate_home_path(home), method: :patch, class: "btn btn-one"
     end
   end
 

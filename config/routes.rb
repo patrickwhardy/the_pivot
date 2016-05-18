@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'homes#index'
-  post "/", to: "homes#index"
+  root to: 'homes#search'
 
+  get "/homes", to: "homes#index", as: :homes
   namespace :admin do
     resources :homes, only: [:index]
     patch "/homes/:id/suspend", to: "homes#suspend", as: :suspend_home

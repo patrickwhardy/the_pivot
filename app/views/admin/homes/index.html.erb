@@ -1,6 +1,8 @@
-<h1>Admin Homes Index Page</h1>
+<div class="container">
+  <div class="reservations">
+<h1 class="center">Admin Homes Index Page</h1>
 
-<h2>All Homes</h2>
+<h2 class="center">All Homes</h2>
 <div class="container">
   <table class="table">
     <thread>
@@ -12,11 +14,12 @@
       <tr class="home-<%= home.id %>">
       <td><%= home.name %></td>
       <td><%= home.user.username %></td>
-      <td>Edit</td>
+      <td><%= link_to "Edit Home", edit_user_home_path(home.user.slug, home), class: "btn btn-one" %></td>
       <td><%= link_to_suspend_or_reactivate_button(home) %></td>
-      <td>Delete</td>
       </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+</div>
 </div>

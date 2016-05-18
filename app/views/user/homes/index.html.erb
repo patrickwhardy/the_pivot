@@ -6,6 +6,7 @@
       </div>
       <div class="col-md-7">
         <h1 class="left name"><%= @user.first_name %> <%= @user.last_name %></h1>
+        <h6 class="left"><a href="mailto:<%= @user.email %>">Contact</a></h6>
         <p class="left"><%= @user.description %></p>
       </div>
     </div>

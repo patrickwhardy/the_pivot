@@ -42,6 +42,8 @@ class UsersController < ApplicationController
         flash[:error] = @user.errors.full_messages.join(", ")
         render :edit
       end
+    else
+      redirect_to root_path
     end
   end
 
