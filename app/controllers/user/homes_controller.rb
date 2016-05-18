@@ -54,6 +54,8 @@ class User::HomesController < ApplicationController
     if @user.nil?
       redirect_to root_path
     else
+      @checkin = session[:checkin]
+      @checkout = session[:checkout]
       @home = @user.homes.find(params[:id])
     end
   end

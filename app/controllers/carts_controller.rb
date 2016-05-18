@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
 
   def create
+    session[:checkin].clear
+    session[:checkout].clear
     checkin = params[:date][:checkin_date]
     checkout = params[:date][:checkout_date]
     reserved_dates = Reservation.dates_reserved(

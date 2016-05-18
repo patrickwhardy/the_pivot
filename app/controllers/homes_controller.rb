@@ -1,5 +1,7 @@
 class HomesController < ApplicationController
   def index
+    session[:checkin] = params[:checkin]
+    session[:checkout] = params[:checkout]
     if params[:location].present? && params[:checkin].present? && params[:checkout].present?
       @homes = Home.near(params[:location], 50).all.to_a.select { |home| home.reservations.dates_reserved(home.id, params[:checkin], params[:checkout]).empty? }
       @hash = Home.markers(@homes)
