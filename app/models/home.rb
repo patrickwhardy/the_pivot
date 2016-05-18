@@ -5,6 +5,7 @@ class Home < ActiveRecord::Base
   validates :address,         presence: true
   belongs_to :user
   has_many :reservations
+  has_many :reservation_nights, through: :reservations
   has_many :photos, :dependent => :destroy, inverse_of: :home
   accepts_nested_attributes_for :photos, :allow_destroy => true
 

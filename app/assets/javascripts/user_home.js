@@ -1,4 +1,4 @@
-var resDays = [[5, 28, 2016]];
+var resDays = ["2016-07-20", "2016-07-14"];
 
 // function reservedDays(date) {
 //     for (i = 0; i < resDays.length; i++) {
@@ -13,12 +13,24 @@ var resDays = [[5, 28, 2016]];
 //     return [true];
 // }
 
+
+// function reservedDays(date) {
+//     var formattedDate = $.datepicker.formatDate("yy-mm-dd", date)
+//     $.each(resDays, function(key, value) {
+// 	if(formattedDate == value) {
+// 	    return [false];
+// 	}
+//     });
+// }
+
 function reservedDays(date) {
-    if(date.getMonth() == 5) {
-	return[false];
-    } else {
-	return[true];
+    var formattedDate = $.datepicker.formatDate("yy-mm-dd", date)
+    for(i = 0; i < resDays.length; i++) {
+	if(resDays[i] == formattedDate){
+	    return [false];
+	}
     }
+    return [true];
 }
 
 $(document).ready(function(){
