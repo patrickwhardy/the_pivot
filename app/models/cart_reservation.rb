@@ -1,6 +1,6 @@
 class CartReservation < SimpleDelegator
 
-  attr_reader :checkin, :checkout
+  attr_reader :checkin, :checkout, :home
 
   def initialize(reservation)
     @home = Home.find(reservation["home"])

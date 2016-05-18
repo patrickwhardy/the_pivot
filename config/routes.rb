@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "/:user/dashboard", to: "users#show", as: :dashboard
   get "/cart", to: "carts#show"
   post ":user/homes/:id", to: "carts#create"
+  delete "/cart", to: "carts#destroy"
 
   get "/search", to: "homes#search", as: :search
 end
