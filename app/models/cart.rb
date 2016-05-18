@@ -14,9 +14,7 @@ class Cart
   end
 
   def remove_home(home_id)
-    # byebug
     @contents.delete_if {|reservation| reservation["home"] == home_id}
-    # @contents = @contents.each {|hash| hash.grep_v(home_id)}
   end
 
   def total
