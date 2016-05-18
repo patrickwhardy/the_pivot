@@ -26,5 +26,17 @@ class Home < ActiveRecord::Base
     self.reservations.where("checkout < ?", Date.today)
   end
 
+  def self.markers(homes)
+    Gmaps4rails.build_markers(homes) do |home, marker|
+      marker.lat home.latitude
+      marker.lng home.longitude
+      marker.infowindow home.linked_name
+    end
+  end
+
+  def linked_name
+    '<a href="/' + self.user.slug + '/homes/' + self.id.to_s + '">' + self.name + '</a>'
+  end
+
   enum status: %w(active suspended)
 end
