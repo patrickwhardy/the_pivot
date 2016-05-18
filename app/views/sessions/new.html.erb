@@ -5,7 +5,6 @@
   <%= bootstrap_form_for(:session, url: login_path) do |f| %>
     <%= f.text_field :username %>
     <%= f.password_field :password %>
-    <%= hidden_field_tag :user_action, "checkout" if @checkout %>
     <%= f.submit "Login", class: "btn btn-one center" %>
     <%= link_to "Create Account", new_user_path, class: "btn btn-one center" %>
   <% end %>

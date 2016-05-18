@@ -25,6 +25,10 @@ RSpec.feature "User can visit their cart" do
     click_on("Add to Cart")
     click_on("2 Reservations - $500.00")
 
+    within(".cart-total") do
+      expect(page).to have_content("Total: 500")
+    end
+
     expect(current_path).to eq(cart_path)
     within(".home-#{home_one.id}") do
       expect(page).to have_content(home_one.name)
@@ -37,9 +41,9 @@ RSpec.feature "User can visit their cart" do
       expect(page).to have_content(checkin_date_two)
       expect(page).to have_content(checkout_date_two)
       expect(page).to have_content("100.00")
+      click_on(home_two.name)
     end
-    within(".cart-total") do
-      expect(page).to have_content("Total: 500")
-    end
+
+    expect(current_path).to eq(user_home_path(home_two.user.slug, home_two))
   end
 end

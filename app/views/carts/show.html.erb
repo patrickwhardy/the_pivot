@@ -11,12 +11,13 @@
     <th>Subtotal</th>
     <% @contents.each do |reservation| %>
       <tr class="home-<%= reservation.id %>">
-        <td><%= reservation.name %></td>
+        <td><%= link_to reservation.name, user_home_path(reservation.home.user.slug, reservation.home) %></td>
         <td><%= reservation.checkin %></td>
         <td><%= reservation.checkout %></td>
         <td><%= reservation.total_days %></td>
         <td><%= number_with_precision(reservation.price_per_night, precision: 2) %></td>
         <td><%= number_with_precision(reservation.total, precision: 2) %></td>
+        <td><div class="btn btn-one"><%= link_to "Remove From Cart", cart_path(home_id: reservation, checkin: reservation.checkin, checkout: reservation.checkout), method: "delete" %></div></td>
       </tr>
     <% end %>
   </table>
@@ -26,7 +27,7 @@
       <div class="btn btn-one"><%= link_to "Checkout Now", orders_path, method: "post" %></div>
     <% else %>
       <p class="total">To Checkout</p>
-      <div class="btn btn-one"><%= link_to "Login", login_path %></div>
+      <div class="btn btn-one login-btn"><%= link_to "Login", login_path %></div>
       <span class="total">or</span>
       <div class="btn btn-one"><%= link_to "Signup", new_user_path %></div>
     <% end %>
