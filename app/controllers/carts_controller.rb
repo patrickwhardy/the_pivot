@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+
   def create
     checkin = params[:date][:checkin_date]
     checkout = params[:date][:checkout_date]
@@ -14,6 +15,11 @@ class CartsController < ApplicationController
     else
       flash[:error] = "This home is already reserved on #{reserved_dates.join(", ")}"
     end
+    redirect_to request.referrer
+  end
+
+  def destroy
+    @cart.remove_home(params["format"])
     redirect_to request.referrer
   end
 

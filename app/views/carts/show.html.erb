@@ -17,6 +17,7 @@
         <td><%= reservation.total_days %></td>
         <td><%= number_with_precision(reservation.price_per_night, precision: 2) %></td>
         <td><%= number_with_precision(reservation.total, precision: 2) %></td>
+        <td><div class="btn btn-one"><%= link_to "Remove From Cart", cart_path(reservation), method: "delete" %></div></td>
       </tr>
     <% end %>
   </table>
