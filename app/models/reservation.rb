@@ -2,11 +2,13 @@ class Reservation < ActiveRecord::Base
   has_many :reservation_nights
   belongs_to :home
 
+  validates :home, presence: true
+
   def self.dates_reserved(home_id, checkin, checkout)
     checkin = parse_dates_hash(checkin)
     checkout = parse_dates_hash(checkout)
     return Array.new if self.find_by(home_id: home_id).nil?
-    reserved_dates = get_reserved_dates(home_id, checkin, checkout)
+    get_reserved_dates(home_id, checkin, checkout)
   end
 
   def self.get_reserved_dates(home_id, checkin, checkout)
@@ -20,6 +22,11 @@ class Reservation < ActiveRecord::Base
   private
 
   def self.parse_dates_hash(date)
-    Date.strptime(date, "%m/%d/%Y")
+    date = date.split("/")
+    new_date = []
+    new_date << date[1]
+    new_date << date[0]
+    new_date << date[2]
+    Date.parse(new_date.join("/"))
   end
 end

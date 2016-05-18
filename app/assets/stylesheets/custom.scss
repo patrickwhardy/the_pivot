@@ -58,6 +58,11 @@ p {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.user-name {
+  font-family: "Noto Sans", sans-serif;
+  margin: 12px;
+}
+
 .navbar {
   border-radius: 0 !important;
   -moz-border-radius: 0 !important;
@@ -260,3 +265,9 @@ background: #F6F6F6;
  .cart-container {
    margin: 24px;
  }
+
+
+.search-bar {
+  margin: 3px !important;
+  padding: 3px !important;
+}

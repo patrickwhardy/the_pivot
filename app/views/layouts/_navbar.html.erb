@@ -3,10 +3,10 @@
 	  <ul class="nav navbar-nav pull-xs-right">
 			<li class="nav-item nav-search">
 				<form class="form-inline">
-					<%= form_for(Home.new, url: root_path) do |f| %>
-					<%= f.text_field "address", placeholder: "Where are you going?", class: "form-control" %>
-					<%= f.submit "Search", class: "btn btn-one" %>
-					<% end %>
+					<%= form_tag homes_path, method: :get, class: "form-group" do %>
+			      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where to?" %>
+			      <%= submit_tag "Search", name: nil, class: "btn btn-one" %>
+			    <% end %>
 				</form>
 			</li>
 	    <li class="nav-item">
