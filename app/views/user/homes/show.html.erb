@@ -45,10 +45,10 @@
               <% else %>
                 <%= form_for :date, class: "form-control" do |f|  %>
                <div class="row">
-                 <div class="col-md-12 left checkin-form">
+                 <div class="col-md-12 left checkin-form" data-reserved="2016-07-22">
                    <row>
                      <div class="col-md-4"><%= f.label :checkin %></div>
-                     <div class="col-md-8"><%= f.text_field :checkin_date, class: "date-picker" %></div>
+                     <div class="col-md-8 dates" data-reserved="<%= @home.reserved_dates %>"><%= f.text_field :checkin_date, class: "date-picker" %></div>
                    </row>
                  </div>
                  <div class="col-md-12 left checkin-form">
