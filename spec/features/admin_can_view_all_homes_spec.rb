@@ -16,14 +16,12 @@ RSpec.feature "Admin can view all homes" do
       expect(page).to have_content(home_one.user.username)
       expect(page).to have_content("Edit")
       expect(page).to have_content("Suspend")
-      expect(page).to have_content("Delete")
     end
     within(".home-#{home_two.id}") do
       expect(page).to have_content(home_two.name)
       expect(page).to have_content(home_two.user.username)
       expect(page).to have_content("Edit")
       expect(page).to have_content("Suspend")
-      expect(page).to have_content("Delete")
     end
   end
 

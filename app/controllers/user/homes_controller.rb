@@ -9,9 +9,10 @@ class User::HomesController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find_by(slug: params[:path])
+    redirect_to root_path unless @user == current_user || current_admin?
     if @user
-      @home = current_user.homes.find_by(id: params[:id])
+      @home = @user.homes.find_by(id: params[:id])
       redirect_to root_path if @home.nil?
     else
       redirect_to root_path
