@@ -13,8 +13,15 @@ class Cart
     }
   end
 
-  def remove_home(home_id)
-    @contents.delete_if {|reservation| reservation["home"] == home_id}
+  def remove_home(home_id, checkin, checkout)
+    @contents.delete_if do |reservation|
+      reservation["home"] == home_id && reservation["checkin"] == format_date(checkin) && reservation["checkout"] == format_date(checkout)
+    end
+  end
+
+  def format_date(date)
+    split = date.split("-")
+    split[1] + "/" + split[2] + "/" + split[0]
   end
 
   def total
