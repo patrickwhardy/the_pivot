@@ -9,14 +9,26 @@ class Home < ActiveRecord::Base
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
   geocoded_by :address
-  after_validation :geocode       
-  
+  after_validation :geocode
+
   def upcoming_reservations
     self.reservations.where("checkout > ?", Date.today)
   end
 
   def past_reservations
     self.reservations.where("checkout < ?", Date.today)
+  end
+
+  def self.markers(homes)
+    Gmaps4rails.build_markers(homes) do |home, marker|
+      marker.lat home.latitude
+      marker.lng home.longitude
+      marker.infowindow home.linked_name
+    end
+  end
+
+  def linked_name
+    '<a href="/' + self.user.slug + '/homes/' + self.id.to_s + '">' + self.name + '</a>'
   end
 
   enum status: %w(active suspended)
