@@ -10,15 +10,14 @@ class Home < ActiveRecord::Base
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
   geocoded_by :address
-  after_validation :geocode       
+  after_validation :geocode
 
   def reserved_dates
     reservation_nights.map do |date|
       date.night.to_s
     end.uniq
-#    "2016-07-22"
   end
-  
+
   def upcoming_reservations
     self.reservations.where("checkout > ?", Date.today)
   end
