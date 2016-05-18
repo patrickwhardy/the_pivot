@@ -11,6 +11,13 @@ class Home < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode       
+
+  def reserved_dates
+    reservation_nights.map do |date|
+      date.night.to_s
+    end.uniq
+#    "2016-07-22"
+  end
   
   def upcoming_reservations
     self.reservations.where("checkout > ?", Date.today)
