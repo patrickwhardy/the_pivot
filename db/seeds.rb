@@ -88,6 +88,9 @@ class Seed
           checkin: checkin,
           checkout: checkout
         )
+        (checkin..checkout-1).each do |date|
+          reservation.reservation_nights << ReservationNight.new(night: date)
+        end
         order.reservations << reservation
         puts order.save
         puts order.errors.full_messages
@@ -114,11 +117,16 @@ class Seed
           total: Faker::Number.number(4),
           user: user
         )
+        checkin = Faker::Date.forward(23)
+        checkout = checkin + rand(1..10)
         reservation = Reservation.new(
           home_id: rand(1..50),
-          checkin: Faker::Date.forward(23),
-          checkout: Faker::Date.forward(23)
+          checkin: checkin,
+          checkout: checkout
         )
+        (checkin..checkout-1).each do |date|
+          reservation.reservation_nights << ReservationNight.new(night: date)
+        end
         order.reservations << reservation
         puts order.save
         puts order.errors.full_messages
