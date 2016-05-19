@@ -4,7 +4,16 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'capybara/rails'
 require 'rspec/rails'
+# require 'webmock/rspec'
 Capybara.ignore_hidden_elements = false
+
+Dir[File.expand_path("app/controllers/admin/\*.rb")].each do |file|
+  require file
+end
+
+Dir[File.expand_path("app/controllers/user/\*.rb")].each do |file|
+  require file
+end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -27,7 +36,11 @@ RSpec.configure do |config|
     end
   end
 
-  config.before(:each) do 
+  config.before(:each) do
     Home.any_instance.stubs(:geocode).returns([1,1])
   end
 end
+
+WebMock.stub_request(:get, "http://maps.googleapis.com/maps/api/geocode/json?address=MyString&language=en&sensor=false").
+  with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+  to_return(:status => 200, :body => File.read(File.join("spec", "support", "geocoder", "data.json")), :headers => {})

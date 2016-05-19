@@ -5,7 +5,7 @@ class CartsController < ApplicationController
     if reservation_request.missing_dates?
       flash[:error] = "You must have a checkin and checkout date"
     elsif reservation_request.has_checkin_after_checkout?
-      flash[:error] = "You must select a checkin date before your checkout date" 
+      flash[:error] = "You must select a checkin date before your checkout date"
     elsif reservation_request.is_valid?
       @cart.add_home(params[:id], params[:date][:checkin_date], params[:date][:checkout_date])
       session[:cart] = @cart.contents

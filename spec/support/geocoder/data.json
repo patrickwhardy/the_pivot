@@ -1,0 +1,49 @@
+{"bossresponse": {
+    "responsecode": "200",
+    "placefinder": {
+        "start": "0",
+        "count": "1",
+        "request": "flags=JXTSR&gflags=AC&locale=en_US&location=Salzburg",
+        "results": [
+            {
+                "quality": "40",
+                "latitude": "47.80067",
+                "longitude": "13.04338",
+                "offsetlat": "47.80067",
+                "offsetlon": "13.04338",
+                "radius": "8600",
+                "boundingbox": {
+                    "north": "47.85383",
+                    "south": "47.75096",
+                    "east": "13.12707",
+                    "west": "12.98608"
+                },
+                "name": "",
+                "line1": "",
+                "line2": "Salzburg",
+                "line3": "",
+                "line4": "Austria",
+                "cross": "",
+                "house": "",
+                "street": "",
+                "xstreet": "",
+                "unittype": "",
+                "unit": "",
+                "postal": "",
+                "neighborhood": "",
+                "city": "Salzburg",
+                "county": "Salzburg",
+                "state": "Salzburg",
+                "country": "Austria",
+                "countrycode": "AT",
+                "statecode": "5",
+                "countycode": "5",
+                "timezone": "Europe\/Vienna",
+                "uzip": "5020",
+                "hash": "",
+                "woeid": "547826",
+                "woetype": "7"
+            }
+        ]
+    }
+}}
