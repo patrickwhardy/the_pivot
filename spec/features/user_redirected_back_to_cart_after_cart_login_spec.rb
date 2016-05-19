@@ -19,7 +19,7 @@ RSpec.feature "user redirected back to cart" do
     fill_in "Password", with: "#{user.password}"
     fill_in "Username", with: "#{user.username}"
     click_button "Login"
-    
-    expect(current_path).to eq(cart_path)    
+
+    expect(current_path).to eq(cart_path)
   end
 end

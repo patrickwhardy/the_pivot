@@ -1,8 +1,12 @@
 <div class="container">
+
   <h1 class="form-label">List a New Home</h1>
+
   <div class="bootstrap-form">
     <div class="col-md-6 col-md-offset-3">
+
       <%= bootstrap_nested_form_for [:user, @home] do |f|%>
+
         <%= f.text_field :name, placeholder: "Name" %>
         <%= f.text_area :description, placeholder: "Description" %>
         <%= f.text_field :price_per_night, id: "price", prepend: "$", append: ".00" %>
@@ -10,7 +14,9 @@
         <%= f.fields_for :photos %>
           <%= f.link_to_add "Add a photo", :photos, class: "btn btn-one" %><br>
         <%= f.submit "Create Home", class: "btn btn-one center-block button-margin" %>
+
       <% end %><br>
+      
     </div>
   </div>
 </div>

@@ -1,12 +1,14 @@
 <div class="container">
-<h1 class="form-label">Log in or Create an Account</h1>
+  <h1 class="form-label">Log in or Create an Account</h1>
 
-<div class="col-md-6 col-md-offset-3">
-  <%= bootstrap_form_for(:session, url: login_path) do |f| %>
-    <%= f.text_field :username %>
-    <%= f.password_field :password %>
-    <%= f.submit "Login", class: "btn btn-one center" %>
-    <%= link_to "Create Account", new_user_path, class: "btn btn-one center" %>
-  <% end %>
-</div>
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= bootstrap_form_for(:session, url: login_path) do |f| %>
+      <%= f.text_field :username %>
+      <%= f.password_field :password %>
+      <%= f.submit "Login", class: "btn btn-one center" %>
+      <%= link_to "Create Account", new_user_path, class: "btn btn-one center" %>
+    <% end %>
+    
+  </div>
 </div>

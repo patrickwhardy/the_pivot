@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tiny Stay</title>
-   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-<body>
-<%= render "layouts/navbar" %>
-<%= render "layouts/flashes", flash: flash %>
-<%= yield %>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/danielgindi-jquery-backstretch/2.1.13/jquery.backstretch.min.js"></script>
-<script>
-  $("#background").backstretch("https://s3.amazonaws.com/tinystays/spicebox-homes-MountainMansard7.jpg");
-</script>
-</body>
+  <head>
+    <title>Tiny Stay</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+      <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <body>
+
+    <%= render "layouts/navbar" %>
+
+    <%= render "layouts/flashes", flash: flash %>
+
+    <%= yield %>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danielgindi-jquery-backstretch/2.1.13/jquery.backstretch.min.js"></script>
+    <script>
+      $("#background").backstretch("https://s3.amazonaws.com/tinystays/spicebox-homes-MountainMansard7.jpg");
+    </script>
+  </body>
 </html>

@@ -5,33 +5,42 @@
         <img src="<%= @user.avatar.url %>" class="user-index-avatar">
       </div>
       <div class="col-md-7">
+
         <h1 class="left name"><%= @user.first_name %> <%= @user.last_name %></h1>
         <h6 class="left"><a href="mailto:<%= @user.email %>">Contact</a></h6>
         <p class="left"><%= @user.description %></p>
+
       </div>
     </div>
   </div>
 </div>
+
 <div class="container">
+
   <% @user.homes.each_slice(3) do |three_homes| %>
     <div class="row">
+
       <% three_homes.each do |home| %>
         <div class="col-md-4">
           <div class="card">
+
             <a href="/<%= @user.slug %>/homes/<%= home.id %>">
               <div class="card-img-top">
                   <%= render partial: "user/homes/carousel", locals: { home: home } %>
               </div>
             </a>
+
             <div class="card-block">
               <h6 class="card-title home-name"><%= home.name %></h6>
-                <%= link_to "$#{number_with_precision(home.price_per_night, precision: 2)} Per Night", user_home_path(@user.slug, home), class: "center price btn btn-one btn-wide center-block" %>
-            </div>
+                <%= link_to_show(home, @user) %>
+
             <div class="card-block center">
+
               <% if @user == current_user %>
-                <%= link_to "Edit Home", edit_user_home_path(@user.slug, home), class: "btn btn-one" %>
-                <%= link_to "Delete Home", user_home_path(@user.slug, home), method: :delete, class: "btn btn-one" %>
+                <%= link_to_edit(home, @user) %>
+                <%= link_to_delete(home, @user) %>
               <% end %>
+
             </div>
           </div>
         </div>

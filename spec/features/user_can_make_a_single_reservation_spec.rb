@@ -58,7 +58,7 @@ RSpec.feature "User can make reservations" do
       fill_in "date_checkout_date", with: "07/07/2017"
 
       click_on("Add to Cart")
-      click_on("2 Reservations - $3,900.00")
+      click_on("2 Reservations - $3900.00")
 
       expect(current_path).to eq(cart_path)
       click_link("Checkout Now")

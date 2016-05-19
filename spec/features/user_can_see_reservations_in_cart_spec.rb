@@ -26,7 +26,7 @@ RSpec.feature "User can visit their cart" do
     click_on("2 Reservations - $500.00")
 
     within(".cart-total") do
-      expect(page).to have_content("Total: 500")
+      expect(page).to have_content("Total: $500")
     end
 
     expect(current_path).to eq(cart_path)
