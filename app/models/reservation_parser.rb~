@@ -1,6 +1,0 @@
-class ReservationParser < SimpleDelegator
-
-  def initialize
-  end
-  
-end
