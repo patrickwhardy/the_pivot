@@ -3,10 +3,21 @@ class HomesController < ApplicationController
     session[:checkin] = params[:checkin]
     session[:checkout] = params[:checkout]
     if params[:location].present? && params[:checkin].present? && params[:checkout].present?
-      @homes = Home.near(params[:location], 50).all.to_a.select { |home| home.reservations.dates_reserved(home.id, params[:checkin], params[:checkout]).empty? }
+      @homes = Home.near(params[:location], 50).all.to_a.select do |home|
+        home.reservations.dates_reserved(
+          home.id, params[:checkin],
+          params[:checkout]
+        ).empty?
+      end
       @hash = Home.markers(@homes)
     elsif params[:checkin].present? && params[:checkout].present?
-      @homes = Home.all.to_a.select { |home| home.reservations.dates_reserved(home.id, params[:checkin], params[:checkout]).empty? }
+      @homes = Home.all.to_a.select do |home|
+        home.reservations.dates_reserved(
+          home.id,
+          params[:checkin],
+          params[:checkout]
+        ).empty?
+      end
       @hash = Home.markers(@homes)
     elsif params[:location].present?
       @homes = Home.near(params[:location], 50)
