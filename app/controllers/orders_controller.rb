@@ -1,3 +1,4 @@
+
 class OrdersController < ApplicationController
   before_action :check_user, only: [:show]
 
@@ -34,5 +35,4 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
-
 end

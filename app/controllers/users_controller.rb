@@ -69,7 +69,8 @@ class UsersController < ApplicationController
       :email,
       :first_name,
       :last_name,
-      :description
+      :description,
+      :avatar
     )
   end
 end

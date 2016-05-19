@@ -20,7 +20,7 @@ class CartsController < ApplicationController
 
   def destroy
     @cart.remove_home(params["home_id"], params["checkin"], params["checkout"])
-    redirect_to request.referrer
+    redirect_to cart_path
   end
 
   def show
