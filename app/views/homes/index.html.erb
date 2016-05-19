@@ -2,35 +2,40 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
 <div class="carousel-container">
-<div id="map" class="g-map center-block"></div>
+  <div id="map" class="g-map center-block"></div>
 </div>
 
 <script type="text/javascript">
 handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
 });
 </script>
 
 
 <div class="container-wrapper">
   <div class="container">
+
     <% @homes.each_slice(3) do |three_homes| %>
+
       <div class="row">
         <% three_homes.each do |home| %>
           <div class="col-md-4">
             <div class="card">
+
               <a href="/<%= home.user.slug %>/homes/<%= home.id %>">
                 <div class="card-img-top">
                     <%= render partial: "user/homes/carousel", locals: { home: home } %>
                 </div>
               </a>
+
               <div class="card-block">
                 <h6 class="card-title home-name"><%= home.name %></h6>
-                  <%= link_to "$#{number_with_precision(home.price_per_night, precision: 2)} Per Night", user_home_path(home.user.slug, home), class: "center price btn btn-one btn-wide center-block" %>
-                </div>
+                <%= link_to_reserve(home) %>
+              </div>
+
             </div>
           </div>
         <% end %>

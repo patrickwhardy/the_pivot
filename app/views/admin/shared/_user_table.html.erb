@@ -7,13 +7,13 @@
     </thread>
     <tbody>
       <% @users.each do |user| %>
-      <tr class="user-<%= user.id %>">
-      <td><%= user.username %></td>
-      <td><%= link_to "User Dashboard", dashboard_path(user.slug) %></td>
-      <td><%= link_to "User Homes", user_homes_path(user.slug) %></td>
-      <td><%= link_to "Edit", edit_user_path(user.slug) %></td>
-      <td><%= link_to "Delete", user_path(user.slug), method: "delete" %></td>
-      </tr>
+        <tr class="user-<%= user.id %>">
+          <td><%= user.username %></td>
+          <td><%= link_to "User Dashboard", dashboard_path(user.slug) %></td>
+          <td><%= link_to "User Homes", user_homes_path(user.slug) %></td>
+          <td><%= link_to "Edit", edit_user_path(user.slug) %></td>
+          <td><%= link_to "Delete", user_path(user.slug), method: "delete" %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

@@ -1,5 +1,5 @@
 <div class="container">
-<h1 class="center user-name">Edit <%= @user.username %>'s Account</h1>
+  <h1 class="center user-name">Edit <%= @user.username %>'s Account</h1>
   <div class="bootstrap-form">
     <div class="col-md-6 col-md-offset-3">
       <%= bootstrap_form_for @user, method: :patch, url: user_path(@user.slug) do |f| %><br>

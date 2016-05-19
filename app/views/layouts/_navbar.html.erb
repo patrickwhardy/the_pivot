@@ -1,23 +1,33 @@
 <nav class="navbar navbar-dark bg-inverse">
-	<div class="logo"> <%= link_to "tiny stay", root_path %> </div>
-	  <ul class="nav navbar-nav pull-xs-right">
-			<li class="nav-item nav-search">
-				<% unless current_page?(root_path) %>
-					<%= form_tag homes_path, method: :get, class: "form-group form-inline" do %>
-			      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where to?" %>
-			      <%= submit_tag "Search", name: nil, class: "btn btn-one" %>
-			    <% end %>
+
+	<div class="logo">
+		<%= link_to "tiny stay", root_path %>
+	</div>
+
+	<ul class="nav navbar-nav pull-xs-right">
+
+		<li class="nav-item nav-search">
+			<% unless current_page?(root_path) %>
+				<%= form_tag homes_path, method: :get, class: "form-group form-inline" do %>
+			    <%= nav_search_field %>
+			    <%= nav_search_button %>
+			  <% end %>
 			<% end %>
-			</li>
-	    <li class="nav-item">
-	  		<%= link_to "My Dashboard", dashboard_path(current_user.slug), class: "nav-link" if current_user %>
-	    </li>
-	    <li class="nav-item">
-				<%= link_to "Logout", logout_path, method: :delete, class: "nav-link" if current_user %>
-				<%= link_to "Login", login_path, class: "nav-link" if !current_user %>
-	    </li>
-	    <li class="nav-item">
-				<a href="/cart" class="nav-link"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= pluralize(@cart.quantity, "Reservation") %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
-			</li>
-	  </ul>
+		</li>
+
+	  <li class="nav-item">
+	  	<%= dashboard_link(current_user) %>
+	  </li>
+
+	  <li class="nav-item">
+			<%= link_to_login_or_logout(current_user) %>
+		</li>
+
+	  <li class="nav-item">
+			<a href="/cart" class="nav-link">
+	      <%= pluralize(@cart.quantity, "Reservation") %> - <%= price(@cart.total) %>
+			</a>
+		</li>
+
+	</ul>
 </nav>
