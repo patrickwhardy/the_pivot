@@ -1,0 +1,707 @@
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.slide-img {
+  width: 100%;
+  max-height: 360px;
+}
+
+/* line 6, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.carousel-container {
+  background-color: #EAEAEA;
+}
+
+/* line 10, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.carousel-wrapper {
+  width: 80%;
+  float: relative;
+  margin: 12px auto;
+}
+
+/* line 16, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.home-name {
+  text-align: center;
+  margin: 12px 0px 0px 0px;
+}
+
+/* line 21, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.home-show-avatar {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+/* line 26, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.map {
+  width: 100%;
+  height: 360px;
+  margin: 12px auto;
+  float: relative;
+}
+
+/* line 33, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.info-background {
+  margin: 50;
+  padding: 10px;
+}
+
+/* line 38, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.button-center {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* line 43, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.extra-margin {
+  margin: 25px 0 0 0;
+}
+
+/* line 47, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.home-description {
+  margin: 25px 0 0 0;
+}
+
+/* line 51, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.owner-name {
+  font-family: 'Noto Sans';
+  margin: 12px;
+}
+
+/* line 56, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/carousel.scss */
+.checkin-form {
+  margin: 6px;
+}
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.logo {
+  font-family: 'Pacifico';
+  display: inline;
+}
+/* line 4, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.logo a {
+  color: #f8f8f8;
+  font-size: 36px;
+  line-height: 48px;
+}
+/* line 10, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.logo a:hover {
+  color: #179f98;
+  text-decoration: none !important;
+}
+
+/* line 16, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.navbar {
+  line-height: 48px !important;
+}
+/* line 18, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.navbar li {
+  font-family: 'Noto Sans', sans-serif !important;
+}
+
+/* line 23, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.nav-search {
+  margin: 6px auto;
+}
+
+/* line 26, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.nav-item a {
+  color: #f8f8f8 !important;
+  line-height: 48px !important;
+}
+
+/* line 31, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.nav-item a:hover {
+  color: #179f98 !important;
+}
+
+/* line 41, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+p {
+  font-family: 'Merriweather';
+}
+
+/* line 45, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.heading {
+  font-family: 'Noto Sans', sans-serif !important;
+}
+
+/* line 49, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.table {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* line 53, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.price {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* line 57, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.home-name {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* line 61, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.user-name {
+  font-family: "Noto Sans", sans-serif;
+  margin: 12px;
+}
+
+/* line 66, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.navbar {
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+
+/* line 71, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.user-info {
+  background: #EAEAEA;
+}
+
+/* line 75, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.dele-col-sp {
+  position: absolute;
+  top: 55px;
+  right: 25px;
+}
+
+/* line 81, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.cart-col {
+  text-align: right;
+}
+
+/* line 85, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.cart-row {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+
+/* line 90, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.cart-row:hover {
+  background: #F6F6F6;
+}
+
+/* line 94, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.cart-total {
+  text-align: right;
+  text-weight: bold;
+}
+
+/* line 99, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-center {
+  text-align: center;
+}
+
+/* line 103, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-wide {
+  width: 80%;
+}
+
+/* line 107, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-one a {
+  color: white;
+  font-family: 'Noto Sans', sans-serif !important;
+}
+
+/* line 112, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-full {
+  width: 100%;
+  border-radius: 0px;
+}
+
+/* line 117, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-one a:hover {
+  text-decoration: none;
+}
+
+/* line 121, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-one a:visited {
+  color: white;
+}
+
+/* line 125, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-one {
+  background-color: #0f6662 !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 #18a099;
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 0 -1px 0 transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 143, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-one:hover {
+  background-color: #18a099 !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 #18a099;
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 0 -1px 0 transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 161, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-two a:hover {
+  text-decoration: none;
+}
+
+/* line 165, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-two a:visited {
+  color: white;
+}
+
+/* line 170, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-two {
+  background-color: #002f2f !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 #18a099;
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 0 -1px 0 transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 188, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.btn-two:hover {
+  background-color: #05878a !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#179f98", endColorstr="#179f98");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#179f98), to(#179f98));
+  background-image: -moz-linear-gradient(top, #179f98, #179f98);
+  background-image: -ms-linear-gradient(top, #179f98, #179f98);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #179f98), color-stop(100%, #179f98));
+  background-image: -webkit-linear-gradient(top, #179f98, #179f98);
+  background-image: -o-linear-gradient(top, #179f98, #179f98);
+  background-image: linear-gradient(#179f98, #179f98);
+  border-color: #179f98 #179f98 #18a099;
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 0 -1px 0 transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 206, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.new-form {
+  background-color: #B8B8B8;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* line 212, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.file-field {
+  /*position: relative;*/
+  margin: 0 auto;
+}
+
+/* line 217, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.card-image img {
+  max-height: 180px;
+  max-width: 318px;
+}
+
+/* line 221, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.user-info {
+  margin-bottom: 1cm;
+  text-align: center;
+}
+
+/* line 226, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.center {
+  text-align: center;
+}
+
+/* line 230, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.container-wrapper {
+  margin: 25px auto;
+}
+
+/* line 234, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.alert {
+  height: 48px;
+}
+
+/* line 238, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+th {
+  font-family: 'Noto Sans';
+}
+
+/* line 242, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+td {
+  font-family: 'Merriweather';
+}
+
+/* line 246, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.total {
+  font-family: 'Merriweather';
+}
+
+/* line 250, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+#background {
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+  z-index: 0;
+}
+
+/* line 260, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.stretch {
+  width: 100%;
+  height: auto;
+}
+
+/* line 265, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.cart-container {
+  margin: 24px;
+}
+
+/* line 270, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.search-bar {
+  margin: 3px !important;
+  padding: 3px !important;
+}
+
+/* line 275, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+#map a {
+  font-family: 'Noto Sans';
+  text-decoration: none;
+  color: #373a3c;
+}
+
+/* line 281, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+#map a:hover {
+  color: #179f98;
+}
+
+/* line 285, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.g-map {
+  width: 80%;
+  height: 360px;
+}
+
+/* line 290, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.remove-link {
+  color: #373a3c;
+}
+
+/* line 294, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/custom.scss */
+.remove-link:hover {
+  color: #179f98;
+  text-decoration: none;
+}
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.dashboard-hero {
+  background-color: #eaeaea;
+  height: 180px;
+  margin: 48px auto;
+}
+
+/* line 7, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.btn-links a {
+  font-family: 'Noto Sans', sans-serif !important;
+  text-align: center;
+}
+
+/* line 12, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.hero-name {
+  margin: 24px auto;
+}
+
+/* line 16, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.hero-links {
+  margin: 12px auto;
+}
+
+/* line 20, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.user-dashboard-avatar {
+  border-radius: 50%;
+  height: 120px;
+  float: relative;
+  margin: 24px 0px;
+}
+
+/* line 27, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.button-margin {
+  margin: 12px;
+}
+
+/* line 31, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.form-group {
+  font-family: 'Merriweather';
+}
+
+/* line 35, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.form-label {
+  font-family: 'Noto Sans', sans-serif !important;
+  text-align: center;
+  margin: 24px auto;
+}
+
+/* line 41, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.bootstrap-form {
+  background-color: #eaeaea;
+}
+
+/* line 45, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/dashboard.scss */
+.reservations {
+  margin: 24px auto;
+}
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-date-picker {
+  font-family: 'Noto Sans' !important;
+}
+
+/* line 5, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker {
+  background-color: #f8f8f8;
+  border: 1px solid #f8f8f8;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(55, 58, 60, 0.6);
+  display: none;
+  margin-top: 4px;
+  padding: 10px;
+  width: 240px;
+}
+
+/* line 15, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker a,
+.ui-datepicker a:hover {
+  text-decoration: none;
+}
+
+/* line 19, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker a:hover,
+.ui-datepicker td:hover a {
+  color: #179f98 !important;
+  -webkit-transition: color 0.1s ease-in-out;
+  -moz-transition: color 0.1s ease-in-out;
+  -o-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+}
+
+/* line 27, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-header {
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* line 31, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-title {
+  font-weight: 700;
+}
+
+/* line 34, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  height: 20px;
+  line-height: 1;
+  margin-top: 2px;
+  width: 30px;
+}
+
+/* line 45, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-prev {
+  float: left;
+  text-align: left;
+}
+
+/* line 49, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-next {
+  float: right;
+  text-align: right;
+}
+
+/* line 53, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-prev:before {
+  content: "<";
+  font-family: "Noto Sans";
+  font-weight: 700;
+}
+
+/* line 58, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-next:before {
+  content: ">";
+  font-family: "Noto Sans";
+  font-weight: 700;
+}
+
+/* line 63, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-icon {
+  display: none;
+}
+
+/* line 66, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* line 70, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar th,
+.ui-datepicker .ui-datepicker-calendar td {
+  text-align: center;
+  padding: 4px 0;
+}
+
+/* line 75, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar td {
+  border-radius: 4px;
+  -webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  -moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  -o-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+/* line 82, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar td:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+/* line 86, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar td a {
+  text-decoration: none;
+}
+
+/* line 89, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-current-day {
+  background-color: #4289cc;
+}
+
+/* line 92, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-current-day a {
+  color: #eaeaea;
+}
+
+/* line 96, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker a {
+  font-family: 'Noto Sans' !important;
+  color: #373a3c !important;
+}
+
+/* line 101, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable {
+  font-family: 'Noto Sans';
+  color: #eaeaea;
+}
+
+/* line 106, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/datepicker.scss */
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+  background-color: #f8f8f8;
+  cursor: default;
+}
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/home_index.scss */
+.card-img-top {
+  max-width: 100%;
+}
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/root.scss */
+.tagline {
+  font-family: 'Merriweather';
+  color: #f8f8f8;
+  margin: 48px auto;
+}
+/* line 1, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.user-info {
+  height: 180px;
+}
+
+/* line 5, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.user-index-avatar {
+  border-radius: 50%;
+  height: 140px;
+  float: relative;
+  margin: 18px 0px;
+}
+
+/* line 12, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.left {
+  text-align: left;
+}
+
+/* line 16, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.name {
+  margin: 12px 0px;
+}
+
+/* line 20, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.right {
+  text-align: right;
+}
+
+/* line 24, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.card img {
+  max-height: 200px;
+}
+
+/* line 28, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.card {
+  border-style: none;
+}
+
+/* line 32, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.alignleft {
+  float: left;
+}
+
+/* line 35, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.alignright {
+  float: right;
+}
+
+/* line 39, /Users/ashwin/Turing/the_pivot/app/assets/stylesheets/user-homes-index.scss */
+.price-box {
+  color: #f8f8f8;
+  background-color: #179f98;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+ */
+.rails-bootstrap-forms-date-select select,
+.rails-bootstrap-forms-time-select select,
+.rails-bootstrap-forms-datetime-select select {
+  display: inline-block;
+  width: auto;
+}
+
+.rails-bootstrap-forms-error-summary {
+  margin-top: 10px;
+}

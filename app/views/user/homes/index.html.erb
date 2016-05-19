@@ -15,12 +15,12 @@
   </div>
 </div>
 
+<div class="container-wrapper">
 <div class="container">
+<% @user.homes.each_slice(3) do |three_homes| %>
 
-  <% @user.homes.each_slice(3) do |three_homes| %>
-    <div class="row">
-
-      <% three_homes.each do |home| %>
+   <div class="row">
+  <% three_homes.each do |home| %>
         <div class="col-md-4">
           <div class="card">
 
@@ -44,7 +44,10 @@
             </div>
           </div>
         </div>
-      <% end %>
+     
     </div>
-  <% end %>
+	<% end %>
+	</div>
+	<% end %>
+</div>
 </div>
