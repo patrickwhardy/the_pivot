@@ -16,7 +16,8 @@ class HomesController < ApplicationController
           home.id,
           params[:checkin],
           params[:checkout]
-        ).empty? 
+        ).empty?
+      end
       @hash = Home.markers(@homes)
     elsif params[:location].present?
       @homes = Home.near(params[:location], 50)
