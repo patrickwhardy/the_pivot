@@ -1,5 +1,11 @@
-## Project Description
+## Tiny Stay: an AirBnB clone for Tiny Homes
+[Hosted live on heroku here!](http://tinystay.herokuapp.com/)
 
+![](http://g.recordit.co/L6sRuyZ7Nv.gif)
+
+This site was built by Ashwin Rao, Josh Washke and Patrick Hardy in the first week of module 3 at the Turing School of Software and Design. We adapted an existing tool-rental application to handle multitenancy and significantly extend features implemented. It was undertaken to solidify our understanding of Ruby on Rails, writing and implementing user stories, SQL design, search functionality, and hosting production-quality web apps on heroku. The site successfully integrates geocoder, gmaps4rails, jquery UI elements, bootstrap and AWS with paperclip.
+
+## Project Description(per Turing School)
 Your Little Shop of Orders application was *almost* great, but it turns out that we need to *pivot* the business model.
 
 In this project, you'll build upon an existing implementation of Little Shop. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
@@ -100,133 +106,3 @@ A feature will not be considered complete until it is working on production. You
 The stories as written and prioritized in your project management tool will be the authoritative project requirements. They may go against and likely go beyond the general requirements in this project description.
 
 As the stories clearly define the customer's expectations, your application needs to **exactly** follow the stories as they've been developed with your customer. A 95% implementation is wrong.
-
-If you want to deviate from the story as it's written, you need to discuss that with your client and get approval to change the story *first*.
-
-### User Stories
-
-User stories follow this pattern:
-
-*As a [user], when I [do something], I [expect something].*
-
-Examples:
-
-* As an admin, when I click on dashboard, I can see all the users listed in the page.
-* As a store admin, when I visit the orders page, I can see the orders listed there by status.
-
-### Working with Git
-
-Once you have written the user stories with your client, each team member should:
-
-1. Select a story from the project management tool.
-2. If the story is not clear, add comments or request clarification.
-3. Create a feature branch in your *local* repo.
-4. Write a feature test.
-5. Implement the requested feature.
-6. Merge the latest master into the requested feature to make sure that all the tests are passing.
-7. Commit referencing the issue that you are working on in the commit message. Check this [guide](https://help.github.com/articles/closing-issues-via-commit-messages/) for more information.
-8. Push the *feature* branch to the *remote* repo.
-9. Submit a pull request asking to merge the branch into *master*.
-10. A teammate reviews the code for quality and functionality.
-11. The teammate merges the pull request and deletes the remote branch.
-
-## <a name="technical-expectations"></a> Technical Expectations
-
-You are to extend Little Shop so that it can handle multiple, simultaneous businesses. Each business should have:
-
-* A unique name
-* A unique URL pattern (http://example.com/name-of-business)
-* Unique items
-* Unique orders
-* Unique administrators
-
-The Pivot should be able to handle the following users:
-
-### Guest Customer
-
-As a guest customer, I should be able to:
-
-* Visit different businesses.
-* Add items from multiple businesses into a single cart.
-* Log in or create an account before completing checkout.
-
-### Registered Customer
-
-As an registered customer, I should be able to:
-
-* Make purchases on any business
-* Manage my account information
-* View my purchase history
-
-### Business Admin
-
-As a business admin, I should be able to:
-
-* Manage items on my business
-* Update my business information
-* Manage other business admins for your store
-
-### Platform Admin
-
-As a platform admin, I should be able to:
-
-* Approve or decline the creation of new businesses
-* Take a business offline / online
-* Perform any functionality restricted to business admins
-
-## <a name="pivots"></a> Pivots
-
-Your group will be assigned one of the following problem domains to pivot Little Shop:
-
-### Collector Items
-
-How many times did you want to buy that old Pacman arcade so that you could put it next to that Atari console? Let's rework Little Shop into a platform to bid on collectors' items.
-
-### Farmers' Market
-
-Organic vegetables that grow in innercity sidewalks are a great source of vitamins. Let's rework Little Shop into a marketplace for local produce.
-
-### Lending
-
-Micro-lending is a powerful tool for social progress. Let's rework Little Shop
-into a micro-lending platform.
-
-### Jobs
-
-Employment is key to quality of life. Let's rework our Little Shop into a platform
-to help people find great jobs.
-
-### Lodging
-
-Experiencing other cultures is one of the strongest ways to build our understanding
-of humanity. Let's make it easier for people to open their homes to travelers.
-
-### Photos
-
-People hated our restaurant, but they loved our product photos. Let's pivot
-the platform to sell photography, providing our customers a "whitelabel" experience.
-
-### Tickets
-
-Who wants to stand in line for tickets the day they come out? Nobody. Instead you
-can just pay 50-500% more to buy them from someone else.
-
-## <a name="base-data"></a> Base Data
-
-You should have the following data pre-loaded in your marketplace:
-
-* 20 total businesses
-* 10 categories
-* 50 items per category
-* 100 registered customers, one with the following data:
-  * Username: josh@turing.io
-  * Password: password
-* 10 orders per registered customer
-* 1 business admins per business
-  * Username: andrew@turing.io
-  * Password: password
-* 1 platform administrators
-  * Username: jorge@turing.io
-  * Password: password
-
-It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
