@@ -10,7 +10,7 @@ class User::HomesController < ApplicationController
 
   def edit
     @user = User.find_by(slug: params[:path])
-    redirect_to root_path unless @user == current_user || current_admin?
+    return redirect_to root_path unless @user == current_user || current_admin?
     if @user
       @home = @user.homes.find_by(id: params[:id])
       redirect_to root_path if @home.nil?
@@ -21,7 +21,7 @@ class User::HomesController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:path])
-    redirect_to root_path unless @user == current_user || current_admin?
+    return redirect_to root_path unless @user == current_user || current_admin?
     @home = @user.homes.find_by(id: params[:id])
     if @home.nil?
       redirect_to root_path
