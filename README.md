@@ -1,5 +1,11 @@
-## Project Description
+## Tiny Stay: an AirBnB clone for Tiny Homes
+[Hosted live on heroku here!](http://tinystay.herokuapp.com/)
 
+![](http://g.recordit.co/L6sRuyZ7Nv.gif)
+
+This site was built by Ashwin Rao, Josh Washke and Patrick Hardy in the first week of module 3 at the Turing School of Software and Design. We adapted an existing tool-rental application to handle multitenancy and significantly extend features implemented. It was undertaken to solidify our understanding of Ruby on Rails, writing and implementing user stories, SQL design, search functionality, and hosting production-quality web apps on heroku. The site successfully integrates geocoder, gmaps4rails, jquery UI elements, bootstrap and AWS with paperclip.
+
+## Project Description(per Turing School)
 Your Little Shop of Orders application was *almost* great, but it turns out that we need to *pivot* the business model.
 
 In this project, you'll build upon an existing implementation of Little Shop. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
