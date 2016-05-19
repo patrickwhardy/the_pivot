@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user, path: ":path", as: :user do
-    resources :homes, only: [:create, :new, :edit, :update, :index, :show, :destroy]
+    resources :homes
   end
 
   get "/login", to: "sessions#new", as: :login
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy", as: :logout
   resources :orders, only: [:index, :create, :show]
 
-  resources :users, only: [:new, :index, :edit, :create, :update, :destroy], param: :slug
+  resources :users, param: :slug
 
   get "/:user/dashboard", to: "users#show", as: :dashboard
   get "/cart", to: "carts#show"
