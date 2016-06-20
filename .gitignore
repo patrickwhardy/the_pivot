@@ -17,3 +17,6 @@ coverage
 
 # Ignore application configuration
 /config/application.yml
+.#*
+/app/controllers/#carts_controller.rb#
+/app/views/homes/#index.html.erb#
