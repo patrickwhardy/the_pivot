@@ -4,7 +4,7 @@ class Seed
     puts @addresses
     create_admins
     create_homes_and_owners
-    create_generic_users
+    #create_generic_users
     create_demo_data
   end
 
@@ -220,7 +220,7 @@ class Seed
 
   def create_homes_and_owners
     puts "Creating Home Owners and Homes"
-    50.times do |n|
+    20.times do |n|
       sleep(1) if n.even?
       @count = n
       user = User.new(
@@ -249,7 +249,7 @@ class Seed
       end
       puts user.save
       puts "Creating Orders for User"
-      10.times do |n|
+      2.times do |n|
         order = Order.new(
           total: Faker::Number.number(4),
           user: user
@@ -274,7 +274,7 @@ class Seed
 
   def create_generic_users
     puts "Creating Generic Users"
-    100.times do |n|
+    10.times do |n|
       user = User.new(
         email: Faker::Internet.email,
         password: "password",
